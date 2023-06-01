@@ -1,0 +1,95 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+// GAMA DE COLORES
+$my-primary-color: (
+    50 : #e7fdfd,
+    100 : #c3fafa,
+    200 : #9cf7f7,
+    300 : #74f3f3,
+    400 : #56f1f1,
+    500 : #38eeee,
+    600 : #32ecec,
+    700 : #2be9e9,
+    800 : #24e7e7,
+    900 : #17e2e2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000
+    )
+);
+
+$my-accent-color: (
+    50 : #fdffea,
+    100 : #faffcc,
+    200 : #f6ffaa,
+    300 : #f2ff87,
+    400 : #f0ff6e,
+    500 : #edff54,
+    600 : #ebff4d,
+    700 : #e8ff43,
+    800 : #e5ff3a,
+    900 : #e0ff29,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000
+    )
+);
+
+$my-warn-color: (
+    50 : #f9e0e0,
+    100 : #f0b3b3,
+    200 : #e68080,
+    300 : #db4d4d,
+    400 : #d42626,
+    500 : #cc0000,
+    600 : #c70000,
+    700 : #c00000,
+    800 : #b90000,
+    900 : #ad0000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff
+    )
+);
+
+// PALETAS DE COLORES
+$my-palette-primary: mat.define-palette($my-primary-color);
+$my-palette-accent: mat.define-palette($my-accent-color);
+$my-palette-warn: mat.define-palette($my-warn-color);
+
+// TEMA PERSONALIZADO
+$my-theme: mat.define-light-theme((
+    color:(
+        primary: $my-palette-primary,
+        accent: $my-palette-accent,
+        warn: $my-palette-warn
+    )
+));
+
+// APLICAR EL TEMA PERSONALIZADO A ANGULAR
+@include mat.all-component-themes($my-theme);
