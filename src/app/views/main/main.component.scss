@@ -1,24 +1,9 @@
-.container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.gallery {
-  margin-top: 50px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.image-card {
-  height: 100%;
+.app-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
+  min-height: 100vh;
   width: 100%;
-  height: auto;
+  background-image: url('../../../assets/temp/construccion.jpg');
+  background-size: contain;
+  background-position: center;
 }
