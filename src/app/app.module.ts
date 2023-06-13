@@ -4,27 +4,21 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './views/main/main.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
+import { MaterialModule } from './utils/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    MainComponent
+    MainComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatDividerModule, 
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

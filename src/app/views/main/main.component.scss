@@ -1,24 +1,92 @@
+/* styles.css */
+.main{
+  background-color: f7f7f7;
+}
+
 .container {
-  text-align: center;
-  margin-top: 50px;
+  background-image: url('../../../assets/images/base.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
-.gallery {
-  margin-top: 50px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.image-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  z-index: 1;
 }
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  height: 100px;
+  padding: 0 20px;
+}
+
+.extended-toolbar {
+  width: 100%;
+}
+
+.logo img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  animation: bounceLogo 6s infinite;
+  background-color: red;
+}
+
+@keyframes bounceLogo {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30%, -20%);
+  }
+  50% {
+    transform: translate(60%, 0%);
+  }
+  75% {
+    transform: translate(30%, 20%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.search-icon {
+  font-size: 29px;
+  margin-right: 100px;
+  margin-top: 8px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-card {
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 800px;
+}
+
+.filter-field {
+  margin-bottom: 10px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+

@@ -1,20 +1,65 @@
-<div class="container">
-  <h1>Welcome to our Real Estate Agency</h1>
-
-  <mat-card class="gallery">
-    <mat-card-header color="primary">
-      <mat-card-title>Image Gallery</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let image of galleryImages">
-          <mat-card class="image-card" color="accent">
-            <img [src]="image" alt="Property Image">
-            <button mat-raised-button color="primary">Primary</button>
-            <button mat-raised-button color="accent">Accent</button>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card-content>
-  </mat-card>
+<div class="main">
+  <div class="container">
+    <header>
+      <mat-toolbar class="extended-toolbar">
+        <div class="logo">
+          <img src="../../../assets/images/logo.png" alt="Logo de la inmobiliaria">
+        </div>
+        <nav mat-tab-nav-bar>
+          <a mat-tab-link>Inicio</a>
+          <a mat-tab-link>Venta</a>
+          <a mat-tab-link>Arriendo</a>
+          <a mat-tab-link>Blog</a>
+          <a mat-tab-link>Avalúos</a>
+          <a mat-tab-link>Escríbenos</a>
+          <span class="spacer"></span>
+          <mat-icon class="search-icon">search</mat-icon>
+        </nav>
+      </mat-toolbar>
+    </header>
+  </div>
+  <div class="filter">
+    <mat-card class="filter-card">
+      <mat-card-content>
+        <form>
+          <div class="filter-field">
+            <label>Zona</label>
+            <mat-form-field>
+              <input matInput placeholder="Ejemplo: Centro">
+            </mat-form-field>
+          </div>
+          <div class="filter-field">
+            <label>Tipo de inmueble</label>
+            <mat-form-field>
+              <input matInput placeholder="Ejemplo: Apartamento">
+            </mat-form-field>
+          </div>
+          <div class="filter-field">
+            <label>Estado</label>
+            <mat-form-field>
+              <input matInput placeholder="Ejemplo: Nuevo">
+            </mat-form-field>
+          </div>
+          <div class="filter-row">
+            <div class="filter-field">
+              <label>Desde $</label>
+              <mat-form-field>
+                <input matInput type="number" placeholder="Ejemplo: 100000" min="0">
+              </mat-form-field>
+            </div>
+            <div class="filter-field">
+              <label>Hasta $</label>
+              <mat-form-field>
+                <input matInput type="number" placeholder="Ejemplo: 500000" min="0">
+              </mat-form-field>
+            </div>
+          </div>
+          <button mat-raised-button color="primary">Buscar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
 </div>
+
