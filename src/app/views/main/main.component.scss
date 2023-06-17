@@ -4,7 +4,7 @@
 }
 
 .container {
-  background-image: url('../../../assets/images/base1.jpg');
+  background-image: url('../../../assets/images/base7.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -18,19 +18,20 @@ header {
   position: fixed;
   top: 50px;
   left: 0;
-  border-bottom: 2px solid #E10098; 
+  border-bottom: 8px solid #FF0082; 
 
   a{
     font-size: 25px;
     font-weight: bold;
-    color: #194052;
+    color: #FF0082;
     height: 60px;
     display: flex;
     align-items: center;
     padding: 10px;
   }
   a:hover{
-    background-color: #E10098;
+    background-color: #FF0082;
+    opacity: 0.85;
     color: #FFFFFF; 
   }
 }
@@ -58,13 +59,13 @@ mat-toolbar {
 .slogan{
   position: absolute;
   top: 300px;
-  margin-left: 120px;
+  margin-left: 300px;
   display: flex;
   flex-direction: column;
   span {
     font-size: 100px; 
-    color: #194052;
-    text-shadow: 6px 6px 12px #FFFFFF;
+    color: #000000;
+    text-shadow: 4px 4px 6px #FFFFFF;
   }
 }
 
