@@ -1,0 +1,25 @@
+<nav class="nav-general">
+    <div class="nav-general-left">
+        <button (click)="draw.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div class="nav-general-right">
+        <span>Luis alejandro</span>
+        <button mat-mini-fab color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <i class="fa-solid fa-user"></i>
+        </button>
+
+        <mat-menu class="menu-profile" #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Perfil</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>voicemail</mat-icon>
+                <span>Cerrar sesión</span>
+            </button>
+        </mat-menu>
+    </div>
+
+</nav>

@@ -1,4 +1,15 @@
-<div class="content-category-component" *ngFor="let number of getRange(3)">
-    <bs-categories [category]="'categoria' + number"></bs-categories><br>
-</div>
+<mat-drawer-container class="dashboard-container">
+    <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+        <!-- EL MENU DEL DAHSBOARD -->
+    </mat-drawer>
 
+    <div class="dashboard-sidenav-content">
+
+        <bs-nav-dashboard [draw]="drawer"></bs-nav-dashboard>
+
+        <div class="dashboard-content-central">
+            <!-- CONTENIDO TODOS CLOS COMPONENTES -->
+        </div>
+    </div>
+
+</mat-drawer-container>
