@@ -6,13 +6,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './views/main/main.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { MaterialModule } from './utils/material/material.module';
+import { CategoriesComponent } from './views/admin/components/categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
