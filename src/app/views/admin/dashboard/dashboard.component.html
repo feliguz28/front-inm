@@ -1,6 +1,14 @@
 <mat-drawer-container class="dashboard-container">
     <mat-drawer #drawer class="dashboard-sidenav" mode="side">
-        <!-- EL MENU DEL DAHSBOARD -->
+        <div class="nav-logo">
+            <img src="../../../../assets/images/logo2.png">
+        </div>
+        <div class="menu-items">
+                <a mat-menu-item routerLinkActive="active" routerLink="/dashboard"><i class="fa-solid fa-wallet"></i> <span>opcion 1</span></a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item routerLinkActive="active" routerLink="/main"><i class="fa-solid fa-wallet"></i> <span>opcion 2</span></a>
+                <mat-divider></mat-divider>
+        </div>
     </mat-drawer>
 
     <div class="dashboard-sidenav-content">
@@ -8,7 +16,7 @@
         <bs-nav-dashboard [draw]="drawer"></bs-nav-dashboard>
 
         <div class="dashboard-content-central">
-            <!-- CONTENIDO TODOS CLOS COMPONENTES -->
+            <router-outlet></router-outlet>
         </div>
     </div>
 

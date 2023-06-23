@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class NavDashboardComponent {
 
   @Input() draw:any;
-  
+  public userName:string = "Luis Alejandro";
 }

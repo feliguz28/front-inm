@@ -7,11 +7,38 @@
 }
 
 .dashboard-sidenav {
-    padding: 20px;
     background-color: #95237b;
 }
 
 .dashboard-content-central{
     margin-top: 20px;
     padding: 20px;
+}
+
+.nav-logo{
+    height: 80px;
+    padding: 10px;
+
+    img{
+        width: 80px;
+    }
+}
+
+.menu-items{
+
+    a:hover{
+        background-color: #b96fa8;
+    }
+
+    a i, span{
+        color: rgb(255, 255, 255);
+    }
+
+    span{
+        margin-left: 10px;
+    }
+}
+
+.active{
+    background-color: #b96fa8;
 }

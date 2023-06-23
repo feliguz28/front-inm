@@ -5,18 +5,18 @@
         </button>
     </div>
     <div class="nav-general-right">
-        <span>Luis alejandro</span>
-        <button mat-mini-fab color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <span class="user-name">{{userName}}</span>
+        <button mat-mini-fab [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <i class="fa-solid fa-user"></i>
         </button>
 
         <mat-menu class="menu-profile" #menu="matMenu">
             <button mat-menu-item>
-                <mat-icon>dialpad</mat-icon>
+                <mat-icon>settings</mat-icon>
                 <span>Perfil</span>
             </button>
             <button mat-menu-item>
-                <mat-icon>voicemail</mat-icon>
+                <mat-icon>power_settings_new</mat-icon>
                 <span>Cerrar sesión</span>
             </button>
         </mat-menu>
