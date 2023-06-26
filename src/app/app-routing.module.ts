@@ -3,18 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './views/main/main.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { AdminGuard } from './shared/guards/admin.guard';
-import { TestPageComponent } from './views/admin/pages/test-page/test-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
-  {
-    path: 'dashboard', component: DashboardComponent,
-    children: [
-      { path: 'test', component: TestPageComponent }
-    ],
-    canActivate: [AdminGuard]
-  }
+  {path:'', redirectTo:'main', pathMatch:'full'},
+  {path:'main', component:MainComponent},
+  {path:'dashboard', component:DashboardComponent, canActivate: [AdminGuard]}
 ];
 
 @NgModule({

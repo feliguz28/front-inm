@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MENUOPTIONS } from 'src/app/shared/const/menu.const';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +8,6 @@ import { MENUOPTIONS } from 'src/app/shared/const/menu.const';
 export class DashboardComponent {
 
   showFiller = false;
-  public menuOptions = MENUOPTIONS ;
 
   public category : string= "Arriendo";
   getRange(count: number): number[] {
