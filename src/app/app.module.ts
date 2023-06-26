@@ -8,6 +8,7 @@ import { DashboardComponent } from './views/admin/dashboard/dashboard.component'
 import { MaterialModule } from './utils/material/material.module';
 import { CategoriesComponent } from './views/admin/components/categories/categories.component';
 import { NavDashboardComponent } from './views/admin/dashboard/components/nav-dashboard/nav-dashboard.component';
+import { TestPageComponent } from './views/admin/pages/test-page/test-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NavDashboardComponent } from './views/admin/dashboard/components/nav-da
     DashboardComponent,
     CategoriesComponent,
     NavDashboardComponent,
+    TestPageComponent,
   ],
   imports: [
     BrowserModule,
