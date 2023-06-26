@@ -3,11 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './views/main/main.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { CategoriesComponent } from './views/admin/components/categories/categories.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
-  {path:'dashboard', component:DashboardComponent, canActivate: [AdminGuard]}
+  {
+    path:'dashboard',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: 'category', component: CategoriesComponent }
+    ]
+  }
 ];
 
 @NgModule({
@@ -15,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [MainComponent]
+export const routingComponents = [MainComponent, DashboardComponent]
