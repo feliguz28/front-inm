@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UntypedFormGroup, UntypedFormControl, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -6,11 +7,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  galleryImages: string[] = [
-    'https://img.freepik.com/foto-gratis/casa-aislada-campo_1303-23773.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3LECxua45Y5P87fQ4RT1rydb1d7xirz_hJZmGg82WKqg78rRjT8jfWkA5_Gl95bdS2fE&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl9qJ6AJ0Cd_VJnXFChkJHIDVgOZV7ZwK7FgS5-tmnkpgCukfwQimIpfBs5MznCsmgduI&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgPbiWVY_MUuPCAQYPQdqevoFl7lRx22h-7xhwYaF9A4dGFcxM626sWdLLTJXEjbl_SAo&usqp=CAU'
+
+
+  search = new UntypedFormGroup({
+    zones: new UntypedFormControl([]),
+    homeType: new UntypedFormControl([]),
+    homeState: new UntypedFormControl([]),
+    desde: new FormControl(null),
+    hasta: new FormControl(null),
+	});
+
+  mockZone: { id: number; name: string }[] = [
+    { id: 1, name: 'Mock1' },
+    { id: 2, name: 'Mock2' },
+    { id: 3, name: 'Mock3' },
+    { id: 4, name: 'Mock4' }
   ];
+  mockHomeType: { id: number; name: string }[] = [
+    { id: 1, name: 'MockHT1' },
+    { id: 2, name: 'MockHT2' },
+    { id: 3, name: 'MockHT3' },
+    { id: 4, name: 'MockHT4' }
+  ];
+  mockHomeState: { id: number; name: string }[] = [
+    { id: 1, name: 'MockHS1' },
+    { id: 2, name: 'MockHS2' },
+    { id: 3, name: 'MockHS3' },
+    { id: 4, name: 'MockHS4' }
+  ];
+
+  searching(){
+    console.log(this.search.value)
+  }
+
 
 }

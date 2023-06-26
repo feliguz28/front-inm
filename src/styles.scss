@@ -1,2 +1,10 @@
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; 
+  font-family: 'MiFuentePersonalizada', sans-serif;}
+
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src: url('../src/assets/fonts/Rubik-MediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -1,24 +1,130 @@
+/* styles.css */
+.main{
+  background-color: #f7f7f7;
+}
+
 .container {
-  text-align: center;
-  margin-top: 50px;
+  background-image: url('../../../assets/images/base7.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
-.gallery {
-  margin-top: 50px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+header {
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 50px;
+  left: 0;
+  border-bottom: 8px solid #FF0082; 
+
+  a{
+    font-size: 25px;
+    font-weight: bold;
+    color: #FF0082;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  a:hover{
+    background-color: #FF0082;
+    opacity: 0.85;
+    color: #FFFFFF; 
+  }
 }
 
-.image-card {
-  height: 100%;
+.logo img {
+  height: 200px;
+  width: 200px;
+  margin-left: 50px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  height: 80px;
+  padding: 0 20px;
+}
+
+
+.extended-toolbar {
+  width: 100%;
+}
+
+.slogan{
+  position: absolute;
+  top: 300px;
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  span {
+    font-size: 100px; 
+    color: #000000;
+    text-shadow: 4px 4px 6px #FFFFFF;
+  }
+}
+
+.sub-main {
+  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-img {
-  width: 100%;
-  height: auto;
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f7f7f7;
+  border-radius: 10px;
 }
+
+.filter-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  button {
+    font-size: 20px;
+    padding: 20px 30px;
+    margin-left: 20px;
+  }
+}
+
+.form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+.resto{
+  height: 3000px;
+  background-color: aqua;
+}
+
+
+

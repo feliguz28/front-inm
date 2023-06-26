@@ -3,28 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainComponent } from './views/main/main.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MaterialModule } from './utils/material/material.module';
+import { CategoriesComponent } from './views/admin/components/categories/categories.component';
+import { NavDashboardComponent } from './views/admin/dashboard/components/nav-dashboard/nav-dashboard.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    MainComponent
+    CategoriesComponent,
+    NavDashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatDividerModule, 
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule
+    MaterialModule,
+    MatFormFieldModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
