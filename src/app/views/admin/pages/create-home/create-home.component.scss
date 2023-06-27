@@ -1,0 +1,64 @@
+
+mat-vertical-stepper{
+    max-width: 1500px;
+    background-color: #ebe8e8;
+    border-radius: 15px;
+    button {
+        font-size: 15px;
+        padding: 15px 20px;
+        margin-left: 20px;
+      }
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    max-width: 1500px;    
+  }
+  
+  .form-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: 380px;
+  }
+
+  .form-field-wrapper-large {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    flex: 0 0 calc(66.66% - 20px); 
+    max-width: 770px;
+  }
+  
+  .larger-input {
+    flex: 0 0 calc(66.66% - 20px);
+    max-width: 800px;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .field-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Media queries para ajustar el número de columnas en diferentes tamaños de pantalla */
+  @media (max-width: 1200px) {
+    .form-field-wrapper {
+      flex: 0 0 calc(50% - 20px); /* Establece un ancho máximo de 50% y resta el margen */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .form-field-wrapper {
+      flex: 0 0 100%; /* Utiliza el ancho completo en pantallas pequeñas */
+    }
+  }
+  

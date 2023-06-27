@@ -1,8 +1,8 @@
 export const MENUOPTIONS = [
     {
-      name: 'Test',
+      name: 'homeManagment',
       icon: 'supervisor_account',
-      path: 'test'
+      path: 'homeManagment'
     },
     {
       name: 'Usuarios',
