@@ -14,24 +14,24 @@ export class CreateHomeComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.homeFormGroup = this.formBuilder.group({
-      categoryId: ['', Validators.required],
+      categoryId: [null, Validators.required],
       description: ['', Validators.required],
-      discount: ['', Validators.required],
-      homeStateId: ['', Validators.required],
-      homeTypeId: ['', Validators.required],
+      discount: [null, Validators.required],
+      homeStateId: [null, Validators.required],
+      homeTypeId: [null, Validators.required],
       name: ['', Validators.required],
-      price: ['', Validators.required],
-      status: ['', Validators.required],
-      zoneId: ['', Validators.required],
+      price: [null, Validators.required],
+      status: [true],
+      zoneId: [null, Validators.required],
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      homeTypeAddressId: ['', Validators.required],
+      homeTypeAddressId: [null, Validators.required],
       identificationHome: ['', Validators.required],
       letterBlock: [''],
       letterVia: ['', Validators.required],
-      numberBlock: [''],
-      numberVia: ['', Validators.required],
+      numberBlock: [null],
+      numberVia: [null, Validators.required],
       prefix: [''],
       suffix: [''],
       viaId: ['', Validators.required],
@@ -45,6 +45,47 @@ export class CreateHomeComponent {
       stratum: ['', Validators.required],
     });
   }
+
+  //Mocks 
+  mockZone: { id: number; name: string }[] = [
+    { id: 1, name: 'Chapinero' },
+    { id: 2, name: 'Cedritos' },
+    { id: 3, name: 'Colina' },
+    { id: 4, name: 'Felicidad' },
+    { id: 5, name: 'Suba' },
+    { id: 6, name: 'Zona 80' }
+  ];
+  mockHomeType: { id: number; name: string }[] = [
+    { id: 1, name: 'Apartamento' },
+    { id: 2, name: 'Apartaestudio' },
+    { id: 3, name: 'Bodega' },
+    { id: 4, name: 'Consultorio' },
+    { id: 5, name: 'Casa' },
+    { id: 6, name: 'Local' },
+    { id: 7, name: 'Oficina' }
+  ];
+  mockHomeState: { id: number; name: string }[] = [
+    { id: 1, name: 'Amoblado' },
+    { id: 2, name: 'Nuevo' },
+    { id: 3, name: 'Remodelado' },
+    { id: 4, name: 'Sin amoblar' }
+  ];
+  mockVia: { id: number; name: string }[] = [
+    { id: 1, name: 'Calle' },
+    { id: 2, name: 'Carrera' },
+    { id: 3, name: 'Diagonal' },
+    { id: 4, name: 'Transversal' }
+  ];
+  mockHomeTypeAddresses: { id: number; name: string }[] = [
+    { id: 1, name: 'Casa' },
+    { id: 2, name: 'Piso' },
+    { id: 3, name: 'Apartamento' },
+    { id: 4, name: 'Bloque' }
+  ];
+  mockCategories: { id: number; name: string }[] = [
+    { id: 1, name: 'Venta' },
+    { id: 2, name: 'Arriendo' }
+  ];
 
   // Método para guardar el formulario
   saveForm() {
