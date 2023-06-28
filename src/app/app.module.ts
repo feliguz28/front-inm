@@ -8,6 +8,8 @@ import { CategoriesComponent } from './views/admin/components/categories/categor
 import { NavDashboardComponent } from './views/admin/dashboard/components/nav-dashboard/nav-dashboard.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './views/admin/components/login/login.component';
+import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     routingComponents,
     CategoriesComponent,
     NavDashboardComponent,
+    LoginComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
