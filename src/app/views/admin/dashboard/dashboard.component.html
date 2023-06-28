@@ -1,0 +1,17 @@
+<mat-drawer-container class="dashboard-container">
+    <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+        <div class="nav-logo">
+            <img src="../../../../assets/images/logo2.png">
+        </div>
+        <div class="menu-items">
+            <a mat-menu-item *ngFor="let item of menuOptions" routerLinkActive="active" [routerLink]="item.path"><i
+                    class="fa-solid fa-wallet"></i> <span>{{item.name}}</span><mat-divider></mat-divider></a>
+        </div>
+    </mat-drawer>
+    <div class="dashboard-sidenav-content">
+        <bs-nav-dashboard [draw]="drawer"></bs-nav-dashboard>
+        <div class="dashboard-content-central">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</mat-drawer-container>

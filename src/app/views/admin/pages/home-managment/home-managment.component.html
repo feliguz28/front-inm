@@ -1,0 +1,47 @@
+<button mat-raised-button color="primary" (click)="crearNuevoInmueble()">Crear Nuevo Inmueble</button>
+
+<table mat-table [dataSource]="tarjetas">
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.nombre }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="zona">
+    <th mat-header-cell *matHeaderCellDef> Zona </th>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.zona }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipoInmueble">
+    <th mat-header-cell *matHeaderCellDef> Tipo de Inmueble </th>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.tipoInmueble }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef> Precio </th>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.precio | currency }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categoria">
+    <th mat-header-cell *matHeaderCellDef> Categoría </th>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.categoria }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let tarjeta">
+      <button mat-icon-button color="primary" (click)="editarTarjeta(tarjeta)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="eliminarTarjeta(tarjeta)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <mat-checkbox [(ngModel)]="tarjeta.home.status" (click)="$event.stopPropagation(); inactivarTarjeta(tarjeta)"></mat-checkbox>
+      <button mat-icon-button (click)="mostrarInformacion(tarjeta)">
+        <mat-icon>info</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'acciones']"></tr>
+  <tr mat-row *matRowDef="let tarjeta; columns: ['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'acciones']"></tr>
+</table>

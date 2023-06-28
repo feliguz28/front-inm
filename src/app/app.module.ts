@@ -3,30 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainComponent } from './views/main/main.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MaterialModule } from './utils/material/material.module';
+import { CategoriesComponent } from './views/admin/components/categories/categories.component';
+import { NavDashboardComponent } from './views/admin/dashboard/components/nav-dashboard/nav-dashboard.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-managment.component';
+import { FormsModule } from '@angular/forms';
+import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
+import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    MainComponent
+    CategoriesComponent,
+    NavDashboardComponent,
+    HomeManagmentComponent,
+    CreateHomeComponent,
+    EditHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatDividerModule, 
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatToolbarModule
+    MaterialModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

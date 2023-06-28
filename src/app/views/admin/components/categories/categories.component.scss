@@ -1,0 +1,34 @@
+.card-category{
+    width: 390px;
+
+.container-category{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    i{
+        font-size: 20px;
+    }
+}
+
+.container-left-category{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+.container-right-category{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+
+    .edit{
+        background-color: #d58f02;
+        color: #e4e0e0;
+    }
+
+    .delete{
+        color: #ee0b0b;
+    }
+}
+}
