@@ -1,0 +1,243 @@
+<div class="base">
+    <h1>Create Home</h1>
+    <mat-vertical-stepper>
+        <!-- Paso 1 -->
+        <mat-step [stepControl]="homeFormGroup" [completed]="homeFormGroup.valid">
+            <form [formGroup]="homeFormGroup" (ngSubmit)="saveForm()">
+                <ng-template matStepLabel>Crea tu inmueble!</ng-template>
+                <div class="filter-row">
+                    <div class="form-field-wrapper-large">
+                        <span class="field-name">Nombre:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="name" placeholder="Nombre">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Categoria:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Categoría" formControlName="categoryId">
+                                    <mat-option *ngFor="let category of mockCategories" [value]="category.id">{{ category.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Descuento:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="discount" type="number" placeholder="Descuento">
+                                <mat-icon class="material-icons" matSuffix>percent</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Estado de la vivienda:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Estado de la vivienda" formControlName="homeStateId">
+                                    <mat-option *ngFor="let HomeState of mockHomeState" [value]="HomeState.id">{{ HomeState.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Tipo de vivienda:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Tipo de vivienda" formControlName="homeTypeId">
+                                    <mat-option *ngFor="let HomeType of mockHomeType" [value]="HomeType.id">{{ HomeType.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Precio:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="price" type="number" placeholder="Precio">
+                                <mat-icon class="material-icons" matSuffix>attach_money</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Zona:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Zona" formControlName="zoneId">
+                                    <mat-option *ngFor="let Zone of mockZone" [value]="Zone.id">{{ Zone.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Estado:</span>
+                        <div class="input-wrapper">
+                            <mat-checkbox color="primary" formControlName="status">Activo</mat-checkbox>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper-large">
+                        <span class="field-name">Descripción:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <textarea matInput formControlName="description" placeholder="Descripción"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperNext [disabled]="homeFormGroup.invalid">Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- Paso 2 -->
+        <mat-step [stepControl]="addressFormGroup">
+            <form [formGroup]="addressFormGroup">
+                <ng-template matStepLabel>Agrega la direccion!</ng-template>
+                <div class="filter-row">
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Tipo de Via:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Tipo de vía" formControlName="viaId">
+                                    <mat-option *ngFor="let Via of mockVia" [value]="Via.id">{{ Via.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Número de vía:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Número de vía" formControlName="numberVia">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Letra de vía:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Letra de vía" formControlName="letterVia">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Prefijo:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Prefijo" formControlName="prefix">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Número de bloque:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Número de bloque" formControlName="numberBlock">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Letra de bloque:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Letra de bloque" formControlName="letterBlock">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Sufijo:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Sufijo" formControlName="suffix">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Tipo de vivienda:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <mat-select placeholder="Tipo de Vivienda" formControlName="homeTypeAddressId">
+                                    <mat-option *ngFor="let HomeTypeAddresse of mockHomeTypeAddresses" [value]="HomeTypeAddresse.id">{{ HomeTypeAddresse.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Identificación de la vivienda:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Identificación de la vivienda" formControlName="identificationHome">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- Paso 3 -->
+        <mat-step [stepControl]="detailsFormGroup">
+            <form [formGroup]="detailsFormGroup">
+                <ng-template matStepLabel>Agrega los detalles!</ng-template>
+                <div class="filter-row">
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Baños:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput type="number" placeholder="Baños" formControlName="bathRoom">
+                                <mat-icon class="material-icons" matSuffix>bathtub</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Medidas:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Medidas" formControlName="measures">
+                                <mat-icon class="material-icons" matSuffix>pivot_table_chart</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Estacionamiento:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Estacionamiento" formControlName="parking">
+                                <mat-icon class="material-icons" matSuffix>garage</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Habitaciones:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Habitaciones" formControlName="room">
+                                <mat-icon class="material-icons" matSuffix>    meeting_room</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Estrato:</span>
+                        <div class="input-wrapper">
+                            <mat-form-field appearance="outline">
+                                <input matInput placeholder="Estrato" formControlName="stratum">
+                                <mat-icon class="material-icons" matSuffix>house_siding</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" (click)="saveForm()">Submit</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>

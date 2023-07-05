@@ -18,22 +18,27 @@ export class MainComponent {
 	});
 
   mockZone: { id: number; name: string }[] = [
-    { id: 1, name: 'Mock1' },
-    { id: 2, name: 'Mock2' },
-    { id: 3, name: 'Mock3' },
-    { id: 4, name: 'Mock4' }
+    { id: 1, name: 'Chapinero' },
+    { id: 2, name: 'Cedritos' },
+    { id: 3, name: 'Colina' },
+    { id: 4, name: 'Felicidad' },
+    { id: 5, name: 'Suba' },
+    { id: 6, name: 'Zona 80' }
   ];
   mockHomeType: { id: number; name: string }[] = [
-    { id: 1, name: 'MockHT1' },
-    { id: 2, name: 'MockHT2' },
-    { id: 3, name: 'MockHT3' },
-    { id: 4, name: 'MockHT4' }
+    { id: 1, name: 'Apartamento' },
+    { id: 2, name: 'Apartaestudio' },
+    { id: 3, name: 'Bodega' },
+    { id: 4, name: 'Consultorio' },
+    { id: 5, name: 'Casa' },
+    { id: 6, name: 'Local' },
+    { id: 7, name: 'Oficina' }
   ];
   mockHomeState: { id: number; name: string }[] = [
-    { id: 1, name: 'MockHS1' },
-    { id: 2, name: 'MockHS2' },
-    { id: 3, name: 'MockHS3' },
-    { id: 4, name: 'MockHS4' }
+    { id: 1, name: 'Amoblado' },
+    { id: 2, name: 'Nuevo' },
+    { id: 3, name: 'Remodelado' },
+    { id: 4, name: 'Sin amoblar' }
   ];
 
   searching(){

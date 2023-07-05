@@ -8,6 +8,10 @@ import { CategoriesComponent } from './views/admin/components/categories/categor
 import { NavDashboardComponent } from './views/admin/dashboard/components/nav-dashboard/nav-dashboard.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-managment.component';
+import { FormsModule } from '@angular/forms';
+import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
+import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
 import { LoginComponent } from './views/admin/components/login/login.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 
@@ -17,8 +21,6 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
     routingComponents,
     CategoriesComponent,
     NavDashboardComponent,
-    LoginComponent,
-    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
     BrowserAnimationsModule,
     MaterialModule,
     MatFormFieldModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
