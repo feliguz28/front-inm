@@ -10,8 +10,15 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  // public login(usuario:Usuario) {
-  //   return this.http.post(`${environment.server_api}${apiUri.login}`,usuario);
-  // }
+  public login(usuario:Usuario) {
+    return this.http.post(`${environment.server_api}${apiUri.login}`,usuario);
+  }
 
 }
+
+export class Usuario{
+  userName?:string;
+  password?:string;
+}
+
+
