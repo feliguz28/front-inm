@@ -14,6 +14,8 @@ import { CreateHomeComponent } from './views/admin/pages/create-home/create-home
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
 import { LoginComponent } from './views/admin/components/login/login.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,11 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
     routingComponents,
     CategoriesComponent,
     NavDashboardComponent,
+    LoginPageComponent,
+    LoginComponent,
+    EditHomeComponent,
+    CreateHomeComponent,
+    HomeManagmentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,9 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
     MaterialModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

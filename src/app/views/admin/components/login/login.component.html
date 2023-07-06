@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form (ngSubmit)="onSubmit()" class="login">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Usuario">
+					<input  [(ngModel)]="user.userName" name="userName" type="text" class="login__input" placeholder="Usuario">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Contraseña">
+					<input [(ngModel)]="user.password" name="password" type="password" class="login__input" placeholder="Contraseña">
 				</div>
 				<button class="button login__submit">
 					<span class="button__text">Iniciar sesion</span>
