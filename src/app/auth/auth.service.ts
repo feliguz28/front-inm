@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { PAGE_URL } from '../shared/const/pageUrl';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class AuthService {
   private keyToken = "token";
   private keyUser = "user";
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   isAuthenticated(): boolean{
     let objectPayload = this.getDataToken(this.token);
@@ -22,9 +24,17 @@ export class AuthService {
     return null
   }
 
-  isAdmin() {
-    const role = this.userLogged.role
-    return true;
+  isAdmin():boolean {
+
+    var is: boolean = false;
+
+    this.userLogged.roles?.forEach(r => {
+      if(r === "Admin"){
+        is = true;
+      }
+    });
+    
+    return is;
   }
 
   saveToken(accesToken: string | null): void {
@@ -37,14 +47,14 @@ export class AuthService {
 
   logout(): void {
     sessionStorage.clear();
-    location.reload();
+    this.router.navigate([`${PAGE_URL.PUBLIC_LOGIN}`]);
   }
 
   get userLogged(): UserLogged {
     const storedItem = sessionStorage.getItem(this.keyUser);
     var user = new UserLogged();
     if (storedItem == null) {
-      this.logout();
+      this.router.navigate([`${PAGE_URL.PUBLIC_LOGIN}`]);
     } else {
       user = JSON.parse(storedItem) as UserLogged;
     }
@@ -63,6 +73,6 @@ export class AuthService {
 
 export class UserLogged {
   userName?: string;
-  role?: Array<string>;
+  roles?: Array<string> | undefined;
   token?: string;
 }

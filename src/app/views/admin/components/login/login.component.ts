@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
+      
       this.router.navigate([`/${PAGE_URL.DASHBOARD}`])
     } else {
       this.isLogged = false;
@@ -50,7 +51,9 @@ export class LoginComponent implements OnInit {
     this.authService.saveToken(""+response.token);
     this.authService.saveUser(response);
     if(response){
-      this.router.navigate([`${PAGE_URL.DASHBOARD}`])
+      if(this.authService.isAdmin()){
+        this.router.navigate([`${PAGE_URL.DASHBOARD}`])
+      }
     }
   });
   }

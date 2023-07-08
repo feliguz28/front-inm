@@ -17,7 +17,7 @@ export class AdminGuard {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.authService.isAuthenticated()) {
       if (this.isTokenExpired()) {
-        return this.router.parseUrl('login');;
+        return this.router.parseUrl('login');
       }
       return true;
     }
