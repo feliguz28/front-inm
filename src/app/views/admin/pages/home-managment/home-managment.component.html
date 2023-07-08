@@ -29,7 +29,7 @@
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef> Acciones </th>
     <td mat-cell *matCellDef="let tarjeta">
-      <button mat-icon-button color="primary" (click)="editarTarjeta(tarjeta)">
+      <button mat-icon-button color="primary" (click)="editarTarjeta(tarjeta.id)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" (click)="eliminarTarjeta(tarjeta)">
@@ -45,3 +45,13 @@
   <tr mat-header-row *matHeaderRowDef="['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'acciones']"></tr>
   <tr mat-row *matRowDef="let tarjeta; columns: ['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'acciones']"></tr>
 </table>
+<div class="paginator">
+  <mat-paginator
+  #paginatorReports
+  [length]="length"
+  [pageSize]="pageSize"
+  (page)="pageEvent($event)"
+  [pageSizeOptions]="pageSizeOptions"
+  >
+  </mat-paginator>
+</div>
