@@ -12,6 +12,9 @@ import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-
 import { FormsModule } from '@angular/forms';
 import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
+import { LoginComponent } from './views/admin/components/login/login.component';
+import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,9 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
     routingComponents,
     CategoriesComponent,
     NavDashboardComponent,
-    HomeManagmentComponent,
-    CreateHomeComponent,
+    LoginPageComponent,
+    LoginComponent,
     EditHomeComponent,
+    CreateHomeComponent,
+    HomeManagmentComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxSpinnerModule,
     HttpClientModule
   ],
   providers: [],
