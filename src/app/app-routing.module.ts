@@ -6,10 +6,13 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-managment.component';
 import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
+import { CategoriesComponent } from './views/admin/components/categories/categories.component';
+import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
+  {path:'login', component:LoginPageComponent},
   {
     path:'dashboard',
     component: DashboardComponent,
