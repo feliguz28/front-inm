@@ -12,6 +12,7 @@ import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-
 import { FormsModule } from '@angular/forms';
 import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.compo
     MaterialModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

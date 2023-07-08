@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomeCreate } from 'src/app/models/home.interface';
+import { HomeService } from 'src/app/services/home.service';
+
 
 @Component({
   selector: 'app-create-home',
@@ -12,25 +14,26 @@ export class CreateHomeComponent {
   addressFormGroup: FormGroup;
   detailsFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private homeService:HomeService, private formBuilder: FormBuilder) {
     this.homeFormGroup = this.formBuilder.group({
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
-      discount: [null, Validators.required],
+      discount: [null, [Validators.required, Validators.min(0), Validators.max(100)]],
       homeStateId: [null, Validators.required],
       homeTypeId: [null, Validators.required],
       name: ['', Validators.required],
       price: [null, Validators.required],
       status: [true],
       zoneId: [null, Validators.required],
+      destacado: [false],
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      homeTypeAddressId: [null, Validators.required],
-      identificationHome: ['', Validators.required],
+      identificationHome: [''],
       letterBlock: [''],
-      letterVia: ['', Validators.required],
-      numberBlock: [null],
+      letterVia: [''],
+      numberBlock: [null, Validators.required],
+      numberHome: [null, Validators.required],
       numberVia: [null, Validators.required],
       prefix: [''],
       suffix: [''],
@@ -38,11 +41,11 @@ export class CreateHomeComponent {
     });
 
     this.detailsFormGroup = this.formBuilder.group({
-      bathRoom: ['', Validators.required],
-      measures: ['', Validators.required],
-      parking: ['', Validators.required],
-      room: ['', Validators.required],
-      stratum: ['', Validators.required],
+      bathRoom: [null],
+      measures: [null],
+      parking: [null],
+      room: [null],
+      stratum: [null],
     });
   }
 
@@ -96,21 +99,23 @@ export class CreateHomeComponent {
         discount: this.homeFormGroup.value.discount,
         homeStateId: this.homeFormGroup.value.homeStateId,
         homeTypeId: this.homeFormGroup.value.homeTypeId,
+        name: this.homeFormGroup.value.name,
         price: this.homeFormGroup.value.price,
         status: this.homeFormGroup.value.status,
         zoneId: this.homeFormGroup.value.zoneId,
+        favorite: this.homeFormGroup.value.destacado,
         address: {
-          homeTypeAddressId: this.addressFormGroup.value.homeTypeAddressId,
           identificationHome: this.addressFormGroup.value.identificationHome,
           letterBlock: this.addressFormGroup.value.letterBlock,
           letterVia: this.addressFormGroup.value.letterVia,
           numberBlock: this.addressFormGroup.value.numberBlock,
+          numberHome: this.addressFormGroup.value.numberHome,
           numberVia: this.addressFormGroup.value.numberVia,
           prefix: this.addressFormGroup.value.prefix,
           suffix: this.addressFormGroup.value.suffix,
           viaId: this.addressFormGroup.value.viaId,
         },
-        details: {
+        detail: {
           bathRoom: this.detailsFormGroup.value.bathRoom,
           measures: this.detailsFormGroup.value.measures,
           parking: this.detailsFormGroup.value.parking,
@@ -119,7 +124,9 @@ export class CreateHomeComponent {
         }
       };
 
-      console.log(homeCreate);
+      this.homeService.createHome(homeCreate).subscribe(data=>{ 
+        console.log(data)
+      })
     }
   }
 }

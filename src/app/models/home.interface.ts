@@ -1,17 +1,17 @@
 export interface Address {
     id: number;
-    homeTypeAddressId: string;
     identificationHome: number;
     letterBlock: string;
     letterVia: string;
     numberBlock: number;
     numberVia: number;
+    numberHome: number;
     prefix: string;
     suffix: string;
     viaId: number;
   }
   
-  export interface Details {
+  export interface Detail {
     id: number;
     bathRoom: number;
     measures: number;
@@ -32,22 +32,23 @@ export interface Address {
     status: boolean;
     zoneId: number;
     address: Address;
-    details: Details;
+    detail: Detail;
+    favorite: boolean;
   }
 
   export interface AddressCreate {
-    homeTypeAddressId: string;
-    identificationHome: number;
+    identificationHome: string;
     letterBlock: string;
     letterVia: string;
     numberBlock: number;
+    numberHome: number;
     numberVia: number;
     prefix: string;
     suffix: string;
     viaId: number;
   }
   
-  export interface DetailsCreate {
+  export interface DetailCreate {
     bathRoom: number;
     measures: number;
     parking: number;
@@ -61,11 +62,13 @@ export interface Address {
     discount: number;
     homeStateId: number;
     homeTypeId: number;
+    name: string;
     price: number;
     status: boolean;
     zoneId: number;
     address: AddressCreate;
-    details: DetailsCreate;
+    detail: DetailCreate;
+    favorite: boolean;
   }
 
   export interface PaginateHome {
