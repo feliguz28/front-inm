@@ -1,49 +1,53 @@
+.main{
+  background-color: aquamarine;
+  height: 1800px;
+}
+
 .dialog-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .dialog-content {
-    padding: 10px;
-  }
-  
-  .dialog-actions {
-    justify-content: flex-end;
-    padding: 10px;
-  }
-  
-  .cancel-button {
-    color: red;
-  }
-  
-  .image-gallery {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .gallery-container {
-    flex-grow: 1;
-    overflow: hidden;
-    position: relative;
-    width: 360px;
-  }
-  
-  .gallery-images {
-    display: flex;
-    transition: transform 0.3s ease;
-    width: 450px;
-  }
-  
-  .gallery-images img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    margin-right: 5px;
-  }
-  
-  .gallery-nav {
-    margin: 0 5px;
-  }
-  
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog-content {
+  padding: 10px;
+}
+
+.dialog-actions {
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.cancel-button {
+  color: red;
+}
+
+.image-gallery {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.gallery-container {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  width: 360px;
+}
+
+.gallery-images {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 450px;
+}
+
+.gallery-images img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.gallery-nav {
+  margin: 0 5px;
+}

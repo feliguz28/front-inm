@@ -37,7 +37,7 @@
       </button>
       <mat-checkbox [(ngModel)]="tarjeta.home.status" (click)="$event.stopPropagation(); updateStatus(tarjeta.id)"></mat-checkbox>
       <mat-checkbox [(ngModel)]="tarjeta.home.favorite" (click)="$event.stopPropagation(); updateFavorite(tarjeta.id)"></mat-checkbox>
-      <button mat-icon-button (click)="mostrarInformacion(tarjeta.id)">
+      <button mat-icon-button (click)="showInfo(tarjeta.id)">
         <mat-icon>info</mat-icon>
       </button>
     </td>

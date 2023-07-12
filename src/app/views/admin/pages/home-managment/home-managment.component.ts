@@ -104,7 +104,7 @@ export class HomeManagmentComponent {
     })
   }
 
-  mostrarInformacion(id: string) {
+  showInfo(id: string) {
     this.homeService.getHomeById(id).subscribe(home => {
       this.openHomeDialog(home);
     });

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomeCreate } from 'src/app/models/home.interface';
+import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { HomeService } from 'src/app/services/home.service';
+import { ParametricsService } from 'src/app/services/parametrics.service';
 
 
 @Component({
@@ -13,8 +15,17 @@ export class CreateHomeComponent {
   homeFormGroup: FormGroup;
   addressFormGroup: FormGroup;
   detailsFormGroup: FormGroup;
+  homeStates!: ArrayParametric;
+  homeTypes!: ArrayParametric;
+  Vias!: ArrayParametric;
+  Zones!: ArrayParametric;
+  Categories!: ArrayParametric;
 
-  constructor(private homeService:HomeService, private formBuilder: FormBuilder) {
+  constructor(
+    private homeService: HomeService,
+    private parametricService: ParametricsService,
+    private formBuilder: FormBuilder
+  ) {
     this.homeFormGroup = this.formBuilder.group({
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
@@ -49,48 +60,10 @@ export class CreateHomeComponent {
     });
   }
 
-  //Mocks 
-  mockZone: { id: number; name: string }[] = [
-    { id: 1, name: 'Chapinero' },
-    { id: 2, name: 'Cedritos' },
-    { id: 3, name: 'Colina' },
-    { id: 4, name: 'Felicidad' },
-    { id: 5, name: 'Suba' },
-    { id: 6, name: 'Zona 80' }
-  ];
-  mockHomeType: { id: number; name: string }[] = [
-    { id: 1, name: 'Apartamento' },
-    { id: 2, name: 'Apartaestudio' },
-    { id: 3, name: 'Bodega' },
-    { id: 4, name: 'Consultorio' },
-    { id: 5, name: 'Casa' },
-    { id: 6, name: 'Local' },
-    { id: 7, name: 'Oficina' }
-  ];
-  mockHomeState: { id: number; name: string }[] = [
-    { id: 1, name: 'Amoblado' },
-    { id: 2, name: 'Nuevo' },
-    { id: 3, name: 'Remodelado' },
-    { id: 4, name: 'Sin amoblar' }
-  ];
-  mockVia: { id: number; name: string }[] = [
-    { id: 1, name: 'Calle' },
-    { id: 2, name: 'Carrera' },
-    { id: 3, name: 'Diagonal' },
-    { id: 4, name: 'Transversal' }
-  ];
-  mockHomeTypeAddresses: { id: number; name: string }[] = [
-    { id: 1, name: 'Casa' },
-    { id: 2, name: 'Piso' },
-    { id: 3, name: 'Apartamento' },
-    { id: 4, name: 'Bloque' }
-  ];
-  mockCategories: { id: number; name: string }[] = [
-    { id: 1, name: 'Venta' },
-    { id: 2, name: 'Arriendo' }
-  ];
+  ngOnInit(): void {
+    this.getParametricData();
+  }
 
-  // Método para guardar el formulario
   saveForm() {
     if (this.homeFormGroup.valid && this.addressFormGroup.valid && this.detailsFormGroup.valid) {
       const homeCreate: HomeCreate = {
@@ -124,9 +97,28 @@ export class CreateHomeComponent {
         }
       };
 
-      this.homeService.createHome(homeCreate).subscribe(data=>{ 
+      this.homeService.createHome(homeCreate).subscribe(data => {
         console.log(data)
       })
     }
   }
+
+  getParametricData() {
+    this.parametricService.getCategories().subscribe(data => {
+      this.Categories = data;
+    })
+    this.parametricService.getHomeStates().subscribe(data => {
+      this.homeStates = data;
+    })
+    this.parametricService.getHomeTypes().subscribe(data => {
+      this.homeTypes = data;
+    })
+    this.parametricService.getVia().subscribe(data => {
+      this.Vias = data;
+    })
+    this.parametricService.getZone().subscribe(data => {
+      this.Zones = data;
+    })
+  }
+
 }
