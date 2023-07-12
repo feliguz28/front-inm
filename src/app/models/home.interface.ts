@@ -21,7 +21,7 @@ export interface Address {
   }
   
   export interface Home {
-    id: number;
+    id: string;
     categoryId: number;
     description: string;
     discount: number;
@@ -34,6 +34,7 @@ export interface Address {
     address: Address;
     detail: Detail;
     favorite: boolean;
+    images: Image[];
   }
 
   export interface AddressCreate {
@@ -74,4 +75,8 @@ export interface Address {
   export interface PaginateHome {
     items: Home[];
     totalCount: number;
+  }
+
+  export interface Image {
+    url: string;
   }

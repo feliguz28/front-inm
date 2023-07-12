@@ -3,7 +3,7 @@
     <mat-vertical-stepper>
         <!-- Paso 1 -->
         <mat-step [stepControl]="homeFormGroup" [completed]="homeFormGroup.valid">
-            <form [formGroup]="homeFormGroup" (ngSubmit)="saveForm()">
+            <form [formGroup]="homeFormGroup">
                 <ng-template matStepLabel>Edita tu inmueble!</ng-template>
                 <div class="filter-row">
                     <div class="form-field-wrapper-large">

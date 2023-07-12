@@ -16,6 +16,8 @@ import { LoginComponent } from './views/admin/components/login/login.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeInfoComponent } from './views/admin/components/home/home-info/home-info.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     EditHomeComponent,
     CreateHomeComponent,
-    HomeManagmentComponent
+    HomeManagmentComponent,
+    HomeInfoComponent
   ],
   imports: [
     BrowserModule,

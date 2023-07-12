@@ -1,0 +1,31 @@
+<h2 mat-dialog-title class="dialog-title">{{ home.name }}</h2>
+<div mat-dialog-content class="dialog-content">
+  <p>Categoría: {{ home.categoryId }}</p>
+  <p>Descripción: {{ home.description }}</p>
+  <p>Descuento: {{ home.discount }}</p>
+  <p>Estado del hogar: {{ home.homeStateId }}</p>
+  <p>Tipo de hogar: {{ home.homeTypeId }}</p>
+  <p>Precio: {{ home.price }}</p>
+  <p>Zona: {{ home.zoneId }}</p>
+  <p>Dirección: {{ home.address | json }}</p>
+  <p>Detalles: {{ home.detail | json }}</p>
+
+  <div class="image-gallery">
+    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('left')">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div class="gallery-container">
+      <div class="gallery-images">
+        <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
+          <img [src]="home.images[imageIndex].url" alt="Image">
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('right')">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close class="cancel-button">Cancelar</button>
+</div>

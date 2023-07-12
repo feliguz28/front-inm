@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Home, HomeCreate } from 'src/app/models/home.interface';
 import { HomeService } from 'src/app/services/home.service';
 
@@ -14,9 +14,13 @@ export class EditHomeComponent {
   addressFormGroup: FormGroup;
   detailsFormGroup: FormGroup;
   idHomeEdit!: string;
-  home! :Home;
+  home!: Home;
 
-  constructor(private homeService:HomeService, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(private homeService: HomeService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.homeFormGroup = this.formBuilder.group({
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
@@ -99,8 +103,8 @@ export class EditHomeComponent {
     { id: 2, name: 'Arriendo' }
   ];
 
-  getHomeById(){
-    this.homeService.getHomeById(this.idHomeEdit).subscribe(data=>{
+  getHomeById() {
+    this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
       this.patchFormValues();
     })
@@ -144,7 +148,8 @@ export class EditHomeComponent {
   // Método para guardar el formulario
   saveForm() {
     if (this.homeFormGroup.valid && this.addressFormGroup.valid && this.detailsFormGroup.valid) {
-      const homeCreate: HomeCreate = {
+      const homeCreate: Home = {
+        id: this.home.id,
         categoryId: this.homeFormGroup.value.categoryId,
         description: this.homeFormGroup.value.description,
         discount: this.homeFormGroup.value.discount,
@@ -155,7 +160,9 @@ export class EditHomeComponent {
         status: this.homeFormGroup.value.status,
         zoneId: this.homeFormGroup.value.zoneId,
         favorite: this.homeFormGroup.value.destacado,
+        images: [],
         address: {
+          id: this.home.address.id,
           identificationHome: this.addressFormGroup.value.identificationHome,
           letterBlock: this.addressFormGroup.value.letterBlock,
           letterVia: this.addressFormGroup.value.letterVia,
@@ -167,6 +174,7 @@ export class EditHomeComponent {
           viaId: this.addressFormGroup.value.viaId,
         },
         detail: {
+          id: this.home.detail.id,
           bathRoom: this.detailsFormGroup.value.bathRoom,
           measures: this.detailsFormGroup.value.measures,
           parking: this.detailsFormGroup.value.parking,
@@ -174,7 +182,9 @@ export class EditHomeComponent {
           stratum: this.detailsFormGroup.value.stratum,
         }
       };
-
+      this.homeService.editHome(homeCreate).subscribe(data => {
+        this.router.navigate(['/dashboard/homeManagment']);
+      })
     }
   }
 }

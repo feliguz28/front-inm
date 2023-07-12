@@ -24,8 +24,28 @@ export class HomeService {
   }
 
   getHomeById(id:any):Observable<Home>{
-    let address = `${this.url}Home/GetHotelById/${id}`
+    let address = `${this.url}Home/GetHomeById/${id}`
     return this.http.get<Home>(address);
+  }
+
+  editHome(form: Home): Observable<any>{
+    let address = this.url + "Home";
+    return this.http.put<any>(address, form);
+  }
+
+  editHomeStatus(id:string ): Observable<any>{
+    let address = `${this.url}Home/UpdateStatus/${id}`
+    return this.http.get<any>(address);
+  }
+
+  editHomeFavorite(id:string ): Observable<any>{
+    let address = `${this.url}Home/UpdateFavorite/${id}`
+    return this.http.get<any>(address);
+  }
+
+  deleteHome(id:string):Observable<void>{
+    let address = `${this.url}Home/${id}`
+    return this.http.delete<void>(address);
   }
 
 }
