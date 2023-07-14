@@ -15,14 +15,14 @@ export class HomeInfoComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public home: Home) {
     this.home.images = [
-      { url: 'assets/images/Mocks/home1.jpg' },
-      { url: 'assets/images/Mocks/home2.jpg' },
-      { url: 'assets/images/Mocks/home3.jpg' },
-      { url: 'assets/images/Mocks/home4.jpg' },
-      { url: 'assets/images/Mocks/home5.jpg' },
-      { url: 'assets/images/Mocks/home6.jpg' },
-      { url: 'assets/images/Mocks/home7.jpg' },
-      { url: 'assets/images/Mocks/home8.jpg' }
+      { id: '1', homeId: '1', url: 'assets/images/Mocks/home1.jpg', principal: false, file: null },
+      { id: '2', homeId: '1', url: 'assets/images/Mocks/home2.jpg', principal: false, file: null },
+      { id: '3', homeId: '1', url: 'assets/images/Mocks/home3.jpg', principal: false, file: null },
+      { id: '4', homeId: '1', url: 'assets/images/Mocks/home4.jpg', principal: false, file: null },
+      { id: '5', homeId: '1', url: 'assets/images/Mocks/home5.jpg', principal: false, file: null },
+      { id: '6', homeId: '1', url: 'assets/images/Mocks/home6.jpg', principal: false, file: null },
+      { id: '7', homeId: '1', url: 'assets/images/Mocks/home7.jpg', principal: false, file: null },
+      { id: '8', homeId: '1', url: 'assets/images/Mocks/home8.jpg', principal: false, file: null }
     ];
   }
 

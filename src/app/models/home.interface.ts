@@ -19,6 +19,14 @@ export interface Address {
     room: number;
     stratum: number;
   }
+
+  export interface Image {
+    id: string;
+    homeId: string;
+    url: string;
+    principal: boolean;
+    file: File | null;
+  }
   
   export interface Home {
     id: string;
@@ -56,6 +64,12 @@ export interface Address {
     room: number;
     stratum: number;
   }
+
+  export interface ImageCreate {
+    principal: boolean;
+    file: File | null;
+    imageName: string;
+  }
   
   export interface HomeCreate {
     categoryId: number;
@@ -70,13 +84,10 @@ export interface Address {
     address: AddressCreate;
     detail: DetailCreate;
     favorite: boolean;
+    images: ImageCreate[];
   }
 
   export interface PaginateHome {
     items: Home[];
     totalCount: number;
-  }
-
-  export interface Image {
-    url: string;
   }
