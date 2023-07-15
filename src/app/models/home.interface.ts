@@ -68,7 +68,6 @@ export interface Address {
   export interface ImageCreate {
     principal: boolean;
     file: File | null;
-    imageName: string;
   }
   
   export interface HomeCreate {
