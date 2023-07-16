@@ -66,8 +66,9 @@ export interface Address {
   }
 
   export interface ImageCreate {
-    principal: boolean;
-    file: File | null;
+    homeID: string;
+    principalImage: string;
+    images: File[];
   }
   
   export interface HomeCreate {
@@ -83,10 +84,13 @@ export interface Address {
     address: AddressCreate;
     detail: DetailCreate;
     favorite: boolean;
-    images: ImageCreate[];
   }
 
-  export interface PaginateHome {
+  export interface PaginateHome{
     items: Home[];
     totalCount: number;
+  }
+  
+  export interface ApiResponse {
+    message: string;
   }

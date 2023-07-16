@@ -27,13 +27,6 @@
       </button>
     </div>
   </div>
-  <div>
-    <form (submit)="uploadImages()" enctype="multipart/form-data">
-      <input type="file" name="images" multiple (change)="onFileSelected($event)">
-      <!-- Otros campos del formulario -->
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
   <div mat-dialog-actions class="dialog-actions">
     <button mat-button mat-dialog-close class="cancel-button">Cancelar</button>
   </div>

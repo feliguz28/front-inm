@@ -251,8 +251,9 @@
                 </div>
                 <div>
                     <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" [disabled]="detailsFormGroup.invalid"
-                        matStepperNext>Next</button>
+                    <button mat-raised-button color="primary"
+                        [disabled]="homeFormGroup.invalid || addressFormGroup.invalid || detailsFormGroup.invalid"
+                        (click)="saveForm()">Submit</button>
                 </div>
             </form>
         </mat-step>
@@ -260,31 +261,34 @@
         <!-- Paso 4: Agregar imágenes -->
         <mat-step [stepControl]="imagesFormGroup">
             <form [formGroup]="imagesFormGroup">
-              <ng-template matStepLabel>Agrega imágenes!</ng-template>
-              <div class="filter-row">
-                <div class="form-field-wrapper">
-                    <span class="field-name">Agregar imágenes:</span>
-                    <div class="input-wrapper">
-                      <button mat-raised-button color="primary" (click)="fileInput.click()">Agregar imágenes</button>
-                      <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)" multiple>
+                <ng-template matStepLabel>Agrega imágenes!</ng-template>
+                <div class="filter-row">
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Agregar imágenes:</span>
+                        <div class="input-wrapper">
+                            <button mat-raised-button color="primary" (click)="fileInput.click()">Agregar
+                                imágenes</button>
+                            <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)"
+                                multiple>
+                        </div>
                     </div>
-                  </div>
-                <div class="form-field-wrapper">
-                  <span class="field-name">Imágenes cargadas:</span>
-                  <ul>
-                    <li *ngFor="let file of imagesFormGroup.value.files">{{ file.name }}</li>
-                  </ul>
-                  <button mat-raised-button color="warn" (click)="clearImages()">Limpiar Imágenes</button>
-                  <span *ngIf="selectedFilesCount > 0">Archivos seleccionados: {{ selectedFilesCount }}</span>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Imágenes cargadas:</span>
+                        <mat-radio-group formControlName="principalImage" (change)="selectPrincipalImage($event.value)">
+                          <mat-radio-button *ngFor="let file of imagesFormGroup.value.files" [value]="file.name">
+                            {{ file.name }}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                        <button mat-raised-button color="warn" (click)="clearImages()">Limpiar Imágenes</button>
+                        <span *ngIf="selectedFilesCount > 0">Archivos seleccionados: {{ selectedFilesCount }}</span>
+                      </div>
                 </div>
-              </div>
-              <div>
-                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                <button mat-raised-button color="primary"
-                  [disabled]="homeFormGroup.invalid || addressFormGroup.invalid || detailsFormGroup.invalid || imagesFormGroup.invalid"
-                  (click)="saveForm()">Submit</button>
-              </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" [disabled]="imagesFormGroup.invalid"
+                        (click)="uploadImages()">Subir Imagenes</button>
+                </div>
             </form>
-          </mat-step>
+        </mat-step>
     </mat-vertical-stepper>
 </div>

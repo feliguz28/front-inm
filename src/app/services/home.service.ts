@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Home, HomeCreate } from '../models/home.interface';
+import { ApiResponse, Home, HomeCreate, ImageCreate } from '../models/home.interface';
 import { PagerRequest, PaginateHome } from '../models/pager.interface';
 
 @Injectable({
@@ -13,9 +13,9 @@ export class HomeService {
 
   constructor(private http:HttpClient) {}
 
-  createHome(homeCreate: HomeCreate): Observable<HomeCreate>{
+  createHome(homeCreate: HomeCreate): Observable<ApiResponse>{
       let address = this.url + "Home";
-      return this.http.post<any>(address, homeCreate);
+      return this.http.post<ApiResponse>(address, homeCreate);
   }
 
   getAllHomes(pager:PagerRequest):Observable<PaginateHome>{
@@ -46,6 +46,11 @@ export class HomeService {
   deleteHome(id:string):Observable<void>{
     let address = `${this.url}Home/${id}`
     return this.http.delete<void>(address);
+  }
+
+  uploadImage(imageCreate: any): Observable<any>{
+    let address = this.url + "Home/UploadImages";
+    return this.http.post<any>(address, imageCreate);
   }
 
 }

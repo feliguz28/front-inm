@@ -22,6 +22,8 @@ export class CreateHomeComponent {
   Categories!: ArrayParametric;
   imagesFormGroup: FormGroup;
   selectedFilesCount: number = 0;
+  idHomeCreated!: string;
+  principalImage!: string;
 
   constructor(
     private homeService: HomeService,
@@ -62,8 +64,7 @@ export class CreateHomeComponent {
     });
 
     this.imagesFormGroup = this.formBuilder.group({
-      principal: [false],
-      files: [[]]
+      files: [[], Validators.required]
     });
   }
 
@@ -78,7 +79,7 @@ export class CreateHomeComponent {
         principal: this.imagesFormGroup.value.principal,
         file: file
       }));
-      
+
       const homeCreate: HomeCreate = {
         categoryId: this.homeFormGroup.value.categoryId,
         description: this.homeFormGroup.value.description,
@@ -107,11 +108,10 @@ export class CreateHomeComponent {
           parking: this.detailsFormGroup.value.parking,
           room: this.detailsFormGroup.value.room,
           stratum: this.detailsFormGroup.value.stratum,
-        },
-        images: images
+        }
       };
-      console.log(homeCreate)
       this.homeService.createHome(homeCreate).subscribe(data => {
+        this.idHomeCreated = data.message;
         console.log(data)
       })
     }
@@ -123,10 +123,28 @@ export class CreateHomeComponent {
     this.selectedFilesCount = files.length;
   }
 
-clearImages() {
-  this.imagesFormGroup.get('files')?.setValue([]);
-  this.selectedFilesCount = 0;
-}
+  clearImages() {
+    this.imagesFormGroup.get('files')?.setValue([]);
+    this.selectedFilesCount = 0;
+  }
+
+  selectPrincipalImage(fileName: string) {
+    this.principalImage = fileName;
+    console.log(this.principalImage);
+  }
+
+  uploadImages() {
+    const formData = new FormData();
+    formData.append('HomeId', this.idHomeCreated);
+    formData.append('PrincipalImage', this.principalImage);
+
+    for (let i = 0; i < this.imagesFormGroup.value.files.length; i++) {
+      formData.append('Images', this.imagesFormGroup.value.files[i], this.imagesFormGroup.value.files[i].name);
+    }
+    this.homeService.uploadImage(formData).subscribe(data => {
+      console.log(data)
+    })
+  }
 
   getParametricData() {
     this.parametricService.getCategories().subscribe(data => {
