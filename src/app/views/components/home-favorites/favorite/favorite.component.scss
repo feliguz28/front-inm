@@ -1,0 +1,88 @@
+
+.mat-mdc-card{
+    border-radius: unset !important;
+}
+
+.mdc-card__actions{
+    background-color: #15188a;
+    color: #e5ce1c;
+}
+
+.home-favorite-card{
+    width: 270px;
+    height: 520px;
+}
+
+.content-card-home{
+    padding: 15px;
+}
+
+.category-notes span{
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.room-style{
+    display: flex;
+}
+
+.content-detail{
+    display: flex;
+}
+
+.category-note{
+    background-color: #ff0082;
+    padding: 8px;
+}
+
+.type-note{
+    background-color: rgb(221, 221, 230);
+    padding: 8px;
+}
+
+.measures-style span{
+    margin-right: 10px;
+}
+
+.stratum-style span{
+    margin-right: 10px;
+}
+
+.parking-style span{
+    margin-right: 10px;
+}
+
+.parking-style i{
+    margin-right: 10px;
+}
+
+.room-style span{
+    margin-right: 10px;
+}
+
+.border-right{
+    border-right: 2px solid #dbd0d0;
+}
+
+.border-bottom{
+    border-bottom: 2px solid #dbd0d0;
+}
+
+.name-style{
+    height: 50px;
+}
+
+.m-container {
+    display: inline-block;
+    position: relative;
+    font-size: 17px;
+  }
+  
+  .m {
+    display: inline-block;
+    font-weight: bold;
+  }
+  
+  .elevation {
+    font-size: 10px;
+  }

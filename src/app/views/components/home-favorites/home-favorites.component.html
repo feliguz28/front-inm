@@ -1,0 +1,7 @@
+<p class="favorites-text">Destacados</p>
+<mat-divider [inset]="true"></mat-divider>
+<div class="content-items">
+    <div *ngFor="let home of paginateHome.items">
+        <bs-favorite [home]="home"></bs-favorite>
+    </div>
+</div>

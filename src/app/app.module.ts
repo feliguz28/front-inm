@@ -17,6 +17,11 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeInfoComponent } from './views/admin/components/home/home-info/home-info.component';
+import { HomeFavoritesComponent } from './views/components/home-favorites/home-favorites.component';
+import { HomeFilterBasicComponent } from './views/components/home-filter-basic/home-filter-basic.component';
+import { HomeAllComponent } from './views/components/home-all/home-all.component';
+import { FavoriteComponent } from './views/components/home-favorites/favorite/favorite.component';
+import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { HomeInfoComponent } from './views/admin/components/home/home-info/home-
     EditHomeComponent,
     CreateHomeComponent,
     HomeManagmentComponent,
-    HomeInfoComponent
+    HomeInfoComponent,
+    HomeFavoritesComponent,
+    HomeFilterBasicComponent,
+    HomeAllComponent,
+    FavoriteComponent,
+    ContentTestsComponentsComponent
   ],
   imports: [
     BrowserModule,

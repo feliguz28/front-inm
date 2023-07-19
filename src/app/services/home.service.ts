@@ -23,6 +23,11 @@ export class HomeService {
     return this.http.get<PaginateHome>(address);
   }
 
+  getAllHomesFavorites(pager:PagerRequest):Observable<PaginateHome>{
+    let address = `${this.url}Home/GetHomeFavorite?pageNumber=${pager.pageNumber}&registerPage=${pager.registerPage}&filter=${pager.filter}`
+    return this.http.get<PaginateHome>(address);
+  }
+
   getHomeById(id:any):Observable<Home>{
     let address = `${this.url}Home/GetHomeById/${id}`
     return this.http.get<Home>(address);

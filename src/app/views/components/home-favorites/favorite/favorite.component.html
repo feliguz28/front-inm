@@ -1,0 +1,54 @@
+<mat-card class="home-favorite-card">
+    <mat-card-header>
+    </mat-card-header>
+    <img mat-card-image
+        src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/284649054.jpg?k=1de619d25f769cac36f3d4f658eaeeeb1f357dcc4f60c45227b65744f58bd76d&o=&hp=1"
+        alt="Photo of a Shiba Inu">
+    <mat-card-content class="content-card-home">
+        <div class="category-notes">
+            <span class="type-note">{{homeType}}</span>
+            <span class="category-note">{{category}}</span>
+        </div>
+        <p class="name-style">
+           {{home?.name}}
+        </p>
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile class="border-right border-bottom">
+                <div class="room-style">
+                    <span><i class="fa-solid fa-bath"></i></span>
+                    <span> {{home?.detail?.bathRoom}}</span>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="border-bottom">
+                <div class="measures-style">
+                    <span><i class="fa-solid fa-ruler-combined"></i></span>
+                    <span>{{home?.detail?.measures}}</span>
+                    <div class="m-container">
+                        <div class="m">m</div>
+                        <sup class="elevation">2</sup>
+                      </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="border-right">
+                <div class="parking-style">
+                    <span>
+                        <i class="fa-solid fa-square-parking"></i>
+                        <i class="fa-solid fa-car"></i>
+                    </span>
+                    <span>{{home?.detail?.parking}}</span>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="stratum-style">
+                    <span>Estrato:</span>
+                    <span>{{home?.detail?.stratum}}</span>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions class="content-detail">
+
+        <span>{{home?.price}} $</span>
+
+    </mat-card-actions>
+</mat-card>
