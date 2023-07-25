@@ -6,15 +6,17 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { HomeManagmentComponent } from './views/admin/pages/home-managment/home-managment.component';
 import { CreateHomeComponent } from './views/admin/pages/create-home/create-home.component';
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
-import { CategoriesComponent } from './views/admin/components/categories/categories.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
+import { HomesFilterAdvancedComponent } from './views/public/pages/homes-filter-advanced/homes-filter-advanced.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
   {path:'login', component:LoginPageComponent},
   {path:'tests', component:ContentTestsComponentsComponent},
+  {path:'avanzado', component:HomesFilterAdvancedComponent},
+  {path:'avanzado/:filter', component:HomesFilterAdvancedComponent},
   {
     path:'dashboard',
     component: DashboardComponent,

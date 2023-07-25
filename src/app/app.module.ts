@@ -22,6 +22,9 @@ import { HomeFilterBasicComponent } from './views/components/home-filter-basic/h
 import { HomeAllComponent } from './views/components/home-all/home-all.component';
 import { FavoriteComponent } from './views/components/home-favorites/favorite/favorite.component';
 import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
+import { FilterComponent } from './views/components/filter/filter.component';
+import { MenuSecondaryComponent } from './views/components/menu-secondary/menu-secondary.component';
+import { HomesFilterAdvancedComponent } from './views/public/pages/homes-filter-advanced/homes-filter-advanced.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { ContentTestsComponentsComponent } from './views/content-tests-component
     HomeFilterBasicComponent,
     HomeAllComponent,
     FavoriteComponent,
-    ContentTestsComponentsComponent
+    ContentTestsComponentsComponent,
+    FilterComponent,
+    MenuSecondaryComponent,
+    HomesFilterAdvancedComponent
   ],
   imports: [
     BrowserModule,

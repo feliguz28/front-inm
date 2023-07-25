@@ -86,3 +86,13 @@
   .elevation {
     font-size: 10px;
   }
+  
+  .name-href{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .name-href:hover{
+    text-decoration: underline;
+  }
+  

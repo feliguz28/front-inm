@@ -1,7 +1,9 @@
+
 <mat-card class="home-favorite-card">
     <mat-card-header>
     </mat-card-header>
-    <img mat-card-image
+    <img mat-card-image  matRipple
+    [matRippleCentered]="true" style="cursor: pointer"
         src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/284649054.jpg?k=1de619d25f769cac36f3d4f658eaeeeb1f357dcc4f60c45227b65744f58bd76d&o=&hp=1"
         alt="Photo of a Shiba Inu">
     <mat-card-content class="content-card-home">
@@ -9,8 +11,8 @@
             <span class="type-note">{{homeType}}</span>
             <span class="category-note">{{category}}</span>
         </div>
-        <p class="name-style">
-           {{home?.name}}
+        <p  class="name-style">
+           <a class="name-href" href="#">{{home?.name}}</a>
         </p>
         <mat-grid-list cols="2" rowHeight="2:1">
             <mat-grid-tile class="border-right border-bottom">

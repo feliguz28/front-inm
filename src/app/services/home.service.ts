@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse, Home, HomeCreate, ImageCreate } from '../models/home.interface';
 import { PagerRequest, PaginateHome } from '../models/pager.interface';
+import { PagerRequestFilter } from '../models/pager-basic.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,29 @@ export class HomeService {
 
   getAllHomesFavorites(pager:PagerRequest):Observable<PaginateHome>{
     let address = `${this.url}Home/GetHomeFavorite?pageNumber=${pager.pageNumber}&registerPage=${pager.registerPage}&filter=${pager.filter}`
+    return this.http.get<PaginateHome>(address);
+  }
+
+  getHomeFilter(pager: PagerRequestFilter, filterType: number): Observable<PaginateHome> {
+    let address = '';
+    let endPoint =''
+
+    switch (filterType) {
+      case 0:
+
+        endPoint = 'getHomeFilterBasic'
+
+        break;
+
+      case 1:
+
+        endPoint = 'getHomeFilterAdvanced'
+
+        break;
+    }
+
+    address = `${this.url}Home/${endPoint}?pageNumber=${pager.pageNumber}&registerPage=${pager.registerPage}&filter=${pager.filter}&ZoneIdString=${pager.ZoneIdString}&HomeTypeIdString=${pager.HomeTypeIdString}&HomeStateIdString=${pager.HomeStateIdString}&HomeCategoryIdString=${pager.HomeCategoryIdString}&FromPrice=${pager.FromPrice}&ToPrice=${pager.ToPrice}&MinRoom=${pager.MinRoom}&MinBathRoom=${pager.MinBathRoom}&MinParking=${pager.MinParking}&FromMeasure=${pager.FromMeasure}&ToMeasure=${pager.ToMeasure}&Stratum=${pager.Stratum}`
+
     return this.http.get<PaginateHome>(address);
   }
 

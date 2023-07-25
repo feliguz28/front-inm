@@ -34,4 +34,10 @@ export class HomeFavoritesComponent {
     });
   }
 
+  pageEvent(event: any): void {
+		this.pageSize = event.pageSize;
+		this.page = event.pageIndex + 1;
+		this.getHomeFavorites();
+	}
+
 }

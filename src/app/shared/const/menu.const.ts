@@ -1,6 +1,6 @@
 export const MENUOPTIONS = [
     {
-      name: 'homeManagment',
+      name: 'Inmuebles',
       icon: 'supervisor_account',
       path: 'homeManagment'
     },
