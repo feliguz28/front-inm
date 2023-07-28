@@ -24,7 +24,8 @@ import { FavoriteComponent } from './views/components/home-favorites/favorite/fa
 import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
 import { FilterComponent } from './views/components/filter/filter.component';
 import { MenuSecondaryComponent } from './views/components/menu-secondary/menu-secondary.component';
-import { HomesFilterAdvancedComponent } from './views/public/pages/homes-filter-advanced/homes-filter-advanced.component';
+import { HomePageFilterBasicComponent } from './views/public/pages/home-page-filter-basic/home-page-filter-basic.component';
+import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HomesFilterAdvancedComponent } from './views/public/pages/homes-filter-
     ContentTestsComponentsComponent,
     FilterComponent,
     MenuSecondaryComponent,
-    HomesFilterAdvancedComponent
+    HomePageFilterBasicComponent,
+    HomePageFilterAdvancedComponent
   ],
   imports: [
     BrowserModule,

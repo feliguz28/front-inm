@@ -8,15 +8,15 @@ import { CreateHomeComponent } from './views/admin/pages/create-home/create-home
 import { EditHomeComponent } from './views/admin/pages/edit-home/edit-home.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
-import { HomesFilterAdvancedComponent } from './views/public/pages/homes-filter-advanced/homes-filter-advanced.component';
+import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
   {path:'login', component:LoginPageComponent},
   {path:'tests', component:ContentTestsComponentsComponent},
-  {path:'avanzado', component:HomesFilterAdvancedComponent},
-  {path:'avanzado/:filter', component:HomesFilterAdvancedComponent},
+  {path:'avanzado', component:HomePageFilterAdvancedComponent},
+  {path:'avanzado/:filter', component:HomePageFilterAdvancedComponent},
   {
     path:'dashboard',
     component: DashboardComponent,

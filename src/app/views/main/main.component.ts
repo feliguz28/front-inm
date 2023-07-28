@@ -1,7 +1,17 @@
 import { Component } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PagerRequestFilter } from 'src/app/models/pager-basic.interface';
 import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { ParametricsService } from 'src/app/services/parametrics.service';
+
+export class FilterBasic {
+  zones?: string[];
+  homeType?: string[];
+  homeState?: string[];
+  desde?: number;
+  hasta?: number;
+}
 
 @Component({
   selector: 'app-main',
@@ -13,7 +23,7 @@ export class MainComponent {
   homeStates!: ArrayParametric;
   homeTypes!: ArrayParametric;
   Vias!: ArrayParametric;
-  Zones!: ArrayParametric;
+  zones!: ArrayParametric;
   Categories!: ArrayParametric;
 
   search = new UntypedFormGroup({
@@ -24,14 +34,33 @@ export class MainComponent {
     hasta: new FormControl(null),
 	});
 
-  constructor(private parametricService: ParametricsService){}
+  constructor(private parametricService: ParametricsService
+    ,private router: Router){}
 
   ngOnInit(): void {
     this.getParametricData();
   }
 
   searching(){
-    console.log(this.search.value)
+    
+    let filterParam = this.search.value as FilterBasic;
+    let pageRequest = new PagerRequestFilter();
+
+
+    
+    this.router.navigate(['/avanzado'], { state: filterParam } );
+
+  }
+
+  mapFilter(filterParam : FilterBasic, pageRequest : PagerRequestFilter){
+    
+    filterParam.zones?.forEach(element => {
+      if(pageRequest.ZoneIdString == undefined || pageRequest.ZoneIdString == null){
+        pageRequest.ZoneIdString = "" + element;
+      }else{
+        pageRequest.ZoneIdString += "," + element;
+      }
+    });
   }
 
   getParametricData() {
@@ -48,7 +77,7 @@ export class MainComponent {
       this.Vias = data;
     })
     this.parametricService.getZone().subscribe(data => {
-      this.Zones = data;
+      this.zones = data;
     })
   }
 
