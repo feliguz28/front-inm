@@ -17,9 +17,8 @@ export class HomePageFilterAdvancedComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    let pageRequest = new PagerRequestFilter();
 
-
-    // this.homeService.getHomeFilter(1)
+    console.log(this.receivedObject)
+    this.homeService.getHomeFilter(this.receivedObject,1)
   }
 }
