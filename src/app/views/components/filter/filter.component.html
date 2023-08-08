@@ -1,60 +1,80 @@
-<div class="filter-container">
-    <form [formGroup]="search">
-      <div class="filter-row">
-        <div class="form-field-wrapper">
-          <span class="field-name">Zona:</span>
-          <div class="input-wrapper">
-            <mat-form-field appearance="outline">
-              <mat-select placeholder="Todos" formControlName="Zones" multiple>
-                <mat-option *ngFor="let zone of Zones" [value]="zone.id">{{ zone.name }}</mat-option>
-              </mat-select>
-              <mat-icon matSuffix>pin_drop</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-field-wrapper">
-          <span class="field-name">Tipo de inmueble:</span>
-          <div class="input-wrapper">
-            <mat-form-field appearance="outline">
-              <mat-select placeholder="Todos" formControlName="homeType" multiple>
-                <mat-option *ngFor="let homeType of homeTypes" [value]="homeType.id">{{ homeType.name }}</mat-option>
-              </mat-select>
-              <mat-icon matSuffix>apartment</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-field-wrapper">
-          <span class="field-name">Estado Propiedad:</span>
-          <div class="input-wrapper">
-            <mat-form-field appearance="outline">
-              <mat-select placeholder="Todos" formControlName="homeState" multiple>
-                <mat-option *ngFor="let homeState of homeStates" [value]="homeState.id">{{ homeState.name }}</mat-option>
-              </mat-select>
-              <mat-icon matSuffix>real_estate_agent</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-field-wrapper">
-          <span class="field-name">Precio desde:</span>
-          <div class="input-wrapper">
-            <mat-form-field appearance="outline">
-              <input matInput type="number" formControlName="desde" placeholder="Desde">
-              <mat-icon matSuffix>attach_money</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-field-wrapper">
-          <span class="field-name">Precio hasta:</span>
-          <div class="input-wrapper">
-            <mat-form-field appearance="outline">
-              <input matInput type="number" formControlName="hasta" placeholder="Hasta">
-              <mat-icon matSuffix>attach_money</mat-icon>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-      <div class="filter-row">
-        <button mat-raised-button color="primary" (click)="searching()">Buscar</button>
-      </div>
-    </form>
+
+  <bs-menu-secondary class="menu"></bs-menu-secondary>
+  
+<div class="filter" style="margin-top: 90px;">
+  <form class="grid-container">
+  <div class="top-row">
+    <div class="grid-item">
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="Todos" formControlName="zones" multiple>
+          <mat-option *ngFor="let zone of zones" [value]="zone.id">{{ zone.name }}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>pin_drop</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="grid-item"> <mat-form-field appearance="outline">
+      <mat-select placeholder="Todos" formControlName="homeType" multiple>
+        <mat-option *ngFor="let homeType of homeTypes" [value]="homeType.id">{{ homeType.name }}</mat-option>
+      </mat-select>
+      <mat-icon matSuffix>apartment</mat-icon>
+    </mat-form-field></div>
+    <div class="grid-item"> <mat-form-field appearance="outline">
+      <mat-select placeholder="Todos" formControlName="homeState" multiple>
+        <mat-option *ngFor="let homeState of homeStates" [value]="homeState.id">{{ homeState.name }}</mat-option>
+      </mat-select>
+      <mat-icon matSuffix>real_estate_agent</mat-icon>
+    </mat-form-field></div>
+    <div class="grid-item"><mat-form-field appearance="outline">
+      <input matInput type="number" formControlName="desde" placeholder="Desde">
+      <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field></div>
+    <div class="grid-item"><mat-form-field appearance="outline">
+      <input matInput type="number" formControlName="hasta" placeholder="Hasta">
+      <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field></div>
   </div>
+  <div class="bottom-row">
+    <div class="grid-item">
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="Todos" formControlName="categorie" multiple>
+          <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>home_work</mat-icon>
+      </mat-form-field>
+    </div>
+      <div class="grid-item two">
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="minRoom" placeholder="min">
+          <mat-icon matSuffix>meeting_room</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="minBathRoom" placeholder="min">
+          <mat-icon matSuffix>bathroom</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="grid-item two">
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="fromMeasure" placeholder="min">
+          <mat-icon matSuffix>straighten</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="toMeasure" placeholder="max">
+          <mat-icon matSuffix>straighten</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="grid-item two">
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="minParking" placeholder="min">
+          <mat-icon matSuffix>directions_car</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 121px;">
+          <input matInput type="number" formControlName="stratum">
+          <mat-icon matSuffix>accessibility</mat-icon>
+        </mat-form-field>
+      </div>
+    <div class="grid-item">
+        <button mat-raised-button color="primary" (click)="searching()">Buscar</button>
+    </div>
+  </div>
+</form>
+</div>

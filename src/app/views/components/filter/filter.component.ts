@@ -13,8 +13,8 @@ export class FilterComponent {
   homeStates!: ArrayParametric;
   homeTypes!: ArrayParametric;
   Vias!: ArrayParametric;
-  Zones!: ArrayParametric;
-  Categories!: ArrayParametric;
+  zones!: ArrayParametric;
+  categories!: ArrayParametric;
 
   search = new UntypedFormGroup({
     zones: new UntypedFormControl([]),
@@ -22,11 +22,18 @@ export class FilterComponent {
     homeState: new UntypedFormControl([]),
     desde: new FormControl(null),
     hasta: new FormControl(null),
+    minRoom: new FormControl(null),
+    fromMeasure:new FormControl(null),
+    toMeasure:new FormControl(null),
+    minParking:new FormControl(null),
+    stratum:new FormControl(null)
 	});
 
   constructor(private parametricService: ParametricsService){}
 
   ngOnInit(): void {
+    
+    window.scrollTo(0, 0);
     this.getParametricData();
   }
 
@@ -37,7 +44,7 @@ export class FilterComponent {
 
   getParametricData() {
     this.parametricService.getCategories().subscribe(data => {
-      this.Categories = data;
+      this.categories = data;
     })
     this.parametricService.getHomeStates().subscribe(data => {
       this.homeStates = data;
@@ -49,7 +56,7 @@ export class FilterComponent {
       this.Vias = data;
     })
     this.parametricService.getZone().subscribe(data => {
-      this.Zones = data;
+      this.zones = data;
     })
   }
 
