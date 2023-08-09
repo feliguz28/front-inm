@@ -2,16 +2,16 @@ export class PagerRequestFilter{
 pageNumber?:number;
 registerPage?:number;
 filter?:string | null = null;
-ZoneIdString?:string | null;
-HomeTypeIdString?:string | null = null;
-HomeStateIdString?:string | null = null;
-HomeCategoryIdString?:string | null = null; 
-FromPrice?:number | null = null;
-ToPrice?:number| null = null;
-MinRoom?:number | null = null;
-MinBathRoom?:number | null = null;
-MinParking?:number | null = null;
-FromMeasure?:number | null = null;
-ToMeasure?:number | null = null;
-Stratum?:number | null = null;
+zoneIdString?:string | null;
+homeTypeIdString?:string | null = null;
+homeStateIdString?:string | null = null;
+homeCategoryIdString?:string | null = null; 
+fromPrice?:number | null = null;
+toPrice?:number| null = null;
+minRoom?:number | null = null;
+minBathRoom?:number | null = null;
+minParking?:number | null = null;
+fromMeasure?:number | null = null;
+toMeasure?:number | null = null;
+stratum?:number | null = null;
 }

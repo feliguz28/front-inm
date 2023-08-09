@@ -47,7 +47,7 @@ export class HomeService {
         break;
     }
 
-    address = `${this.url}Home/${endPoint}?pageNumber=${pager.pageNumber}&registerPage=${pager.registerPage}&filter=${pager.filter}&ZoneIdString=${pager.ZoneIdString}&HomeTypeIdString=${pager.HomeTypeIdString}&HomeStateIdString=${pager.HomeStateIdString}&HomeCategoryIdString=${pager.HomeCategoryIdString}&FromPrice=${pager.FromPrice}&ToPrice=${pager.ToPrice}&MinRoom=${pager.MinRoom}&MinBathRoom=${pager.MinBathRoom}&MinParking=${pager.MinParking}&FromMeasure=${pager.FromMeasure}&ToMeasure=${pager.ToMeasure}&Stratum=${pager.Stratum}`
+    address = `${this.url}Home/${endPoint}?pageNumber=${pager.pageNumber}&registerPage=${pager.registerPage}${this.mapParamsGet(pager)}`
 
     return this.http.get<PaginateHome>(address);
   }
@@ -80,6 +80,20 @@ export class HomeService {
   uploadImage(imageCreate: any): Observable<any>{
     let address = this.url + "Home/UploadImages";
     return this.http.post<any>(address, imageCreate);
+  }
+
+  mapParamsGet(pager: any):string{
+
+    let params : string = '';
+    const prop = Object.keys(pager);
+    prop.forEach((p) => {
+
+      if(pager[p] !== '' && pager[p] !== null && pager[p].length > 0){
+        params = params + `&${p}=${pager[p]}`;
+      }
+
+    });
+    return params;
   }
 
 }

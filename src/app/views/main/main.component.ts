@@ -44,23 +44,18 @@ export class MainComponent {
   searching(){
     
     let filterParam = this.search.value as FilterBasic;
-    let pageRequest = new PagerRequestFilter();
-
-
-    
-    this.router.navigate(['/avanzado'], { state: filterParam } );
+    this.router.navigate(['/avanzado'], { state: this.mapFilter(filterParam) } );
 
   }
 
-  mapFilter(filterParam : FilterBasic, pageRequest : PagerRequestFilter){
-    
-    filterParam.zones?.forEach(element => {
-      if(pageRequest.ZoneIdString == undefined || pageRequest.ZoneIdString == null){
-        pageRequest.ZoneIdString = "" + element;
-      }else{
-        pageRequest.ZoneIdString += "," + element;
-      }
-    });
+  mapFilter(filterBasic : FilterBasic):PagerRequestFilter {
+    let pageRequest = new PagerRequestFilter();
+    pageRequest.zoneIdString = filterBasic.zones?.join(",");
+    pageRequest.homeStateIdString = filterBasic.homeState?.join(",")
+    pageRequest.homeTypeIdString = filterBasic.homeType?.join(",");
+
+    return pageRequest;
+
   }
 
   getParametricData() {
