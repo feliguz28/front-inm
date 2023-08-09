@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Home, PaginateHome } from 'src/app/models/home.interface';
+import { PagerRequest } from 'src/app/models/pager.interface';
+import { HomeService } from 'src/app/services/home.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HomeInfoComponent } from '../../components/home/home-info/home-info.component';
+
 
 interface Tarjeta {
-  nombre: string;
-  zona: string;
-  tipoInmueble: string;
-  precio: number;
-  categoria: string;
+  name: string;
+  zone: any;
+  typeHome: any;
+  price: number;
+  category: any;
   home: Home;
 }
 
@@ -19,146 +24,89 @@ interface Tarjeta {
 export class HomeManagmentComponent {
   tarjetas: Tarjeta[] = [];
 
-  constructor(private dialog: MatDialog) {
-    // Crear array de objetos Home mock
-    const homes: Home[] = [
-      {
-        id: 1,
-        categoryId: 1,
-        description: 'Descripción de la vivienda 1',
-        discount: 0,
-        homeStateId: 1,
-        homeTypeId: 1,
-        name: 'test',
-        price: 100000,
-        status: true,
-        zoneId: 1,
-        address: {
-          id: 1,
-          homeTypeAddressId: 'A',
-          identificationHome: 123,
-          letterBlock: '',
-          letterVia: 'A',
-          numberBlock: 1,
-          numberVia: 10,
-          prefix: '',
-          suffix: '',
-          viaId: 1
-        },
-        details: {
-          id: 1,
-          bathRoom: 2,
-          measures: 100,
-          parking: 1,
-          room: 3,
-          stratum: 3
-        }
-      },
-      {
-        id: 2,
-        categoryId: 2,
-        description: 'Descripción de la vivienda 2',
-        discount: 10,
-        homeStateId: 1,
-        homeTypeId: 2,
-        name: 'test',
-        price: 200000,
-        status: true,
-        zoneId: 2,
-        address: {
-          id: 2,
-          homeTypeAddressId: 'B',
-          identificationHome: 456,
-          letterBlock: '',
-          letterVia: 'B',
-          numberBlock: 2,
-          numberVia: 20,
-          prefix: '',
-          suffix: '',
-          viaId: 2
-        },
-        details: {
-          id: 2,
-          bathRoom: 1,
-          measures: 80,
-          parking: 0,
-          room: 2,
-          stratum: 2
-        }
-      },
-      {
-        id: 3,
-        categoryId: 1,
-        description: 'Descripción de la vivienda 3',
-        discount: 5,
-        homeStateId: 1,
-        homeTypeId: 3,
-        name: 'test',
-        price: 150000,
-        status: true,
-        zoneId: 1,
-        address: {
-          id: 3,
-          homeTypeAddressId: 'C',
-          identificationHome: 789,
-          letterBlock: '',
-          letterVia: 'C',
-          numberBlock: 3,
-          numberVia: 30,
-          prefix: '',
-          suffix: '',
-          viaId: 3
-        },
-        details: {
-          id: 3,
-          bathRoom: 2,
-          measures: 120,
-          parking: 1,
-          room: 4,
-          stratum: 4
-        }
-      }
-    ];
+  length: number = 0;
+  page: number = 1;
+  pageSize: number = 10;
+  filter: string = '';
+  paginateHome!: PaginateHome
+  pageSizeOptions: number[] = [5, 10, 20, 50, 100]
 
-    const paginateHome: PaginateHome = {
-      items: homes,
-      totalCount: homes.length,
+  constructor(
+    private router: Router, 
+    private homeService: HomeService,
+    private dialog: MatDialog
+    ) {
+    this.getAllHomes();
+  }
+
+  pageEvent(event: any): void {
+		this.pageSize = event.pageSize;
+		this.page = event.pageIndex + 1;
+		this.getAllHomes();
+	}
+
+  getAllHomes() {
+    let pager: PagerRequest = {
+      pageNumber: this.page,
+      registerPage: this.pageSize,
+      filter: this.filter
     };
 
-    // Crear tarjetas con los campos adicionales
-    this.tarjetas = homes.map(home => ({
-      nombre: `Vivienda ${home.id}`,
-      zona: `Zona ${home.zoneId}`,
-      tipoInmueble: `Tipo ${home.homeTypeId}`,
-      precio: home.price,
-      categoria: `Categoría ${home.categoryId}`,
-      home: home
-    }));
+    this.homeService.getAllHomes(pager).subscribe(data => {
+      this.paginateHome = data;
+      this.length = data.totalCount;
+
+      this.tarjetas = this.paginateHome.items.map(home => ({
+        id: home.id,
+        name: home.name,
+        zone: home.zoneId,
+        typeHome: home.homeTypeId,
+        price: home.price,
+        category: home.categoryId,
+        home: home
+      }));
+    });
   }
 
-  editarTarjeta(tarjeta: Tarjeta) {
-    // Lógica para editar la tarjeta
-    console.log('Editar tarjeta:', tarjeta.home);
+  openHomeDialog(home: Home) {
+    const dialogRef = this.dialog.open(HomeInfoComponent, {
+      data: home
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      // Lógica después de cerrar el diálogo (si es necesario)
+    });
   }
 
-  eliminarTarjeta(tarjeta: Tarjeta) {
-    // Lógica para eliminar la tarjeta
-    console.log('Eliminar tarjeta:', tarjeta.home);
+  createNewHome() {
+    this.router.navigate(['/dashboard/createHome']);
   }
 
-  inactivarTarjeta(tarjeta: Tarjeta) {
-    // Lógica para inactivar/activar la tarjeta
-    tarjeta.home.status = !tarjeta.home.status;
-    console.log('Inactivar tarjeta:', tarjeta.home);
+  editHome(id: any) {
+    this.router.navigate(['/dashboard/editHome', id]);
   }
 
-  mostrarInformacion(tarjeta: Tarjeta) {
-    // Lógica para mostrar más información de la tarjeta
-    console.log('Mostrar información de la tarjeta:', tarjeta.home);
+  deleteHome(id: string) {
+    this.homeService.deleteHome(id).subscribe(data=>{
+    })
+    this.getAllHomes();
   }
 
-  crearNuevoInmueble() {
-    // Lógica para crear un nuevo inmueble
-    console.log('Crear nuevo inmueble');
+  updateStatus(id: string) {
+    this.homeService.editHomeStatus(id).subscribe(data => {
+      this.getAllHomes();
+    })
+  }
+
+  updateFavorite(id: string) {
+    this.homeService.editHomeFavorite(id).subscribe(data => {
+      this.getAllHomes();
+    })
+  }
+
+  showInfo(id: string) {
+    this.homeService.getHomeById(id).subscribe(home => {
+      this.openHomeDialog(home);
+    });
   }
 }

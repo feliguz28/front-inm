@@ -53,6 +53,10 @@ mat-vertical-stepper{
     font-weight: bold;
     margin-bottom: 5px;
   }
+
+  .form-error{
+    margin-top: -20px;
+  }
   
   /* Media queries para ajustar el número de columnas en diferentes tamaños de pantalla */
   @media (max-width: 1200px) {

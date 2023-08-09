@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HomeCreate } from 'src/app/models/home.interface';
+import { HomeCreate, ImageCreate } from 'src/app/models/home.interface';
+import { ArrayParametric } from 'src/app/models/parametric.interface';
+import { HomeService } from 'src/app/services/home.service';
+import { ParametricsService } from 'src/app/services/parametrics.service';
+
 
 @Component({
   selector: 'app-create-home',
@@ -11,26 +15,40 @@ export class CreateHomeComponent {
   homeFormGroup: FormGroup;
   addressFormGroup: FormGroup;
   detailsFormGroup: FormGroup;
+  homeStates!: ArrayParametric;
+  homeTypes!: ArrayParametric;
+  Vias!: ArrayParametric;
+  Zones!: ArrayParametric;
+  Categories!: ArrayParametric;
+  imagesFormGroup: FormGroup;
+  selectedFilesCount: number = 0;
+  idHomeCreated!: string;
+  principalImage!: string;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private homeService: HomeService,
+    private parametricService: ParametricsService,
+    private formBuilder: FormBuilder
+  ) {
     this.homeFormGroup = this.formBuilder.group({
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
-      discount: [null, Validators.required],
+      discount: [null, [Validators.required, Validators.min(0), Validators.max(100)]],
       homeStateId: [null, Validators.required],
       homeTypeId: [null, Validators.required],
       name: ['', Validators.required],
       price: [null, Validators.required],
       status: [true],
       zoneId: [null, Validators.required],
+      destacado: [false],
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      homeTypeAddressId: [null, Validators.required],
-      identificationHome: ['', Validators.required],
+      identificationHome: [''],
       letterBlock: [''],
-      letterVia: ['', Validators.required],
-      numberBlock: [null],
+      letterVia: [''],
+      numberBlock: [null, Validators.required],
+      numberHome: [null, Validators.required],
       numberVia: [null, Validators.required],
       prefix: [''],
       suffix: [''],
@@ -38,79 +56,53 @@ export class CreateHomeComponent {
     });
 
     this.detailsFormGroup = this.formBuilder.group({
-      bathRoom: ['', Validators.required],
-      measures: ['', Validators.required],
-      parking: ['', Validators.required],
-      room: ['', Validators.required],
-      stratum: ['', Validators.required],
+      bathRoom: [null],
+      measures: [null],
+      parking: [null],
+      room: [null],
+      stratum: [null],
+    });
+
+    this.imagesFormGroup = this.formBuilder.group({
+      files: [[], Validators.required]
     });
   }
 
-  //Mocks 
-  mockZone: { id: number; name: string }[] = [
-    { id: 1, name: 'Chapinero' },
-    { id: 2, name: 'Cedritos' },
-    { id: 3, name: 'Colina' },
-    { id: 4, name: 'Felicidad' },
-    { id: 5, name: 'Suba' },
-    { id: 6, name: 'Zona 80' }
-  ];
-  mockHomeType: { id: number; name: string }[] = [
-    { id: 1, name: 'Apartamento' },
-    { id: 2, name: 'Apartaestudio' },
-    { id: 3, name: 'Bodega' },
-    { id: 4, name: 'Consultorio' },
-    { id: 5, name: 'Casa' },
-    { id: 6, name: 'Local' },
-    { id: 7, name: 'Oficina' }
-  ];
-  mockHomeState: { id: number; name: string }[] = [
-    { id: 1, name: 'Amoblado' },
-    { id: 2, name: 'Nuevo' },
-    { id: 3, name: 'Remodelado' },
-    { id: 4, name: 'Sin amoblar' }
-  ];
-  mockVia: { id: number; name: string }[] = [
-    { id: 1, name: 'Calle' },
-    { id: 2, name: 'Carrera' },
-    { id: 3, name: 'Diagonal' },
-    { id: 4, name: 'Transversal' }
-  ];
-  mockHomeTypeAddresses: { id: number; name: string }[] = [
-    { id: 1, name: 'Casa' },
-    { id: 2, name: 'Piso' },
-    { id: 3, name: 'Apartamento' },
-    { id: 4, name: 'Bloque' }
-  ];
-  mockCategories: { id: number; name: string }[] = [
-    { id: 1, name: 'Venta' },
-    { id: 2, name: 'Arriendo' }
-  ];
+  ngOnInit(): void {
+    this.getParametricData();
+  }
 
-  // Método para guardar el formulario
   saveForm() {
     if (this.homeFormGroup.valid && this.addressFormGroup.valid && this.detailsFormGroup.valid) {
+
+      const images: ImageCreate[] = this.imagesFormGroup.value.files.map((file: File) => ({
+        principal: this.imagesFormGroup.value.principal,
+        file: file
+      }));
+
       const homeCreate: HomeCreate = {
         categoryId: this.homeFormGroup.value.categoryId,
         description: this.homeFormGroup.value.description,
         discount: this.homeFormGroup.value.discount,
         homeStateId: this.homeFormGroup.value.homeStateId,
         homeTypeId: this.homeFormGroup.value.homeTypeId,
+        name: this.homeFormGroup.value.name,
         price: this.homeFormGroup.value.price,
         status: this.homeFormGroup.value.status,
         zoneId: this.homeFormGroup.value.zoneId,
+        favorite: this.homeFormGroup.value.destacado,
         address: {
-          homeTypeAddressId: this.addressFormGroup.value.homeTypeAddressId,
           identificationHome: this.addressFormGroup.value.identificationHome,
           letterBlock: this.addressFormGroup.value.letterBlock,
           letterVia: this.addressFormGroup.value.letterVia,
           numberBlock: this.addressFormGroup.value.numberBlock,
+          numberHome: this.addressFormGroup.value.numberHome,
           numberVia: this.addressFormGroup.value.numberVia,
           prefix: this.addressFormGroup.value.prefix,
           suffix: this.addressFormGroup.value.suffix,
           viaId: this.addressFormGroup.value.viaId,
         },
-        details: {
+        detail: {
           bathRoom: this.detailsFormGroup.value.bathRoom,
           measures: this.detailsFormGroup.value.measures,
           parking: this.detailsFormGroup.value.parking,
@@ -118,8 +110,58 @@ export class CreateHomeComponent {
           stratum: this.detailsFormGroup.value.stratum,
         }
       };
-
-      console.log(homeCreate);
+      this.homeService.createHome(homeCreate).subscribe(data => {
+        this.idHomeCreated = data.message;
+        console.log(data)
+      })
     }
   }
+
+  onFileSelected(event: any) {
+    const files: File[] = Array.from(event.target.files);
+    this.imagesFormGroup.get('files')?.setValue(files);
+    this.selectedFilesCount = files.length;
+  }
+
+  clearImages() {
+    this.imagesFormGroup.get('files')?.setValue([]);
+    this.selectedFilesCount = 0;
+  }
+
+  selectPrincipalImage(fileName: string) {
+    this.principalImage = fileName;
+    console.log(this.principalImage);
+  }
+
+  uploadImages() {
+    const formData = new FormData();
+    formData.append('HomeId', this.idHomeCreated);
+    formData.append('PrincipalImage', this.principalImage);
+
+    for (let i = 0; i < this.imagesFormGroup.value.files.length; i++) {
+      formData.append('Images', this.imagesFormGroup.value.files[i], this.imagesFormGroup.value.files[i].name);
+    }
+    this.homeService.uploadImage(formData).subscribe(data => {
+      console.log(data)
+    })
+  }
+
+  getParametricData() {
+    this.parametricService.getCategories().subscribe(data => {
+      this.Categories = data;
+    })
+    this.parametricService.getHomeStates().subscribe(data => {
+      this.homeStates = data;
+    })
+    this.parametricService.getHomeTypes().subscribe(data => {
+      this.homeTypes = data;
+    })
+    this.parametricService.getVia().subscribe(data => {
+      this.Vias = data;
+    })
+    this.parametricService.getZone().subscribe(data => {
+      this.Zones = data;
+    })
+  }
+
 }

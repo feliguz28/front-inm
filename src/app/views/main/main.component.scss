@@ -10,6 +10,10 @@
   min-height: 100vh;
 }
 
+.img-logo-uri{
+  cursor: pointer;
+}
+
 header {
   width: 100%;
   z-index: 1;
@@ -58,7 +62,7 @@ mat-toolbar {
 
 .slogan{
   position: absolute;
-  top: 300px;
+  top: 250px;
   margin-left: 300px;
   display: flex;
   flex-direction: column;
@@ -116,15 +120,10 @@ mat-toolbar {
   margin-bottom: 5px;
 }
 
-
-
-
-
-
-
-.resto{
-  height: 3000px;
-  background-color: aqua;
+.main-content{
+  display: flex;
+  width: 100%;
+  height: auto;	
 }
 
 

@@ -3,11 +3,11 @@
     <header>
       <mat-toolbar class="extended-toolbar">
         <div class="logo">
-          <img src="../../../assets/images/logo2.png" alt="Logo de la inmobiliaria">
+          <img class="img-logo-uri" src="../../../assets/images/logo2.png" alt="Logo de la inmobiliaria" [routerLink]="['/login']">
         </div>
         <a>Inicio</a>
-        <a>Venta</a>
-        <a>Arriendo</a>
+        <a [routerLink]="['/avanzado', 'venta']">Venta</a>
+        <a [routerLink]="['/avanzado', 'arriendo']">Arriendo</a>
         <a>Blog</a>
         <a>Avalúos</a>
         <a>Escríbenos</a>
@@ -30,7 +30,7 @@
             <div class="input-wrapper">
               <mat-form-field appearance="outline">
                 <mat-select placeholder="Todos" formControlName="zones" multiple>
-                  <mat-option *ngFor="let zone of mockZone" [value]="zone.id">{{ zone.name }}</mat-option>
+                  <mat-option *ngFor="let zone of zones" [value]="zone.id">{{ zone.name }}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>pin_drop</mat-icon>
               </mat-form-field>
@@ -41,7 +41,7 @@
             <div class="input-wrapper">
               <mat-form-field appearance="outline">
                 <mat-select placeholder="Todos" formControlName="homeType" multiple>
-                  <mat-option *ngFor="let homeType of mockHomeType" [value]="homeType.id">{{ homeType.name }}</mat-option>
+                  <mat-option *ngFor="let homeType of homeTypes" [value]="homeType.id">{{ homeType.name }}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>apartment</mat-icon>
               </mat-form-field>
@@ -52,7 +52,7 @@
             <div class="input-wrapper">
               <mat-form-field appearance="outline">
                 <mat-select placeholder="Todos" formControlName="homeState" multiple>
-                  <mat-option *ngFor="let homeState of mockHomeState" [value]="homeState.id">{{ homeState.name }}</mat-option>
+                  <mat-option *ngFor="let homeState of homeStates" [value]="homeState.id">{{ homeState.name }}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>real_estate_agent</mat-icon>
               </mat-form-field>
@@ -82,11 +82,9 @@
         </div>
       </form>
     </div>
-
-
-
-    <div class="resto">
-      
+    <div class="main-content">
+      <bs-home-favorites></bs-home-favorites>
+      <!-- <bs-favorite></bs-favorite> -->
     </div>
   </div>
 </div>

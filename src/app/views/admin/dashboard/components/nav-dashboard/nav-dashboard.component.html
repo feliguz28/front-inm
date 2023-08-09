@@ -1,12 +1,12 @@
 <nav class="nav-general">
     <div class="nav-general-left">
-        <button (click)="draw.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <button (click)="draw.toggle()" mat-mini-fab color="primary">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
     <div class="nav-general-right">
         <span class="user-name">{{userName}}</span>
-        <button mat-mini-fab [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <button mat-mini-fab [matMenuTriggerFor]="menu">
             <i class="fa-solid fa-user"></i>
         </button>
 
@@ -15,7 +15,7 @@
                 <mat-icon>settings</mat-icon>
                 <span>Perfil</span>
             </button>
-            <button mat-menu-item>
+            <button  (click)="logout()" mat-menu-item>
                 <mat-icon>power_settings_new</mat-icon>
                 <span>Cerrar sesión</span>
             </button>
