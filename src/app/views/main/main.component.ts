@@ -1,4 +1,17 @@
 import { Component } from '@angular/core';
+import { UntypedFormGroup, UntypedFormControl, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PagerRequestFilter } from 'src/app/models/pager-basic.interface';
+import { ArrayParametric } from 'src/app/models/parametric.interface';
+import { ParametricsService } from 'src/app/services/parametrics.service';
+
+export class FilterBasic {
+  zones?: string[];
+  homeType?: string[];
+  homeState?: string[];
+  desde?: number;
+  hasta?: number;
+}
 
 @Component({
   selector: 'app-main',
@@ -6,11 +19,61 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  galleryImages: string[] = [
-    'https://img.freepik.com/foto-gratis/casa-aislada-campo_1303-23773.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3LECxua45Y5P87fQ4RT1rydb1d7xirz_hJZmGg82WKqg78rRjT8jfWkA5_Gl95bdS2fE&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl9qJ6AJ0Cd_VJnXFChkJHIDVgOZV7ZwK7FgS5-tmnkpgCukfwQimIpfBs5MznCsmgduI&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgPbiWVY_MUuPCAQYPQdqevoFl7lRx22h-7xhwYaF9A4dGFcxM626sWdLLTJXEjbl_SAo&usqp=CAU'
-  ];
+
+  homeStates!: ArrayParametric;
+  homeTypes!: ArrayParametric;
+  Vias!: ArrayParametric;
+  zones!: ArrayParametric;
+  Categories!: ArrayParametric;
+
+  search = new UntypedFormGroup({
+    zones: new UntypedFormControl([]),
+    homeType: new UntypedFormControl([]),
+    homeState: new UntypedFormControl([]),
+    desde: new FormControl(null),
+    hasta: new FormControl(null),
+	});
+
+  constructor(private parametricService: ParametricsService
+    ,private router: Router){}
+
+  ngOnInit(): void {
+    this.getParametricData();
+  }
+
+  searching(){
+    
+    let filterParam = this.search.value as FilterBasic;
+    this.router.navigate(['/avanzado'], { state: this.mapFilter(filterParam) } );
+
+  }
+
+  mapFilter(filterBasic : FilterBasic):PagerRequestFilter {
+    let pageRequest = new PagerRequestFilter();
+    pageRequest.zoneIdString = filterBasic.zones?.join(",");
+    pageRequest.homeStateIdString = filterBasic.homeState?.join(",")
+    pageRequest.homeTypeIdString = filterBasic.homeType?.join(",");
+
+    return pageRequest;
+
+  }
+
+  getParametricData() {
+    this.parametricService.getCategories().subscribe(data => {
+      this.Categories = data;
+    })
+    this.parametricService.getHomeStates().subscribe(data => {
+      this.homeStates = data;
+    })
+    this.parametricService.getHomeTypes().subscribe(data => {
+      this.homeTypes = data;
+    })
+    this.parametricService.getVia().subscribe(data => {
+      this.Vias = data;
+    })
+    this.parametricService.getZone().subscribe(data => {
+      this.zones = data;
+    })
+  }
 
 }
