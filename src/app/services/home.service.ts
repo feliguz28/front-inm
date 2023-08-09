@@ -88,7 +88,7 @@ export class HomeService {
     const prop = Object.keys(pager);
     prop.forEach((p) => {
 
-      if(pager[p] != null && p != 'pageNumber' && p != 'registerPage'){
+      if(pager[p] !== '' && pager[p] !== null && pager[p].length > 0){
         params = params + `&${p}=${pager[p]}`;
       }
 

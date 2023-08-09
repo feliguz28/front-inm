@@ -1,6 +1,6 @@
 
 <div>
-    <bs-filter></bs-filter>
+    <bs-filter (updateFilter)="updateSearch($event)"></bs-filter>
 
     <div class="content-items">
         <div *ngFor="let home of paginateHome.items">

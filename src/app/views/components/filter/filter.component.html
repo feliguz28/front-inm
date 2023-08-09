@@ -2,7 +2,7 @@
   <bs-menu-secondary class="menu"></bs-menu-secondary>
   
 <div class="filter" style="margin-top: 90px;">
-  <form class="grid-container">
+  <form class="grid-container" [formGroup]="search">
   <div class="top-row">
     <div class="grid-item">
       <mat-form-field appearance="outline">
@@ -36,7 +36,7 @@
   <div class="bottom-row">
     <div class="grid-item">
       <mat-form-field appearance="outline">
-        <mat-select placeholder="Todos" formControlName="categorie" multiple>
+        <mat-select placeholder="Todos" formControlName="category" multiple>
           <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
         </mat-select>
         <mat-icon matSuffix>home_work</mat-icon>
