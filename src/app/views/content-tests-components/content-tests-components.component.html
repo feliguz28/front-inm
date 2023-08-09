@@ -1,6 +1,9 @@
-<bs-menu-secondary></bs-menu-secondary>
-<div class="content-tests">
-    <!-- <bs-favorite></bs-favorite> -->
-    <!-- <bs-filter></bs-filter> -->
-</div>
-
+<google-map height="400px"
+            width="750px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)">
+  <map-marker *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"></map-marker>
+</google-map>

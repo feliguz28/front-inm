@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Home } from 'src/app/models/home.interface';
 import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { ParametricsService } from 'src/app/services/parametrics.service';
@@ -22,7 +23,10 @@ export class FavoriteComponent implements OnInit {
   category?:string;
   zone?:string;
 
-  constructor(private parametricService:ParametricsService){
+  constructor(
+    private parametricService:ParametricsService,
+    private router: Router
+    ){
 
   }
 
@@ -49,6 +53,10 @@ export class FavoriteComponent implements OnInit {
     this.parametricService.getZone().subscribe(data => {
       this.zone = data?.find(obj => obj.id === this.home?.zoneId)?.name;
     })
+  }
+
+  showDetail(id: any) {
+    this.router.navigate(['/detail', id]);
   }
 
 }

@@ -26,6 +26,8 @@ import { FilterComponent } from './views/components/filter/filter.component';
 import { MenuSecondaryComponent } from './views/components/menu-secondary/menu-secondary.component';
 import { HomePageFilterBasicComponent } from './views/public/pages/home-page-filter-basic/home-page-filter-basic.component';
 import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-
     FilterComponent,
     MenuSecondaryComponent,
     HomePageFilterBasicComponent,
-    HomePageFilterAdvancedComponent
+    HomePageFilterAdvancedComponent,
+    HomeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

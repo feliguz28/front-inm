@@ -18,7 +18,7 @@
       <div class="gallery-container">
         <div class="gallery-images">
           <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
-            <img [src]="home.images[imageIndex].url" alt="Image">
+            <img [src]="'/assets/' + home.images[imageIndex].url" alt="Image">
           </div>
         </div>
       </div>
