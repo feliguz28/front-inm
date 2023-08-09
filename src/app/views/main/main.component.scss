@@ -4,7 +4,7 @@
 }
 
 .container {
-  background-image: url('../../../assets/images/base7.jpg');
+  background-image: url('../../../assets/images/comoda-almohada-sofa.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -42,8 +42,6 @@ header {
 
 .logo img {
   height: 150px;
-  width: 150px;
-  margin-left: 50px;
 }
 
 mat-toolbar {
@@ -62,8 +60,8 @@ mat-toolbar {
 
 .slogan{
   position: absolute;
-  top: 250px;
-  margin-left: 300px;
+  top: 178px;
+  margin-left: 173px;
   display: flex;
   flex-direction: column;
   span {
@@ -122,8 +120,17 @@ mat-toolbar {
 
 .main-content{
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: auto;	
+}
+
+.advertising{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: #15188a;
+  height: 452px;
 }
 
 
