@@ -1,42 +1,43 @@
-<button mat-raised-button color="primary" (click)="crearNuevoInmueble()">Crear Nuevo Inmueble</button>
+<button mat-raised-button color="primary" (click)="createNewHome()">Crear Nuevo Inmueble</button>
 
 <table mat-table [dataSource]="tarjetas">
   <ng-container matColumnDef="nombre">
     <th mat-header-cell *matHeaderCellDef> Nombre </th>
-    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.nombre }} </td>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.name }} </td>
   </ng-container>
 
   <ng-container matColumnDef="zona">
     <th mat-header-cell *matHeaderCellDef> Zona </th>
-    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.zona }} </td>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.zone }} </td>
   </ng-container>
 
   <ng-container matColumnDef="tipoInmueble">
     <th mat-header-cell *matHeaderCellDef> Tipo de Inmueble </th>
-    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.tipoInmueble }} </td>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.typeHome }} </td>
   </ng-container>
 
   <ng-container matColumnDef="precio">
     <th mat-header-cell *matHeaderCellDef> Precio </th>
-    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.precio | currency }} </td>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.price | currency }} </td>
   </ng-container>
 
   <ng-container matColumnDef="categoria">
     <th mat-header-cell *matHeaderCellDef> Categoría </th>
-    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.categoria }} </td>
+    <td mat-cell *matCellDef="let tarjeta"> {{ tarjeta.category }} </td>
   </ng-container>
 
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef> Acciones </th>
     <td mat-cell *matCellDef="let tarjeta">
-      <button mat-icon-button color="primary" (click)="editarTarjeta(tarjeta.id)">
+      <button mat-icon-button color="primary" (click)="editHome(tarjeta.id)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" (click)="eliminarTarjeta(tarjeta)">
+      <button mat-icon-button color="warn" (click)="deleteHome(tarjeta.id)">
         <mat-icon>delete</mat-icon>
       </button>
-      <mat-checkbox [(ngModel)]="tarjeta.home.status" (click)="$event.stopPropagation(); inactivarTarjeta(tarjeta)"></mat-checkbox>
-      <button mat-icon-button (click)="mostrarInformacion(tarjeta)">
+      <mat-checkbox [(ngModel)]="tarjeta.home.status" (click)="$event.stopPropagation(); updateStatus(tarjeta.id)"></mat-checkbox>
+      <mat-checkbox [(ngModel)]="tarjeta.home.favorite" (click)="$event.stopPropagation(); updateFavorite(tarjeta.id)"></mat-checkbox>
+      <button mat-icon-button (click)="showInfo(tarjeta.id)">
         <mat-icon>info</mat-icon>
       </button>
     </td>

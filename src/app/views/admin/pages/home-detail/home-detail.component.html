@@ -1,0 +1,15 @@
+<div class="image-gallery">
+    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('left')">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <div class="gallery-container">
+      <div class="gallery-images">
+        <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
+          <img [src]="home.images[imageIndex].url" alt="Image">
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('right')">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>

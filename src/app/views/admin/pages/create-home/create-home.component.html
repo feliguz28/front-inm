@@ -19,7 +19,8 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Categoría" formControlName="categoryId">
-                                    <mat-option *ngFor="let category of mockCategories" [value]="category.id">{{ category.name }}</mat-option>
+                                    <mat-option *ngFor="let category of Categories" [value]="category.id">{{
+                                        category.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -28,20 +29,22 @@
                         <span class="field-name">Descuento:</span>
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
-                              <input matInput formControlName="discount" type="number" placeholder="Descuento">
-                              <mat-icon class="material-icons" matSuffix>percent</mat-icon>
+                                <input matInput formControlName="discount" type="number" placeholder="Descuento">
+                                <mat-icon class="material-icons" matSuffix>percent</mat-icon>
                             </mat-form-field>
-                            <mat-error class="form-error" *ngIf="homeFormGroup.get('discount')?.invalid && homeFormGroup.get('discount')?.touched">
+                            <mat-error class="form-error"
+                                *ngIf="homeFormGroup.get('discount')?.invalid && homeFormGroup.get('discount')?.touched">
                                 El descuento debe estar entre 0 y 100
                             </mat-error>
-                          </div>
+                        </div>
                     </div>
                     <div class="form-field-wrapper">
                         <span class="field-name">Estado de la vivienda:</span>
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Estado de la vivienda" formControlName="homeStateId">
-                                    <mat-option *ngFor="let HomeState of mockHomeState" [value]="HomeState.id">{{ HomeState.name }}</mat-option>
+                                    <mat-option *ngFor="let HomeState of homeStates" [value]="HomeState.id">{{
+                                        HomeState.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -51,7 +54,8 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Tipo de vivienda" formControlName="homeTypeId">
-                                    <mat-option *ngFor="let HomeType of mockHomeType" [value]="HomeType.id">{{ HomeType.name }}</mat-option>
+                                    <mat-option *ngFor="let HomeType of homeTypes" [value]="HomeType.id">{{
+                                        HomeType.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -70,7 +74,8 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Zona" formControlName="zoneId">
-                                    <mat-option *ngFor="let Zone of mockZone" [value]="Zone.id">{{ Zone.name }}</mat-option>
+                                    <mat-option *ngFor="let Zone of Zones" [value]="Zone.id">{{ Zone.name
+                                        }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -97,7 +102,8 @@
                     </div>
                 </div>
                 <div>
-                    <button mat-raised-button color="primary" matStepperNext [disabled]="homeFormGroup.invalid">Next</button>
+                    <button mat-raised-button color="primary" matStepperNext
+                        [disabled]="homeFormGroup.invalid">Next</button>
                 </div>
             </form>
         </mat-step>
@@ -112,7 +118,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Tipo de vía" formControlName="viaId">
-                                    <mat-option *ngFor="let Via of mockVia" [value]="Via.id">{{ Via.name }}</mat-option>
+                                    <mat-option *ngFor="let Via of Vias" [value]="Via.id">{{ Via.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -145,7 +151,8 @@
                         <span class="field-name">Número de bloque:</span>
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
-                                <input matInput placeholder="Número de bloque" type="number" formControlName="numberBlock">
+                                <input matInput placeholder="Número de bloque" type="number"
+                                    formControlName="numberBlock">
                             </mat-form-field>
                         </div>
                     </div>
@@ -177,14 +184,16 @@
                         <span class="field-name">Identificación de la vivienda:</span>
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
-                                <input matInput placeholder="Identificación de la vivienda" formControlName="identificationHome">
+                                <input matInput placeholder="Identificación de la vivienda"
+                                    formControlName="identificationHome">
                             </mat-form-field>
                         </div>
                     </div>
                 </div>
                 <div>
                     <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" [disabled]="addressFormGroup.invalid" matStepperNext>Next</button>
+                    <button mat-raised-button color="primary" [disabled]="addressFormGroup.invalid"
+                        matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
@@ -226,7 +235,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <input matInput type="number" placeholder="Habitaciones" formControlName="room">
-                                <mat-icon class="material-icons" matSuffix>    meeting_room</mat-icon>
+                                <mat-icon class="material-icons" matSuffix> meeting_room</mat-icon>
                             </mat-form-field>
                         </div>
                     </div>
@@ -242,7 +251,42 @@
                 </div>
                 <div>
                     <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" [disabled]="homeFormGroup.invalid || addressFormGroup.invalid || detailsFormGroup.invalid" (click)="saveForm()">Submit</button>
+                    <button mat-raised-button color="primary"
+                        [disabled]="homeFormGroup.invalid || addressFormGroup.invalid || detailsFormGroup.invalid"
+                        (click)="saveForm()">Submit</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- Paso 4: Agregar imágenes -->
+        <mat-step [stepControl]="imagesFormGroup">
+            <form [formGroup]="imagesFormGroup">
+                <ng-template matStepLabel>Agrega imágenes!</ng-template>
+                <div class="filter-row">
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Agregar imágenes:</span>
+                        <div class="input-wrapper">
+                            <button mat-raised-button color="primary" (click)="fileInput.click()">Agregar
+                                imágenes</button>
+                            <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)"
+                                multiple>
+                        </div>
+                    </div>
+                    <div class="form-field-wrapper">
+                        <span class="field-name">Imágenes cargadas:</span>
+                        <mat-radio-group formControlName="principalImage" (change)="selectPrincipalImage($event.value)">
+                          <mat-radio-button *ngFor="let file of imagesFormGroup.value.files" [value]="file.name">
+                            {{ file.name }}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                        <button mat-raised-button color="warn" (click)="clearImages()">Limpiar Imágenes</button>
+                        <span *ngIf="selectedFilesCount > 0">Archivos seleccionados: {{ selectedFilesCount }}</span>
+                      </div>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" [disabled]="imagesFormGroup.invalid"
+                        (click)="uploadImages()">Subir Imagenes</button>
                 </div>
             </form>
         </mat-step>

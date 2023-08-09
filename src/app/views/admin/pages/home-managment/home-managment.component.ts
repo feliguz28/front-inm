@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 import { Home, PaginateHome } from 'src/app/models/home.interface';
 import { PagerRequest } from 'src/app/models/pager.interface';
 import { HomeService } from 'src/app/services/home.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HomeInfoComponent } from '../../components/home/home-info/home-info.component';
+
 
 interface Tarjeta {
-  nombre: string;
-  zona: string;
-  tipoInmueble: string;
-  precio: number;
-  categoria: string;
+  name: string;
+  zone: any;
+  typeHome: any;
+  price: number;
+  category: any;
   home: Home;
 }
 
@@ -28,7 +31,11 @@ export class HomeManagmentComponent {
   paginateHome!: PaginateHome
   pageSizeOptions: number[] = [5, 10, 20, 50, 100]
 
-  constructor(private router: Router, private homeService: HomeService,) {
+  constructor(
+    private router: Router, 
+    private homeService: HomeService,
+    private dialog: MatDialog
+    ) {
     this.getAllHomes();
   }
 
@@ -51,39 +58,55 @@ export class HomeManagmentComponent {
 
       this.tarjetas = this.paginateHome.items.map(home => ({
         id: home.id,
-        nombre: `Vivienda ${home.name}`,
-        zona: `Zona ${home.zoneId}`,
-        tipoInmueble: `Tipo ${home.homeTypeId}`,
-        precio: home.price,
-        categoria: `Categoría ${home.categoryId}`,
+        name: home.name,
+        zone: home.zoneId,
+        typeHome: home.homeTypeId,
+        price: home.price,
+        category: home.categoryId,
         home: home
       }));
     });
   }
 
-  editarTarjeta(id: any) {
+  openHomeDialog(home: Home) {
+    const dialogRef = this.dialog.open(HomeInfoComponent, {
+      data: home
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      // Lógica después de cerrar el diálogo (si es necesario)
+    });
+  }
+
+  createNewHome() {
+    this.router.navigate(['/dashboard/createHome']);
+  }
+
+  editHome(id: any) {
     this.router.navigate(['/dashboard/editHome', id]);
-    console.log(id);
   }
 
-  eliminarTarjeta(tarjeta: Tarjeta) {
-    // Lógica para eliminar la tarjeta
-    console.log('Eliminar tarjeta:', tarjeta.home);
+  deleteHome(id: string) {
+    this.homeService.deleteHome(id).subscribe(data=>{
+    })
+    this.getAllHomes();
   }
 
-  inactivarTarjeta(tarjeta: Tarjeta) {
-    // Lógica para inactivar/activar la tarjeta
-    tarjeta.home.status = !tarjeta.home.status;
-    console.log('Inactivar tarjeta:', tarjeta.home);
+  updateStatus(id: string) {
+    this.homeService.editHomeStatus(id).subscribe(data => {
+      this.getAllHomes();
+    })
   }
 
-  mostrarInformacion(tarjeta: Tarjeta) {
-    // Lógica para mostrar más información de la tarjeta
-    console.log('Mostrar información de la tarjeta:', tarjeta.home);
+  updateFavorite(id: string) {
+    this.homeService.editHomeFavorite(id).subscribe(data => {
+      this.getAllHomes();
+    })
   }
 
-  crearNuevoInmueble() {
-    // Lógica para crear un nuevo inmueble
-    console.log('Crear nuevo inmueble');
+  showInfo(id: string) {
+    this.homeService.getHomeById(id).subscribe(home => {
+      this.openHomeDialog(home);
+    });
   }
 }

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Home, HomeCreate } from 'src/app/models/home.interface';
+import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { HomeService } from 'src/app/services/home.service';
+import { ParametricsService } from 'src/app/services/parametrics.service';
 
 @Component({
   selector: 'app-edit-home',
@@ -14,9 +16,20 @@ export class EditHomeComponent {
   addressFormGroup: FormGroup;
   detailsFormGroup: FormGroup;
   idHomeEdit!: string;
-  home! :Home;
+  home!: Home;
+  homeStates!: ArrayParametric;
+  homeTypes!: ArrayParametric;
+  Vias!: ArrayParametric;
+  Zones!: ArrayParametric;
+  Categories!: ArrayParametric;
 
-  constructor(private homeService:HomeService, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(
+    private homeService: HomeService,
+    private parametricService: ParametricsService,    
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.homeFormGroup = this.formBuilder.group({
       categoryId: [null, Validators.required],
       description: ['', Validators.required],
@@ -55,52 +68,12 @@ export class EditHomeComponent {
     this.route.paramMap.subscribe(params => {
       this.idHomeEdit = params.get('id') || '';
     });
+    this.getParametricData();
     this.getHomeById();
   }
 
-  //Mocks 
-  mockZone: { id: number; name: string }[] = [
-    { id: 1, name: 'Chapinero' },
-    { id: 2, name: 'Cedritos' },
-    { id: 3, name: 'Colina' },
-    { id: 4, name: 'Felicidad' },
-    { id: 5, name: 'Suba' },
-    { id: 6, name: 'Zona 80' }
-  ];
-  mockHomeType: { id: number; name: string }[] = [
-    { id: 1, name: 'Apartamento' },
-    { id: 2, name: 'Apartaestudio' },
-    { id: 3, name: 'Bodega' },
-    { id: 4, name: 'Consultorio' },
-    { id: 5, name: 'Casa' },
-    { id: 6, name: 'Local' },
-    { id: 7, name: 'Oficina' }
-  ];
-  mockHomeState: { id: number; name: string }[] = [
-    { id: 1, name: 'Amoblado' },
-    { id: 2, name: 'Nuevo' },
-    { id: 3, name: 'Remodelado' },
-    { id: 4, name: 'Sin amoblar' }
-  ];
-  mockVia: { id: number; name: string }[] = [
-    { id: 1, name: 'Calle' },
-    { id: 2, name: 'Carrera' },
-    { id: 3, name: 'Diagonal' },
-    { id: 4, name: 'Transversal' }
-  ];
-  mockHomeTypeAddresses: { id: number; name: string }[] = [
-    { id: 1, name: 'Casa' },
-    { id: 2, name: 'Piso' },
-    { id: 3, name: 'Apartamento' },
-    { id: 4, name: 'Bloque' }
-  ];
-  mockCategories: { id: number; name: string }[] = [
-    { id: 1, name: 'Venta' },
-    { id: 2, name: 'Arriendo' }
-  ];
-
-  getHomeById(){
-    this.homeService.getHomeById(this.idHomeEdit).subscribe(data=>{
+  getHomeById() {
+    this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
       this.patchFormValues();
     })
@@ -144,7 +117,8 @@ export class EditHomeComponent {
   // Método para guardar el formulario
   saveForm() {
     if (this.homeFormGroup.valid && this.addressFormGroup.valid && this.detailsFormGroup.valid) {
-      const homeCreate: HomeCreate = {
+      const homeCreate: Home = {
+        id: this.home.id,
         categoryId: this.homeFormGroup.value.categoryId,
         description: this.homeFormGroup.value.description,
         discount: this.homeFormGroup.value.discount,
@@ -155,7 +129,9 @@ export class EditHomeComponent {
         status: this.homeFormGroup.value.status,
         zoneId: this.homeFormGroup.value.zoneId,
         favorite: this.homeFormGroup.value.destacado,
+        images: [],
         address: {
+          id: this.home.address.id,
           identificationHome: this.addressFormGroup.value.identificationHome,
           letterBlock: this.addressFormGroup.value.letterBlock,
           letterVia: this.addressFormGroup.value.letterVia,
@@ -167,6 +143,7 @@ export class EditHomeComponent {
           viaId: this.addressFormGroup.value.viaId,
         },
         detail: {
+          id: this.home.detail.id,
           bathRoom: this.detailsFormGroup.value.bathRoom,
           measures: this.detailsFormGroup.value.measures,
           parking: this.detailsFormGroup.value.parking,
@@ -174,7 +151,27 @@ export class EditHomeComponent {
           stratum: this.detailsFormGroup.value.stratum,
         }
       };
-
+      this.homeService.editHome(homeCreate).subscribe(data => {
+        this.router.navigate(['/dashboard/homeManagment']);
+      })
     }
+  }
+
+  getParametricData() {
+    this.parametricService.getCategories().subscribe(data => {
+      this.Categories = data;
+    })
+    this.parametricService.getHomeStates().subscribe(data => {
+      this.homeStates = data;
+    })
+    this.parametricService.getHomeTypes().subscribe(data => {
+      this.homeTypes = data;
+    })
+    this.parametricService.getVia().subscribe(data => {
+      this.Vias = data;
+    })
+    this.parametricService.getZone().subscribe(data => {
+      this.Zones = data;
+    })
   }
 }

@@ -3,7 +3,7 @@
     <mat-vertical-stepper>
         <!-- Paso 1 -->
         <mat-step [stepControl]="homeFormGroup" [completed]="homeFormGroup.valid">
-            <form [formGroup]="homeFormGroup" (ngSubmit)="saveForm()">
+            <form [formGroup]="homeFormGroup">
                 <ng-template matStepLabel>Edita tu inmueble!</ng-template>
                 <div class="filter-row">
                     <div class="form-field-wrapper-large">
@@ -19,7 +19,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Categoría" formControlName="categoryId">
-                                    <mat-option *ngFor="let category of mockCategories" [value]="category.id">{{ category.name }}</mat-option>
+                                    <mat-option *ngFor="let category of Categories" [value]="category.id">{{ category.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Estado de la vivienda" formControlName="homeStateId">
-                                    <mat-option *ngFor="let HomeState of mockHomeState" [value]="HomeState.id">{{ HomeState.name }}</mat-option>
+                                    <mat-option *ngFor="let HomeState of homeStates" [value]="HomeState.id">{{ HomeState.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -51,7 +51,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Tipo de vivienda" formControlName="homeTypeId">
-                                    <mat-option *ngFor="let HomeType of mockHomeType" [value]="HomeType.id">{{ HomeType.name }}</mat-option>
+                                    <mat-option *ngFor="let HomeType of homeTypes" [value]="HomeType.id">{{ HomeType.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -70,7 +70,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Zona" formControlName="zoneId">
-                                    <mat-option *ngFor="let Zone of mockZone" [value]="Zone.id">{{ Zone.name }}</mat-option>
+                                    <mat-option *ngFor="let Zone of Zones" [value]="Zone.id">{{ Zone.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="input-wrapper">
                             <mat-form-field appearance="outline">
                                 <mat-select placeholder="Tipo de vía" formControlName="viaId">
-                                    <mat-option *ngFor="let Via of mockVia" [value]="Via.id">{{ Via.name }}</mat-option>
+                                    <mat-option *ngFor="let Via of Vias" [value]="Via.id">{{ Via.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>

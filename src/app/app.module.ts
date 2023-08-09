@@ -16,6 +16,19 @@ import { LoginComponent } from './views/admin/components/login/login.component';
 import { LoginPageComponent } from './views/admin/pages/login-page/login-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeInfoComponent } from './views/admin/components/home/home-info/home-info.component';
+import { HomeFavoritesComponent } from './views/components/home-favorites/home-favorites.component';
+import { HomeFilterBasicComponent } from './views/components/home-filter-basic/home-filter-basic.component';
+import { HomeAllComponent } from './views/components/home-all/home-all.component';
+import { FavoriteComponent } from './views/components/home-favorites/favorite/favorite.component';
+import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
+import { FilterComponent } from './views/components/filter/filter.component';
+import { MenuSecondaryComponent } from './views/components/menu-secondary/menu-secondary.component';
+import { HomePageFilterBasicComponent } from './views/public/pages/home-page-filter-basic/home-page-filter-basic.component';
+import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +40,18 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     EditHomeComponent,
     CreateHomeComponent,
-    HomeManagmentComponent
+    HomeManagmentComponent,
+    HomeInfoComponent,
+    HomeFavoritesComponent,
+    HomeFilterBasicComponent,
+    HomeAllComponent,
+    FavoriteComponent,
+    ContentTestsComponentsComponent,
+    FilterComponent,
+    MenuSecondaryComponent,
+    HomePageFilterBasicComponent,
+    HomePageFilterAdvancedComponent,
+    HomeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

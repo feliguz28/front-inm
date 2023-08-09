@@ -1,0 +1,17 @@
+<div class="content-principal-favorites">
+
+    <p class="favorites-text">Destacados</p>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="content-items">
+        <div *ngFor="let home of paginateHome.items">
+            <bs-favorite [home]="home"></bs-favorite>
+        </div>
+    </div>
+
+    <div class="paginator">
+        <mat-paginator class="paginator-component" #paginatorReports [length]="length" [pageSize]="pageSize" (page)="pageEvent($event)"
+            [pageSizeOptions]="pageSizeOptions">
+        </mat-paginator>
+    </div>
+
+</div>
