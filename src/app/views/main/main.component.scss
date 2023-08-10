@@ -22,31 +22,32 @@ header {
   position: fixed;
   top: 50px;
   left: 0;
-  border-bottom: 8px solid #FF0082; 
-
+  border-bottom: 3px solid #FF0082; 
+  
   a{
     font-size: 25px;
     font-weight: bold;
-    color: #FF0082;
+    color: #141595;
     height: 60px;
     display: flex;
     align-items: center;
     padding: 10px;
+    text-decoration: none;
   }
   a:hover{
-    background-color: #FF0082;
+    background-color: #ffffff;
     opacity: 0.85;
-    color: #FFFFFF; 
+    color: #141595;
   }
 }
 
 .logo img {
   height: 150px;
+  margin-top: 11px;
 }
 
 mat-toolbar {
   display: flex;
-  justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   height: 80px;
@@ -131,6 +132,14 @@ mat-toolbar {
   gap: 10px;
   background-color: #15188a;
   height: 452px;
+}
+
+.menu-options{
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
 }
 
 
