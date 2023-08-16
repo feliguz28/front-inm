@@ -1,0 +1,31 @@
+.contetn-home-services{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: aqua;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    width: 440px;
+  }
+
+  .grid-item img {
+    width: 183px;
+    height: 183px;
+    border-radius: 50%;
+  }
