@@ -28,6 +28,10 @@ import { HomePageFilterBasicComponent } from './views/public/pages/home-page-fil
 import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
+import { NosotrosComponent } from './views/public/pages/nosotros/nosotros.component';
+import { HomesServicesComponent } from './views/public/pages/homes-services/homes-services.component';
+import { ContactComponent } from './views/public/pages/contact/contact.component';
+import { FooterComponent } from './views/components/footer/footer.component';
 
 
 @NgModule({
@@ -51,7 +55,11 @@ import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail
     MenuSecondaryComponent,
     HomePageFilterBasicComponent,
     HomePageFilterAdvancedComponent,
-    HomeDetailComponent
+    HomeDetailComponent,
+    NosotrosComponent,
+    HomesServicesComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

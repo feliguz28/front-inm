@@ -10,10 +10,14 @@ import { LoginPageComponent } from './views/admin/pages/login-page/login-page.co
 import { ContentTestsComponentsComponent } from './views/content-tests-components/content-tests-components.component';
 import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
 import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
+import { NosotrosComponent } from './views/public/pages/nosotros/nosotros.component';
+import { HomesServicesComponent } from './views/public/pages/homes-services/homes-services.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
+  {path:'nosotros', component:NosotrosComponent},
+  {path:'servicios-inmobiliarios', component:HomesServicesComponent},
   {path:'login', component:LoginPageComponent},
   {path:'tests', component:ContentTestsComponentsComponent},
   {path:'avanzado', component:HomePageFilterAdvancedComponent},
