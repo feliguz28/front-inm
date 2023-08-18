@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 130vh;
     margin: 0;
 }
 
@@ -35,4 +35,8 @@
   .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0 30px 34px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-more{
+    margin-top: 20px;
   }
