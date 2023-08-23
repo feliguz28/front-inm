@@ -32,6 +32,11 @@ import { NosotrosComponent } from './views/public/pages/nosotros/nosotros.compon
 import { HomesServicesComponent } from './views/public/pages/homes-services/homes-services.component';
 import { ContactComponent } from './views/public/pages/contact/contact.component';
 import { FooterComponent } from './views/components/footer/footer.component';
+import { DialogServicesComponent } from './views/components/dialog-services/dialog-services.component';
+import { AppraisalsComponent } from './views/components/dialog-services/components/appraisals/appraisals.component';
+import { SalesAndLeaseComponent } from './views/components/dialog-services/components/sales-and-lease/sales-and-lease.component';
+import { ProjectsComponent } from './views/components/dialog-services/components/projects/projects.component';
+import { JuridicalConsultingComponent } from './views/components/dialog-services/components/juridical-consulting/juridical-consulting.component';
 
 
 @NgModule({
@@ -59,7 +64,12 @@ import { FooterComponent } from './views/components/footer/footer.component';
     NosotrosComponent,
     HomesServicesComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    DialogServicesComponent,
+    AppraisalsComponent,
+    SalesAndLeaseComponent,
+    ProjectsComponent,
+    JuridicalConsultingComponent
   ],
   imports: [
     BrowserModule,
