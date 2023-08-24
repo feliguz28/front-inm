@@ -12,12 +12,20 @@ import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-
 import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
 import { NosotrosComponent } from './views/public/pages/nosotros/nosotros.component';
 import { HomesServicesComponent } from './views/public/pages/homes-services/homes-services.component';
+import { AppraisalsComponent } from './views/public/pages/homes-services/sub-pages/appraisals/appraisals.component';
+import { SalesAndLeaseComponent } from './views/public/pages/homes-services/sub-pages/sales-and-lease/sales-and-lease.component';
+import { ProjectsComponent } from './views/public/pages/homes-services/sub-pages/projects/projects.component';
+import { JuridicalConsultingComponent } from './views/public/pages/homes-services/sub-pages/juridical-consulting/juridical-consulting.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
   {path:'main', component:MainComponent},
   {path:'nosotros', component:NosotrosComponent},
   {path:'servicios-inmobiliarios', component:HomesServicesComponent},
+  {path:'avaluos', component:AppraisalsComponent},
+  {path:'ventasyarriendos', component:SalesAndLeaseComponent},
+  {path:'gerencia-y-venta-de-proyectos', component:ProjectsComponent},
+  {path:'consultoria-juridica', component:JuridicalConsultingComponent},
   {path:'login', component:LoginPageComponent},
   {path:'tests', component:ContentTestsComponentsComponent},
   {path:'avanzado', component:HomePageFilterAdvancedComponent},
