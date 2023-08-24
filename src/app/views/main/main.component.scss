@@ -3,6 +3,11 @@
   background-color: #f7f7f7;
 }
 
+
+  .main-two{
+    display: flex;
+  }
+
 .container {
   background-image: url('../../../assets/images/comoda-almohada-sofa.jpg');
   background-size: cover;
@@ -162,4 +167,12 @@ mat-toolbar {
 }
 
 
+.background-image {
+  background-image: url('../../../assets/images/Bluesmart.png');
+  background-size: contain; /* Puedes probar con "cover" o "100% 100%" */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 70vh;
 
+}
