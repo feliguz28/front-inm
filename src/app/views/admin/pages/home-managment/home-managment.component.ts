@@ -5,6 +5,7 @@ import { PagerRequest } from 'src/app/models/pager.interface';
 import { HomeService } from 'src/app/services/home.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HomeInfoComponent } from '../../components/home/home-info/home-info.component';
+import { HomeDetailComponent } from '../home-detail/home-detail.component';
 
 
 interface Tarjeta {
@@ -69,13 +70,7 @@ export class HomeManagmentComponent {
   }
 
   openHomeDialog(home: Home) {
-    const dialogRef = this.dialog.open(HomeInfoComponent, {
-      data: home
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      // Lógica después de cerrar el diálogo (si es necesario)
-    });
+    this.router.navigate(['/detail', home.id]);
   }
 
   createNewHome() {
