@@ -28,8 +28,14 @@ import { HomePageFilterBasicComponent } from './views/public/pages/home-page-fil
 import { HomePageFilterAdvancedComponent } from './views/public/pages/home-page-filter-advanced/home-page-filter-advanced.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail.component';
-
-
+import { NosotrosComponent } from './views/public/pages/nosotros/nosotros.component';
+import { HomesServicesComponent } from './views/public/pages/homes-services/homes-services.component';
+import { ContactComponent } from './views/public/pages/contact/contact.component';
+import { FooterComponent } from './views/components/footer/footer.component';
+import { AppraisalsComponent } from './views/public/pages/homes-services/sub-pages/appraisals/appraisals.component';
+import { SalesAndLeaseComponent } from './views/public/pages/homes-services/sub-pages/sales-and-lease/sales-and-lease.component';
+import { ProjectsComponent } from './views/public/pages/homes-services/sub-pages/projects/projects.component';
+import { JuridicalConsultingComponent } from './views/public/pages/homes-services/sub-pages/juridical-consulting/juridical-consulting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +57,15 @@ import { HomeDetailComponent } from './views/admin/pages/home-detail/home-detail
     MenuSecondaryComponent,
     HomePageFilterBasicComponent,
     HomePageFilterAdvancedComponent,
-    HomeDetailComponent
+    HomeDetailComponent,
+    NosotrosComponent,
+    HomesServicesComponent,
+    ContactComponent,
+    FooterComponent,
+    AppraisalsComponent,
+    SalesAndLeaseComponent,
+    ProjectsComponent,
+    JuridicalConsultingComponent
   ],
   imports: [
     BrowserModule,

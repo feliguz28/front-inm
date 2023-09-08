@@ -1,15 +1,122 @@
-<div class="image-gallery">
-    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('left')">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <div class="gallery-container">
-      <div class="gallery-images">
-        <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
-          <img [src]="home.images[imageIndex].url" alt="Image">
+<bs-menu-secondary></bs-menu-secondary>
+<div class="main">
+  <div class="home-detail-container">
+    <div class="left">
+      <div class="header">
+        <div class="name">
+          <h1>{{ home?.name }}</h1>
+        </div>
+        <div class="price">
+          <span class="labels">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="local_offer"></mat-icon>
+            {{ getCategoryLabel() }}
+          </span>
+          <h2>{{ home?.price | currency:'USD':'symbol' }}</h2>
+        </div>
+      </div>
+      <div class="card">
+        <div *ngIf="largeImageIndex !== null" class="large-image">
+          <img [src]="home.images[largeImageIndex].url" alt="Large Image">
+        </div>
+        <div class="image-gallery">
+          <button mat-icon-button class="gallery-nav" (click)="scrollGallery('left')">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <div class="gallery-container">
+            <div class="gallery-images">
+              <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
+                <img [src]="home.images[imageIndex].url" alt="Image" (click)="showLargeImage(imageIndex)">
+              </div>
+            </div>
+          </div>
+          <button mat-icon-button class="gallery-nav" (click)="scrollGallery('right')">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="description">
+        <h1>Descripción</h1>
+        <h3>{{ home?.description }}</h3>
+      </div>
+      <div class="detail">
+        <div class="details">
+          <h1>Detalles</h1>
+          <div class="detail-row">
+            <div class="detail-item">
+              <mat-icon class="detail-icon">bathtub</mat-icon>
+              <span class="detail-label">Baños:</span>
+              <span class="detail-value">{{ home?.detail?.bathRoom }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="detail-icon">pivot_table_chart</mat-icon>
+              <span class="detail-label">Área (m²):</span>
+              <span class="detail-value">{{ home?.detail?.measures }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="detail-icon">meeting_room</mat-icon>
+              <span class="detail-label">Habitaciones:</span>
+              <span class="detail-value">{{ home?.detail?.room }}</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-item">
+              <mat-icon class="detail-icon">house</mat-icon>
+              <span class="detail-label">Estrato:</span>
+              <span class="detail-value">{{ home?.detail?.stratum }}</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="detail-icon">real_estate_agent</mat-icon>
+              <span class="detail-label">Estado:</span>
+              <span class="detail-value">Amoblado</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="detail-icon">garage_home</mat-icon>
+              <span class="detail-label">Parqueadero:</span>
+              <span class="detail-value">{{ home?.detail?.parking }}</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-item">
+              <mat-icon class="detail-icon">pin_drop</mat-icon>
+              <span class="detail-label">Zona:</span>
+              <span class="detail-value">Chapinero</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon class="detail-icon">gite</mat-icon>
+              <span class="detail-label">Tipo:</span>
+              <span class="detail-value">Casa</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <button mat-icon-button class="gallery-nav" (click)="scrollGallery('right')">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+    <div class="right">
+      <div class="contacto">
+        <h1>Contactanos</h1>
+        <img src="../../../../../assets/images/agents/agente3.jpg" alt="">
+        <div class="info-contacto">
+          <mat-icon class="contacto-icon">pin_drop</mat-icon>
+          <span class="contacto-label">Zona:</span>
+          <span class="contacto-label">Chapinero</span>
+        </div>
+        <div class="info-contacto">
+          <mat-icon class="contacto-icon">call</mat-icon>
+          <span class="contacto-label">Contacto:</span>
+          <span class="contacto-label">(+57) 3153450213</span>
+        </div>
+        <div class="info-contacto">
+          <mat-icon class="contacto-icon">mail</mat-icon>
+          <span class="contacto-label">Correo:</span>
+          <span class="contacto-label">Correo@Correo.com</span>
+        </div>
+        <div class="wsp">
+          <a [href]="uriWSapp" target="_blank">
+            <img src="../../../../../assets/images/wsp.png" alt="">
+          </a>
+          <img src="../../../../../assets/images/QR.png" alt="">
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<bs-footer></bs-footer>

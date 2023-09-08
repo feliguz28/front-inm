@@ -1,21 +1,6 @@
 <div class="main">
   <div class="container">
-    <header>
-      <mat-toolbar class="extended-toolbar">
-        <div class="logo">
-          <img class="img-logo-uri" src="../../../assets/images/logonew.png" alt="Logo de la inmobiliaria" [routerLink]="['/login']">
-        </div>
-        <div class="menu-options">
-          <a>Inicio</a>
-          <a [routerLink]="['/avanzado', 'venta']">Venta</a>
-          <a [routerLink]="['/avanzado', 'arriendo']">Arriendo</a>
-          <a>Blog</a>
-          <a>Avalúos</a>
-          <a>Escríbenos</a>
-        </div>
-
-      </mat-toolbar>
-    </header>
+    <bs-menu-secondary></bs-menu-secondary>
     <h1 class="slogan">
       <span style="color: #141595;">SU MEJOR</span>
       <span style="color: #ecd418;">OPCION </span>
@@ -86,13 +71,14 @@
       </form>
     </div>
     <div class="main-content">
-      <bs-home-favorites></bs-home-favorites>
+   <div class="main-two">
+    <section></section>
+    <bs-home-favorites></bs-home-favorites>
+   </div>
       
-      <section class="advertising">
-        <img src="../../../assets/images/publicidad.jpeg">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZUjef0tqS_g?autoplay=1&loop=1&playlist=ZUjef0tqS_g" frameborder="0" allowfullscreen></iframe>
-      </section>
-      
+   <div class="background-image"></div>
     </div>
   </div>
 </div>
+
+<bs-footer> </bs-footer>

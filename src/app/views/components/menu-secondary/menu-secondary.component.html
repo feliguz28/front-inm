@@ -1,15 +1,19 @@
-<div class="container">
-    <header>
-        <mat-toolbar class="extended-toolbar">
-            <div class="options-menu">
-                <a>Inicio</a>
-                <a>Venta</a>
-                <a>Arriendo</a>
-                <a>Blog</a>
-                <a>Avalúos</a>
-                <a>Escríbenos</a>
-            </div>
+<header>
+    <mat-toolbar class="extended-toolbar">
+      <div class="logo">
+        <div class="image-container">
+        <img class="img-logo-uri" src="../../../assets/images/logonew.png" alt="Logo de la inmobiliaria" [routerLink]="['/login']">
+      </div>
+      </div>
+      <div class="menu-options">
+        <a [routerLink]="['/']">Inicio</a>
+        <a [routerLink]="['/avanzado', 'venta']">Venta</a>
+        <a [routerLink]="['/avanzado', 'arriendo']">Arriendo</a>
+        <a [routerLink]="['/nosotros']">Nosotros</a>
+        <a [routerLink]="['/servicios-inmobiliarios']">Servicios</a>
+        <a>Contáctenos</a>
+      </div>
 
-        </mat-toolbar>
-    </header>
-</div>
+    </mat-toolbar>
+  </header>
+ 

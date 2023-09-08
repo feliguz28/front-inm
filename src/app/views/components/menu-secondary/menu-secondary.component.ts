@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'bs-menu-secondary',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-secondary.component.scss']
 })
 export class MenuSecondaryComponent {
+ 
 
 }

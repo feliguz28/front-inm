@@ -1,0 +1,250 @@
+.main {
+    background-color: #F5F7FB;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home-detail-container {
+    margin-top: 83px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left {
+
+}
+
+.right {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacto{
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 1px rgba(71, 85, 95, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    border-bottom: 4px solid #f7db0c;
+}
+
+.contacto h1{
+    color: #141495d2;
+}
+
+.contacto img{
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+}
+
+.info-contacto{
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 80%;
+    margin-left: 60px;
+}
+
+.contacto-icon{
+    color: #FF385C;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.contacto-label{
+    color: #FF385C;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.wsp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.wsp img{
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.header {
+    width: 730px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 1px rgba(71, 85, 95, 0.08);
+    border-bottom: 4px solid #f7db0c;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    max-width: 460px;
+}
+
+.name h1 {
+    color: #141495d2;
+}
+
+.labels {
+    color: #FFFFFF;
+    background-color: #FF385C;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    width: 100px;
+    max-height: 30px;
+    margin-left: 25px;
+    margin-top: 16px;
+}
+
+.labels mat-icon {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+}
+
+.price h2 {
+    color: #FF385C;
+}
+
+.card {
+    margin-top: 30px;
+    background-color: #FFFFFF;
+    width: 730px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 0 0 10px 1px rgba(71, 85, 95, 0.08);
+    border-bottom: 4px solid #f7db0c;
+}
+
+.large-image {
+    img {
+        margin-top: 20px;
+        width: 560px;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+.image-gallery {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 600px;
+}
+
+.gallery-container {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    width: 360px;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 450px;
+}
+
+.gallery-images img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.gallery-nav {
+    margin: 0 5px;
+    color: #f7db0c;
+    background-color: #141495d2;
+}
+
+.description {
+    margin-top: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 1px rgba(71, 85, 95, 0.08);
+    border-bottom: 4px solid #f7db0c;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 730px;
+    display: flex;
+    flex-direction: column;
+}
+
+.description h1 {
+    color: #141495d2;
+}
+
+.details {
+    margin-top: 30px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 1px rgba(71, 85, 95, 0.08);
+    border-bottom: 4px solid #f7db0c;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 730px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail h1 {
+    color: #141495d2;
+}
+
+.detail-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: calc(30% - 10px);
+    margin-bottom: 20px;
+}
+
+.detail-icon {
+    color: #f7db0c;
+}
+
+.detail-label {
+    color: #141495d2;
+    font-weight: bold;
+}
+
+.detail-value {
+    color: #FF385C;
+    font-weight: bold;
+}

@@ -1,0 +1,40 @@
+
+<div class="content-appraisals">
+  <button  [routerLink]="['/servicios-inmobiliarios']" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <div class="description-appraisals">
+    <h2>Avalúos</h2>
+    <p>
+        BLUE SMART INMOBILIARIA con una trayectoria de 10 años en el mercado y con una experiencia
+        de sus directivos de más 40 años, está capacitada para realizar Avalúo de
+        Casas – Apartamentos – Bodegas – Edificios – Locales – Parqueaderos – Oficinas – Casa lotes – Lotes urbanos y rurales,
+        todos los activos es muy importante para conocer el valor actual y real de su patrimonio.
+        En un momento determinado es conveniente realizarlo para definir una transacción comercial
+        de venta, arriendo, de actualizaciones contables y para otorgamiento de garantías hipotecarías,
+        además de reclamaciones de impuestos prediales y de valorización.
+        Existen diferentes clases de avalúos; de inmuebles maquinaria y
+        equipo – de renta – intangibles – muebles y enseres – “Good Will”.
+    </p>
+  </div>
+  
+  <mat-divider></mat-divider>
+  <div class="text-container-appraisals">
+      <h3>Los métodos aplicados en el avalúo son:</h3>
+      <ul>
+          <li *ngFor="let text of currentTexts; let i = index" class="typing-text">
+            {{ text }}
+          </li>
+        </ul>
+        <div class="more-description">
+          <img width="400" src="https://www.ciencuadras.com/blog/wp-content/uploads/2021/10/Avaluo-de-un-inmueble-compressed.jpg">
+          <p>
+              Los Avalúos realizados se hacen con la mayor objetividad e imparcialidad, para encontrar el valor real de propiedad como respaldo a cualquier transacción.
+  En la valoración de empresas nuestros expertos se ajustan a las normas de las nuevas exigencias en materia de contabilidad financiera y de acuerdo con estos parámetros aplican los criterios que conducen a valorar los activos conforme a las mejores prácticas a nivel internacional, como lo establecen los estándares relacionados con el “valor justo o razonable”. Estos criterios de valorización tienen que cumplirse de forma estricta por exigencias de tipo legal y esto a la vez es una garantía de que los aspectos financieros en las empresas están ajustados a la realidad y cualquier decisión de tipo económico se tome en la mayor objetividad y seguridad.
+          </p>  
+      </div>
+    </div>
+</div>
+
+
+  <bs-footer> </bs-footer>

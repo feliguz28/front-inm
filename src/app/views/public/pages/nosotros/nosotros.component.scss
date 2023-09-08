@@ -1,0 +1,103 @@
+.section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1.5s ease-out;
+    transform: translateX(-100%);
+  }
+
+  .section.active {
+    transform: translateX(0);
+  }
+
+  .column {
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.column p{
+    font-size: xx-large;
+  }
+
+  .alianza p{
+    font-size: 20px;
+  }
+
+  .column h1{
+    font-size: unset;
+  }
+
+  .column img{
+    width: 100%;
+  }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media screen and (max-width: 768px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .section-mision{
+   background-color: #ffffff;
+  }
+
+  .section-vision{
+    background-color: #f3f3f3;
+  }
+
+  .section-alianza{
+    background-color: #ffffff;
+  }
+
+  .alianza-img img{
+    width: 70%;
+  }
+
+
+  .typing-effect {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.typed-text {
+  font-size: 24px;
+  overflow: hidden; /* Para ocultar el texto mientras se escribe */
+  border-right: 0.15em solid #000; /* Efecto cursor al final del texto */
+  white-space: nowrap; /* Evita el salto de línea */
+  margin: 0 auto;
+}
+
+.section {
+  /* Tus estilos existentes para .section */
+  position: relative;
+  overflow: hidden; /* Para ocultar el contenido del pseudo-elemento */
+}
+
+.section:before {
+  content: "";
+  position: absolute;
+  bottom: -20px; /* Ajusta esta distancia según tus preferencias */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #000; /* Cambia el color de fondo según tu diseño */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+}
+  
