@@ -16,7 +16,7 @@
       </div>
       <div class="card">
         <div *ngIf="largeImageIndex !== null" class="large-image">
-          <img [src]="mockImageUrls[largeImageIndex]" alt="Large Image">
+          <img [src]="home.images[largeImageIndex].url" alt="Large Image">
         </div>
         <div class="image-gallery">
           <button mat-icon-button class="gallery-nav" (click)="scrollGallery('left')">
@@ -25,7 +25,7 @@
           <div class="gallery-container">
             <div class="gallery-images">
               <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
-                <img [src]="mockImageUrls[imageIndex]" alt="Image" (click)="showLargeImage(imageIndex)">
+                <img [src]="home.images[imageIndex].url" alt="Image" (click)="showLargeImage(imageIndex)">
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@
           <span class="contacto-label">Correo@Correo.com</span>
         </div>
         <div class="wsp">
-          <a href="https://wa.link/x3come" target="_blank">
+          <a [href]="uriWSapp" target="_blank">
             <img src="../../../../../assets/images/wsp.png" alt="">
           </a>
           <img src="../../../../../assets/images/QR.png" alt="">

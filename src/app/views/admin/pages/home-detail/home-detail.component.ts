@@ -4,6 +4,7 @@ import { Home } from 'src/app/models/home.interface';
 import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { HomeService } from 'src/app/services/home.service';
 import { ParametricsService } from 'src/app/services/parametrics.service';
+import { auxText } from 'src/app/shared/const/auxTexts';
 
 @Component({
   selector: 'app-home-detail',
@@ -25,22 +26,17 @@ export class HomeDetailComponent {
   largeImageIndex: number | null = 0;
   visibleImages: string[] = [];
   startIndex = 0;
-
-  mockImageUrls: string[] = [
-    'https://www.bbva.com/wp-content/uploads/2021/04/casas-ecolo%CC%81gicas_apertura-hogar-sostenibilidad-certificado-.jpg',
-    'https://fincaraiz.com.co/blog/wp-content/uploads/2022/08/casas-modernas-1-1920x1130.jpg',
-    'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FzYSUyMG1vZGVybmF8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
-    'https://www.construyehogar.com/wp-content/uploads/2014/08/Dise%C3%B1o-de-casa-moderna-de-una-planta.jpg',
-    'https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp6S5ZyQUeeU0QEne2uCvkZC4NL5hK9adDaw&usqp=CAU'
-  ];
+  public uriHome?:string;
+  public uriWSapp?:string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private homeService: HomeService,
     private parametricService: ParametricsService,    
-  ){}
+  ){
+
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -49,6 +45,9 @@ export class HomeDetailComponent {
     this.getParametricData();
     this.getHomeById();
     this.updateVisibleImages();
+
+    this.uriHome = window.location.origin + this.router.url;
+    this.uriWSapp = `https://api.whatsapp.com/send?phone=3143435453&text=${auxText.messageWSapp} ${this.uriHome}`
   }
 
   getHomeById() {
@@ -59,7 +58,7 @@ export class HomeDetailComponent {
   }
 
   scrollGallery(direction: string): void {
-    const numImages = this.mockImageUrls.length;
+    const numImages = this.home.images.length;
 
     if (direction === 'left') {
       this.currentIndex = (this.currentIndex - 1 + numImages) % numImages;
@@ -72,7 +71,7 @@ export class HomeDetailComponent {
   }
 
   getVisibleIndices(): number[] {
-    const numImages = this.mockImageUrls.length;
+    const numImages = this.home.images.length;
     const visibleIndices = [];
 
     for (let i = 0; i < this.imagesPerSection; i++) {
@@ -91,8 +90,8 @@ export class HomeDetailComponent {
     this.visibleImages = [];
 
     for (let i = 0; i < this.imagesPerSection; i++) {
-      const index = (this.startIndex + i) % this.mockImageUrls.length;
-      this.visibleImages.push(this.mockImageUrls[index]);
+      const index = (this.startIndex + i) % this.home.images.length;
+      this.visibleImages.push(this.home.images[index].url);
     }
   }
 
