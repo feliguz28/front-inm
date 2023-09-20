@@ -13,7 +13,7 @@ import { auxText } from 'src/app/shared/const/auxTexts';
 })
 export class HomeDetailComponent {
 
-  idHomeEdit!: string;
+  idHomeEdit?: any;
   home!: Home;
   homeStates!: ArrayParametric;
   homeTypes!: ArrayParametric;
@@ -28,6 +28,7 @@ export class HomeDetailComponent {
   startIndex = 0;
   public uriHome?:string;
   public uriWSapp?:string;
+  public zone?:string;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,13 +40,13 @@ export class HomeDetailComponent {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.idHomeEdit = params.get('id') || '';
+    this.route.params.subscribe(params => {
+      this.idHomeEdit = params['id'];
     });
-    this.getParametricData();
     this.getHomeById();
+    this.getParametricData();
     this.updateVisibleImages();
-
+    
     this.uriHome = window.location.origin + this.router.url;
     this.uriWSapp = `https://api.whatsapp.com/send?phone=3143435453&text=${auxText.messageWSapp} ${this.uriHome}`
   }
@@ -53,7 +54,6 @@ export class HomeDetailComponent {
   getHomeById() {
     this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
-      console.log(this.home);
     })
   }
 
@@ -87,12 +87,7 @@ export class HomeDetailComponent {
   }
 
   updateVisibleImages() {
-    this.visibleImages = [];
-
-    for (let i = 0; i < this.imagesPerSection; i++) {
-      const index = (this.startIndex + i) % this.home.images.length;
-      this.visibleImages.push(this.home.images[index].url);
-    }
+   
   }
 
   getCategoryLabel(): string {
@@ -121,6 +116,7 @@ export class HomeDetailComponent {
     })
     this.parametricService.getZone().subscribe(data => {
       this.Zones = data;
+      this.zone = this.Zones.find(z=> z.id == this.home.zoneId)?.name;
     })
   }
 }

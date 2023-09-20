@@ -22,6 +22,7 @@ export class FavoriteComponent implements OnInit {
   homeState?:string;
   category?:string;
   zone?:string;
+  imagePrincipal?:string;
 
   constructor(
     private parametricService:ParametricsService,
@@ -32,6 +33,7 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() : void{
     this.getParametricData();
+    this.imagePrincipal = this.home?.images?.find(image => image?.principal === true)?.url
   }
 
   getHomeType(id: number | undefined): string {
