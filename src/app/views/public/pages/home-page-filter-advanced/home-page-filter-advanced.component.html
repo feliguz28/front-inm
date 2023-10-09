@@ -8,5 +8,10 @@
             <bs-favorite [home]="home"></bs-favorite>
         </div>
     </div>
+    <div class="paginator">
+        <mat-paginator class="paginator-component" #paginatorReports [length]="length" [pageSize]="pageSize" (page)="pageEvent($event)"
+            [pageSizeOptions]="pageSizeOptions">
+        </mat-paginator>
+    </div>
 </div>
 <bs-footer> </bs-footer>

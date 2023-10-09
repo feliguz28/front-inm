@@ -1,0 +1,46 @@
+.main-container {
+    display: flex;
+    gap: 18px;
+    padding: 20px;
+  }
+  
+  .sub-container {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
+  
+  .sub-container h1 {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0;
+  }
+
+  .sub-container p{
+    text-align: justify;
+    padding: 30px;
+    font-size: 20px;
+  }
+  
+  .main-container img {
+    margin-top: 12px;
+  }
+
+  .description-two{
+    background-color: #9c2f83;
+    text-align: justify;
+    padding: 30px;
+    font-size: 20px;
+    color: #f0f0f0;
+  }
+
+  .list-one{
+    text-align: start;
+  }
+
+  .lease-list{
+    text-align: start;
+    padding: 50px;
+  }

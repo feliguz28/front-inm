@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     gap: 10px;
     padding: 50px;
-    justify-content: center;
 }
 
 .favorites-text {
@@ -16,3 +15,6 @@
 .mat-mdc-paginator{
     background: #ffffff00 !important;
   }
+.content-principal-favorites{
+    width: 100vw;
+}

@@ -21,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
@@ -37,6 +37,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { CustomMatPaginatorIntl } from 'src/app/shared/components/CustomMatPaginatorIntl';
 
 const Material = [
 	MatAutocompleteModule,
@@ -83,6 +84,9 @@ const Material = [
 @NgModule({
 	declarations: [],
 	imports: [...Material],
-	exports: [...Material]
+	exports: [...Material],
+	providers: [
+		{ provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }
+	  ]
 })
 export class MaterialModule {}
