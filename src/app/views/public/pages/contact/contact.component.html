@@ -1,1 +1,45 @@
-<p>contact works!</p>
+<div class="main-container">
+    <button [routerLink]="['/servicios-inmobiliarios']" mat-fab color="primary"
+        aria-label="Example icon button with a delete icon">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <div class="sub-container">
+        <h1>Contactenos</h1>
+        <img width="600"
+            src="https://contubos.com.co/wp-content/uploads/2023/01/contactenosfull-1024x576-1.png">
+
+    </div>
+
+    <div class="formulario">
+        <form>
+            <!-- Campo de Nombres -->
+            <mat-form-field class="nombre">
+                <mat-icon matPrefix>person</mat-icon>
+                <input matInput placeholder="Nombres">
+            </mat-form-field>
+
+            <!-- Campo de Celular -->
+            <mat-form-field class="celular">
+                <mat-icon matPrefix>phone</mat-icon>
+                <input matInput placeholder="Celular">
+            </mat-form-field>
+
+            <!-- Campo de Correo -->
+            <mat-form-field class="correo">
+                <mat-icon matPrefix>email</mat-icon>
+                <input matInput placeholder="Correo">
+            </mat-form-field>
+
+            <!-- Campo de Descripción -->
+            <mat-form-field class="descripcion">
+                <mat-icon matPrefix>description</mat-icon>
+                <textarea matInput placeholder="Descripción" rows="4"></textarea>
+            </mat-form-field>
+
+            <div>
+                <button mat-raised-button color="primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<bs-footer> </bs-footer>
