@@ -14,4 +14,5 @@ minParking?:number | null = null;
 fromMeasure?:number | null = null;
 toMeasure?:number | null = null;
 stratum?:number | null = null;
+districts:string|null=null;
 }

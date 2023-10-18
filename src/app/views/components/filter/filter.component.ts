@@ -18,12 +18,14 @@ export class FilterComponent {
   Vias!: ArrayParametric;
   zones!: ArrayParametric;
   categories!: ArrayParametric;
+  districts!: ArrayParametric;
 
   search = new UntypedFormGroup({
     zones: new UntypedFormControl([]),
     homeType: new UntypedFormControl([]),
     homeState: new UntypedFormControl([]),
     category:new UntypedFormControl([]),
+    districts:new UntypedFormControl([]),
     desde: new FormControl(null),
     hasta: new FormControl(null),
     minRoom: new FormControl(null),
@@ -58,6 +60,7 @@ export class FilterComponent {
     pageRequest.minRoom = params.minRoom
     pageRequest.fromPrice = params.desde
     pageRequest.toPrice = params.hasta
+    pageRequest.districts = params.districts
 
     this.updateFilter.emit(pageRequest);
   }
@@ -78,6 +81,10 @@ export class FilterComponent {
     })
     this.parametricService.getZone().subscribe(data => {
       this.zones = data;
+    })
+    
+    this.parametricService.getDistricts().subscribe(data => {
+      this.districts = data;
     })
   }
 

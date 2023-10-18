@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Home } from 'src/app/models/home.interface';
 import { ArrayParametric } from 'src/app/models/parametric.interface';
+import { AdviserService } from 'src/app/services/adviser.service';
 import { HomeService } from 'src/app/services/home.service';
 import { ParametricsService } from 'src/app/services/parametrics.service';
 import { auxText } from 'src/app/shared/const/auxTexts';
@@ -29,11 +30,13 @@ export class HomeDetailComponent {
   public uriHome?:string;
   public uriWSapp?:string;
   public zone?:string;
+  public photo?:string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private homeService: HomeService,
+    private adviserService: AdviserService,
     private parametricService: ParametricsService,    
   ){
 
@@ -54,7 +57,15 @@ export class HomeDetailComponent {
   getHomeById() {
     this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
+      this.getAdvisersByZone();
     })
+  }
+
+  getAdvisersByZone() {
+   this.adviserService.getAdvisersByZoneId(1).subscribe(data=>{
+    console.log('agentes',data)
+    this.photo = 'file:///C:/images/a4e77177-07c8-4903-b8c8-92ea81d48fc8'
+   });
   }
 
   scrollGallery(direction: string): void {

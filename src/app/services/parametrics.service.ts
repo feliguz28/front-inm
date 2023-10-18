@@ -37,4 +37,9 @@ export class ParametricsService {
     return this.http.get<ArrayParametric>(address);
   }
 
+  getDistricts(): Observable<ArrayParametric>{
+    let address = this.url + "Home/GetDistricts";
+    return this.http.get<ArrayParametric>(address);
+  }
+
 }

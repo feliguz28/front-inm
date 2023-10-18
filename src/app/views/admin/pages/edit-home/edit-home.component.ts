@@ -118,6 +118,7 @@ export class EditHomeComponent {
   saveForm() {
     if (this.homeFormGroup.valid && this.addressFormGroup.valid && this.detailsFormGroup.valid) {
       const homeCreate: Home = {
+        district:'',
         id: this.home.id,
         categoryId: this.homeFormGroup.value.categoryId,
         description: this.homeFormGroup.value.description,
