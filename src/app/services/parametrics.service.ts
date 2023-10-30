@@ -8,7 +8,7 @@ import { ArrayParametric, UseParametric } from '../models/parametric.interface';
 })
 export class ParametricsService {
 
-  url:string = "http://www.bluesmartapi.somee.com/api/"
+  url:string = "https://localhost:7235/api/"
 
   constructor(private http:HttpClient){}
 
@@ -28,12 +28,17 @@ export class ParametricsService {
   }
 
   getZone(): Observable<ArrayParametric>{
-    let address = this.url + "Zone";
+    let address = this.url + "Home/GetZones";
     return this.http.get<ArrayParametric>(address);
   }
 
   getCategories(): Observable<ArrayParametric>{
     let address = this.url + "Category";
+    return this.http.get<ArrayParametric>(address);
+  }
+
+  getDistricts(): Observable<ArrayParametric>{
+    let address = this.url + "Home/GetDistricts";
     return this.http.get<ArrayParametric>(address);
   }
 

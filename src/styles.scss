@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Rubik',sans-serif;
   height: 100vh;
+  text-align: justify;
 }
 
 @font-face {
@@ -9,4 +10,28 @@ body {
   src: url('../src/assets/fonts/Rubik-MediumItalic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.whatsapp-button img {
+  width: 50%;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
 }

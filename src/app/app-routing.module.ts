@@ -16,6 +16,8 @@ import { AppraisalsComponent } from './views/public/pages/homes-services/sub-pag
 import { SalesAndLeaseComponent } from './views/public/pages/homes-services/sub-pages/sales-and-lease/sales-and-lease.component';
 import { ProjectsComponent } from './views/public/pages/homes-services/sub-pages/projects/projects.component';
 import { JuridicalConsultingComponent } from './views/public/pages/homes-services/sub-pages/juridical-consulting/juridical-consulting.component';
+import { ContactComponent } from './views/public/pages/contact/contact.component';
+import { AdviserComponent } from './views/admin/pages/adviser/adviser.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
@@ -26,6 +28,7 @@ const routes: Routes = [
   {path:'ventasyarriendos', component:SalesAndLeaseComponent},
   {path:'gerencia-y-venta-de-proyectos', component:ProjectsComponent},
   {path:'consultoria-juridica', component:JuridicalConsultingComponent},
+  {path:'contacto', component:ContactComponent},
   {path:'login', component:LoginPageComponent},
   {path:'tests', component:ContentTestsComponentsComponent},
   {path:'avanzado', component:HomePageFilterAdvancedComponent},
@@ -38,7 +41,8 @@ const routes: Routes = [
     children: [
       { path: 'homeManagment', component: HomeManagmentComponent },
       { path: 'createHome', component: CreateHomeComponent },
-      { path: 'editHome/:id', component: EditHomeComponent }
+      { path: 'editHome/:id', component: EditHomeComponent },
+      { path: 'agente', component: AdviserComponent }
     ]
   }
 ];

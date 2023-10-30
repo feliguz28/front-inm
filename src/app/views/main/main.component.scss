@@ -6,13 +6,18 @@
 
   .main-two{
     display: flex;
+    margin-top: 70px;
   }
 
 .container {
-  background-image: url('../../../assets/images/comoda-almohada-sofa.jpg');
-  background-size: cover;
   background-position: center;
   min-height: 100vh;
+}
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
 }
 
 .img-logo-uri{
@@ -21,7 +26,7 @@
 
 header {
   width: 100%;
-  z-index: 1;
+  z-index: 100;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -168,11 +173,11 @@ mat-toolbar {
 
 
 .background-image {
-  background-image: url('../../../assets/images/Bluesmart.png');
+  background-image: url('../../../assets/images/Captura.JPG');
   background-size: contain; /* Puedes probar con "cover" o "100% 100%" */
   background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
   height: 70vh;
-
+  margin-top: 40px;
 }

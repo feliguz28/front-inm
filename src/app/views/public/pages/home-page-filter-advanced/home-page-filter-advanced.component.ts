@@ -93,7 +93,11 @@ export class HomePageFilterAdvancedComponent implements OnInit {
     pagerRequest.registerPage = this.pageSize;
     this.search(pagerRequest, 1)
   }
-
+  pageEvent(event: any): void {
+		this.pageSize = event.pageSize;
+		this.page = event.pageIndex + 1;
+		this.search(this.pagerRequest, 0)
+	}
   search(pagerRequest: PagerRequestFilter, typeFilter: number) {
     this.homeService.getHomeFilter(pagerRequest, typeFilter).subscribe(data => {
       this.paginateHome = data;

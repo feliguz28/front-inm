@@ -79,7 +79,7 @@
             <div class="detail-item">
               <mat-icon class="detail-icon">pin_drop</mat-icon>
               <span class="detail-label">Zona:</span>
-              <span class="detail-value">Chapinero</span>
+              <span class="detail-value">{{zone}}</span>
             </div>
             <div class="detail-item">
               <mat-icon class="detail-icon">gite</mat-icon>
@@ -93,7 +93,7 @@
     <div class="right">
       <div class="contacto">
         <h1>Contactanos</h1>
-        <img src="../../../../../assets/images/agents/agente3.jpg" alt="">
+        <img [src]="photo" alt="">
         <div class="info-contacto">
           <mat-icon class="contacto-icon">pin_drop</mat-icon>
           <span class="contacto-label">Zona:</span>

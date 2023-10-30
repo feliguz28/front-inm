@@ -43,6 +43,7 @@ export interface Address {
     detail: Detail;
     favorite: boolean;
     images: Image[];
+    district:string;
   }
 
   export interface AddressCreate {
@@ -84,6 +85,15 @@ export interface Address {
     address: AddressCreate;
     detail: DetailCreate;
     favorite: boolean;
+  }
+
+  export interface Adviser {
+    Id : string;
+    Name: string;
+    Surnames:string;
+    CellPhone:string;
+    PathPhoto:string;
+    Email:string;
   }
 
   export interface PaginateHome{
