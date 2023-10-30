@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, UntypedFormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ArrayParametric } from 'src/app/models/parametric.interface';
 import { AdviserService } from 'src/app/services/adviser.service';
 import { ParametricsService } from 'src/app/services/parametrics.service';
@@ -19,7 +20,8 @@ export class AdviserComponent {
 
   constructor(private formBuilder: FormBuilder
     , private adviserService: AdviserService
-    , private parametricService: ParametricsService) {
+    , private parametricService: ParametricsService
+    , private _snackBar: MatSnackBar) {
     this.form = this.formBuilder.group({
       name: '',
       email: '',
@@ -58,7 +60,7 @@ export class AdviserComponent {
     formData.append('zones', this.form?.get('zones')?.value);
 
     this.adviserService.createAdviser(formData).subscribe(data => {
-      console.log(data);
+      this._snackBar.open("Agente inmobiliario creado correctamente", "Cerrar");
     })
   }
 }

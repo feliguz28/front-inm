@@ -39,6 +39,7 @@ import { JuridicalConsultingComponent } from './views/public/pages/homes-service
 import {MatInputModule} from '@angular/material/input';
 import { AdviserComponent } from './views/admin/pages/adviser/adviser.component';
 import { ModalMainComponent } from './modal-main/modal-main.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ModalMainComponent } from './modal-main/modal-main.component';
     NgxSpinnerModule,
     HttpClientModule,
     GoogleMapsModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
