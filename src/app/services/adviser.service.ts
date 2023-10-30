@@ -7,16 +7,22 @@ import { HttpClient } from "@angular/common/http";
 
 
 @Injectable({
-    providedIn: 'root'
-  })
-export class AdviserService{
+  providedIn: 'root'
+})
+export class AdviserService {
 
-    constructor(private http:HttpClient){
+  constructor(private http: HttpClient) {
 
-    }
+  }
 
-    getAdvisersByZoneId(zoneId:number):Observable<Adviser[]>{
-        let address = `${environment.server_api}/adviser?zoneId=${zoneId}`
-        return this.http.get<Adviser[]>(address);
-      }
+  getAdvisersByZoneId(zoneId: number): Observable<Adviser[]> {
+    let address = `${environment.server_api}/adviser?zoneId=${zoneId}`
+    return this.http.get<Adviser[]>(address);
+  }
+
+  createAdviser(adviserData: any): Observable<any> {
+    let address = `${environment.server_api}/adviser`
+    return this.http.post<any>(address, adviserData);
+  }
+
 }

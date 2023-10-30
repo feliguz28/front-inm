@@ -1,0 +1,42 @@
+<mat-card style="width: 50%;">
+    <form [formGroup]="form">
+    <mat-card-content style="display: flex; gap: 10px;">
+        <div>
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Ingrese nombre" id="name" formControlName="name" required>
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>Correo</mat-label>
+                    <input matInput placeholder="correo@ejemplo.com" id="email" formControlName="email" required>
+                </mat-form-field>
+            </div>
+            
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput placeholder="xxx-xxx-xx-xx" id="phone" formControlName="phone" required>
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Todos" formControlName="zones" multiple>
+                      <mat-option *ngFor="let zone of zones" [value]="zone.name">{{ zone.name }}</mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>pin_drop</mat-icon>
+                  </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" (click)="upload()">Subir</button>
+        </div>
+        <div>
+            <input type="file" (change)="onFileChanged($event)" #fileInput>
+            <br><br><br>
+            <img *ngIf="imageUrl" [src]="imageUrl" width="200" height="200">
+        </div>
+       
+    </mat-card-content>
+</form>
+</mat-card>

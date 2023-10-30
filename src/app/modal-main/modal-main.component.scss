@@ -1,0 +1,18 @@
+img{
+    width: 70%;
+}
+
+.content-dialog{
+
+    display: flex;
+    justify-content: center;
+    background: url("../../assets/images/blueprint.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 680px;
+}
+::ng-deep{
+  
+ }
+ 

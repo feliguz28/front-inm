@@ -28,7 +28,7 @@ export class ParametricsService {
   }
 
   getZone(): Observable<ArrayParametric>{
-    let address = this.url + "Zone";
+    let address = this.url + "Home/GetZones";
     return this.http.get<ArrayParametric>(address);
   }
 

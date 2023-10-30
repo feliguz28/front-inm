@@ -36,6 +36,10 @@ import { AppraisalsComponent } from './views/public/pages/homes-services/sub-pag
 import { SalesAndLeaseComponent } from './views/public/pages/homes-services/sub-pages/sales-and-lease/sales-and-lease.component';
 import { ProjectsComponent } from './views/public/pages/homes-services/sub-pages/projects/projects.component';
 import { JuridicalConsultingComponent } from './views/public/pages/homes-services/sub-pages/juridical-consulting/juridical-consulting.component';
+import {MatInputModule} from '@angular/material/input';
+import { AdviserComponent } from './views/admin/pages/adviser/adviser.component';
+import { ModalMainComponent } from './modal-main/modal-main.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +69,9 @@ import { JuridicalConsultingComponent } from './views/public/pages/homes-service
     AppraisalsComponent,
     SalesAndLeaseComponent,
     ProjectsComponent,
-    JuridicalConsultingComponent
+    JuridicalConsultingComponent,
+    AdviserComponent,
+    ModalMainComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +83,8 @@ import { JuridicalConsultingComponent } from './views/public/pages/homes-service
     FormsModule,
     NgxSpinnerModule,
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
