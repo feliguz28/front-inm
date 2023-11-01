@@ -1,0 +1,23 @@
+.content-advisers{
+    display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info-adviser span{
+
+    font-size: x-large;
+   font-weight: bold;
+   color: #290d7b;
+
+}
+
+.edit-adviser{
+    background-color: #01b2e8 !important;
+    color: #fffdfd;
+}
+
+.actions-footer{
+    gap: 20px;
+    padding: 30px;
+}

@@ -40,6 +40,9 @@ import {MatInputModule} from '@angular/material/input';
 import { AdviserComponent } from './views/admin/pages/adviser/adviser.component';
 import { ModalMainComponent } from './modal-main/modal-main.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdviserListComponent } from './views/admin/pages/adviser-list/adviser-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-edit/adviser-edit.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ProjectsComponent,
     JuridicalConsultingComponent,
     AdviserComponent,
-    ModalMainComponent
+    ModalMainComponent,
+    AdviserListComponent,
+    AdviserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +91,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HttpClientModule,
     GoogleMapsModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

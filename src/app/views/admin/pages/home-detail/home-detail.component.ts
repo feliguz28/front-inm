@@ -62,10 +62,10 @@ export class HomeDetailComponent {
   }
 
   getAdvisersByZone() {
-   this.adviserService.getAdvisersByZoneId(1).subscribe(data=>{
-    console.log('agentes',data)
-    this.photo = 'file:///C:/images/a4e77177-07c8-4903-b8c8-92ea81d48fc8'
-   });
+  //  this.adviserService.getAdvisersByZoneId(1).subscribe(data=>{
+  //   console.log('agentes',data)
+  //   this.photo = 'file:///C:/images/a4e77177-07c8-4903-b8c8-92ea81d48fc8'
+  //  });
   }
 
   scrollGallery(direction: string): void {
