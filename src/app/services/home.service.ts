@@ -29,7 +29,7 @@ export class HomeService {
     return this.http.get<PaginateHome>(address);
   }
 
-  getHomeFilter(pager: PagerRequestFilter, filterType: number): Observable<PaginateHome> {
+  getHomeFilter(pager: PagerRequestFilter, filterType: number | undefined): Observable<PaginateHome> {
     let address = '';
     let endPoint =''
 

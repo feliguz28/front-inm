@@ -39,13 +39,12 @@ export class AdviserEditComponent {
 
     
     this.parametricService.getZone().subscribe(zones => {
-    this.zones = zones;
-    this.adviserService.getZonesByAdviser(this.adviser.Id).subscribe(data => {
-
-      this.form?.get('zones')?.patchValue(['Zona 1', 'Zona 3']);
+      this.zones = zones;
+    this.adviserService.getZonesByAdviser(this.adviser.id).subscribe(data => {
+      
+      this.form?.get('zones')?.patchValue(data);
     })
     
-
     })
   }
 
@@ -72,7 +71,7 @@ export class AdviserEditComponent {
     formData.append('imageFile', file);
     formData.append('zones', this.form?.get('zones')?.value);
 
-    this.adviserService.createAdviser(formData).subscribe(data => {
+    this.adviserService.editAdviser(formData).subscribe(data => {
       this._snackBar.open("Agente inmobiliario creado correctamente", "Cerrar");
     })
   }

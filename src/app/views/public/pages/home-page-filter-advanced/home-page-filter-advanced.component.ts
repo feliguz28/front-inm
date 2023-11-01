@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginateHome } from 'src/app/models/home.interface';
 import { PagerRequestFilter } from 'src/app/models/pager-basic.interface';
@@ -21,8 +21,10 @@ export class HomePageFilterAdvancedComponent implements OnInit {
   paginateHome!: PaginateHome
   pageSizeOptions: number[] = [5, 10, 20, 50, 100]
   param?: string;
+  paramMayus?: string;
   categories!: ArrayParametric;
   pagerRequest!: PagerRequestFilter;
+  typeFilter?:number;
 
   constructor(private router: Router
     , private route: ActivatedRoute
@@ -30,58 +32,55 @@ export class HomePageFilterAdvancedComponent implements OnInit {
     , private parametricService: ParametricsService) {
 
     this.receivedObject = this.router.getCurrentNavigation()?.extras.state;
-
-    this.route.params.subscribe(params => {
-      this.param = params['filter'];
-    });
-
-    if (this.receivedObject) {
-      this.pagerRequest = this.receivedObject;
-      this.pagerRequest.filter = this.filter;
-      this.pagerRequest.pageNumber = this.page;
-      this.pagerRequest.registerPage = this.pageSize;
-    }
-
-    if (this.param) {
-      this.pagerRequest = new PagerRequestFilter();
-      this.pagerRequest.filter = this.filter;
-      this.pagerRequest.pageNumber = this.page;
-      this.pagerRequest.registerPage = this.pageSize;
-    }
-
   }
 
   ngOnInit(): void {
-
-    this.parametricService.getCategories().subscribe(data => {
-      this.categories = data;
-
-      switch (this.param) {
-
-        case 'venta':
-          let idv = this.categories.find(c => c.name == 'Venta')?.id;
-          this.pagerRequest.homeCategoryIdString = '' + idv
-          this.search(this.pagerRequest, 1)
-          break;
-
-        case 'arriendo':
-
-          let ida = this.categories.find(c => c.name == 'Arriendo')?.id
-          this.pagerRequest.homeCategoryIdString = '' + ida
-          this.search(this.pagerRequest, 1)
-
-          break;
-
-        case undefined:
-          this.initHomesList();
-          break;
+    this.route.params.subscribe(params => {
+      this.param = params['filter'];
+      if (this.receivedObject) {
+        this.pagerRequest = this.receivedObject;
+        this.pagerRequest.filter = this.filter;
+        this.pagerRequest.pageNumber = this.page;
+        this.pagerRequest.registerPage = this.pageSize;
       }
+  
+      if (this.param) {
+        this.pagerRequest = new PagerRequestFilter();
+        this.pagerRequest.filter = this.filter;
+        this.pagerRequest.pageNumber = this.page;
+        this.pagerRequest.registerPage = this.pageSize;
+      }
+      this.parametricService.getCategories().subscribe(data => {
+        this.categories = data;
+  
+        switch (this.param) {
+  
+          case 'venta':
+            let idv = this.categories.find(c => c.name == 'Venta')?.id;
+            this.pagerRequest.homeCategoryIdString = idv?.toString()
+            this.search(this.pagerRequest, 1)
+            break;
+  
+          case 'arriendo':
+            this.typeFilter = 1;
+            let ida = this.categories.find(c => c.name == 'Arriendo')?.id
+            this.pagerRequest.homeCategoryIdString = '' + ida
+            this.search(this.pagerRequest, this.typeFilter)
+  
+            break;
+  
+          case undefined:
+            this.initHomesList();
+            break;
+        }
+  
+      })
+    });
 
-    })
+    
 
 
   }
-
 
   initHomesList() {
     this.search(this.pagerRequest, 0)
@@ -96,9 +95,12 @@ export class HomePageFilterAdvancedComponent implements OnInit {
   pageEvent(event: any): void {
 		this.pageSize = event.pageSize;
 		this.page = event.pageIndex + 1;
-		this.search(this.pagerRequest, 0)
+    this.pagerRequest.filter = this.filter;
+    this.pagerRequest.pageNumber = this.page;
+    this.pagerRequest.registerPage = this.pageSize;
+		this.search(this.pagerRequest, 1)
 	}
-  search(pagerRequest: PagerRequestFilter, typeFilter: number) {
+  search(pagerRequest: PagerRequestFilter, typeFilter: number | undefined) {
     this.homeService.getHomeFilter(pagerRequest, typeFilter).subscribe(data => {
       this.paginateHome = data;
       this.length = data.totalCount;
