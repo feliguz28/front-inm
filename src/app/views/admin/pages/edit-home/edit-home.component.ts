@@ -130,6 +130,7 @@ export class EditHomeComponent {
         status: this.homeFormGroup.value.status,
         zoneId: this.homeFormGroup.value.zoneId,
         favorite: this.homeFormGroup.value.destacado,
+        zone:'',
         images: [],
         address: {
           id: this.home.address.id,

@@ -43,6 +43,7 @@ export class HomeDetailComponent {
   }
 
   ngOnInit() {
+    
     this.route.params.subscribe(params => {
       this.idHomeEdit = params['id'];
     });
@@ -57,15 +58,14 @@ export class HomeDetailComponent {
   getHomeById() {
     this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
-      this.getAdvisersByZone();
+      this.getAdvisersByZone(this.home.zone);
     })
   }
 
-  getAdvisersByZone() {
-  //  this.adviserService.getAdvisersByZoneId(1).subscribe(data=>{
-  //   console.log('agentes',data)
-  //   this.photo = 'file:///C:/images/a4e77177-07c8-4903-b8c8-92ea81d48fc8'
-  //  });
+  getAdvisersByZone(zone:string) {
+   this.adviserService.getAdvisersByZone(zone).subscribe(data=>{
+    console.log('agentes',data)
+   });
   }
 
   scrollGallery(direction: string): void {
@@ -112,6 +112,8 @@ export class HomeDetailComponent {
     return 'Desconocido';
   }
 
+  
+
   getParametricData() {
     this.parametricService.getCategories().subscribe(data => {
       this.Categories = data;
@@ -124,10 +126,6 @@ export class HomeDetailComponent {
     })
     this.parametricService.getVia().subscribe(data => {
       this.Vias = data;
-    })
-    this.parametricService.getZone().subscribe(data => {
-      this.Zones = data;
-      this.zone = this.Zones.find(z=> z.id == this.home.zoneId)?.name;
     })
   }
 }

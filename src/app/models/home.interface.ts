@@ -44,6 +44,7 @@ export interface Address {
     favorite: boolean;
     images: Image[];
     district:string;
+    zone:string;
   }
 
   export interface AddressCreate {
