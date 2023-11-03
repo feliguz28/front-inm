@@ -1,7 +1,7 @@
 
 <div>
     <bs-filter (updateFilter)="updateSearch($event)"></bs-filter>
-    <p class="favorites-text">{{this.param}}</p>
+    <p class="favorites-text">{{this.param?.toUpperCase()}}</p>
     <mat-divider [inset]="true"></mat-divider>
     <div class="content-items">
         <div *ngFor="let home of paginateHome.items">

@@ -18,6 +18,7 @@ import { ProjectsComponent } from './views/public/pages/homes-services/sub-pages
 import { JuridicalConsultingComponent } from './views/public/pages/homes-services/sub-pages/juridical-consulting/juridical-consulting.component';
 import { ContactComponent } from './views/public/pages/contact/contact.component';
 import { AdviserComponent } from './views/admin/pages/adviser/adviser.component';
+import { AdviserListComponent } from './views/admin/pages/adviser-list/adviser-list.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
@@ -42,7 +43,8 @@ const routes: Routes = [
       { path: 'homeManagment', component: HomeManagmentComponent },
       { path: 'createHome', component: CreateHomeComponent },
       { path: 'editHome/:id', component: EditHomeComponent },
-      { path: 'agente', component: AdviserComponent }
+      { path: 'crear', component: AdviserComponent },
+      { path: 'agentes', component: AdviserListComponent }
     ]
   }
 ];

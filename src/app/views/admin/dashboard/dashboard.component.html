@@ -6,6 +6,13 @@
         <div class="menu-items">
             <a mat-menu-item *ngFor="let item of menuOptions" routerLinkActive="active" [routerLink]="item.path"><i
                     class="fa-solid fa-wallet"></i> <span>{{item.name}}</span><mat-divider></mat-divider></a>
+                    
+                    <a mat-menu-item mat-menu-item  [matMenuTriggerFor]="menu"><i
+                        class="fa-solid fa-wallet"></i> <span>Agente</span><mat-divider></mat-divider></a>
+                    <mat-menu #menu="matMenu">
+                        <a mat-menu-item routerLink="crear"> Crear</a>
+                        <a mat-menu-item routerLink="agentes">Listar</a>
+                    </mat-menu>
         </div>
     </mat-drawer>
     <div class="dashboard-sidenav-content">

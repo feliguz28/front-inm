@@ -10,7 +10,7 @@ import { PagerRequestFilter } from '../models/pager-basic.interface';
 })
 export class HomeService {
 
-  url:string = "https://localhost:7235/api/"
+  url:string = "http://www.bluesmartapi.somee.com/"
 
   constructor(private http:HttpClient) {}
 
@@ -29,7 +29,7 @@ export class HomeService {
     return this.http.get<PaginateHome>(address);
   }
 
-  getHomeFilter(pager: PagerRequestFilter, filterType: number): Observable<PaginateHome> {
+  getHomeFilter(pager: PagerRequestFilter, filterType: number | undefined): Observable<PaginateHome> {
     let address = '';
     let endPoint =''
 
