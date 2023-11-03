@@ -8,7 +8,7 @@ import { ArrayParametric, UseParametric } from '../models/parametric.interface';
 })
 export class ParametricsService {
 
-  url:string = "https://localhost:7235/api/"
+  url:string = "https://www.bluesmartapi.somee.com/api/"
 
   constructor(private http:HttpClient){}
 
