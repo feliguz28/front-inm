@@ -18,12 +18,21 @@
       </mat-select>
       <mat-icon matSuffix>apartment</mat-icon>
     </mat-form-field></div>
-    <div class="grid-item"> <mat-form-field appearance="outline">
-      <mat-select placeholder="Todos" formControlName="homeState" multiple>
-        <mat-option *ngFor="let homeState of homeStates" [value]="homeState.id">{{ homeState.name }}</mat-option>
-      </mat-select>
-      <mat-icon matSuffix>real_estate_agent</mat-icon>
-    </mat-form-field></div>
+    <!-- cambiar a barrios autocomplete TODO  -->
+    <div class="grid-item"> 
+      <mat-form-field class="example-full-width">
+        <mat-label>Number</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               [formControl]="district"
+               [matAutocomplete]="auto">
+        <mat-autocomplete multiple autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions| async" [value]="option.name">{{option.name}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
     <div class="grid-item"><mat-form-field appearance="outline">
       <input matInput type="number" formControlName="desde" placeholder="Desde">
       <mat-icon matSuffix>attach_money</mat-icon>

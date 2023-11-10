@@ -43,6 +43,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdviserListComponent } from './views/admin/pages/adviser-list/adviser-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-edit/adviser-edit.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-e
     GoogleMapsModule,
     MatInputModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

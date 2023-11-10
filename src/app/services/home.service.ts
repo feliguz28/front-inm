@@ -57,6 +57,12 @@ export class HomeService {
     return this.http.get<Home>(address);
   }
 
+  getDistrictsHomes():Observable<string[]>{
+    let address = `${this.url}Home/GetDistricts`
+    return this.http.get<string[]>(address);
+  }
+
+
   editHome(form: Home): Observable<any>{
     let address = this.url + "Home";
     return this.http.put<any>(address, form);

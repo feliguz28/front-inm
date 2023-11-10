@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { Observable, map, startWith } from 'rxjs';
 import { PagerRequestFilter } from 'src/app/models/pager-basic.interface';
-import { ArrayParametric } from 'src/app/models/parametric.interface';
+import { ArrayParametric, UseParametric } from 'src/app/models/parametric.interface';
 import { ParametricsService } from 'src/app/services/parametrics.service';
 
 @Component({
@@ -20,12 +21,13 @@ export class FilterComponent {
   categories!: ArrayParametric;
   districts!: ArrayParametric;
 
+
   search = new UntypedFormGroup({
     zones: new UntypedFormControl([]),
     homeType: new UntypedFormControl([]),
     homeState: new UntypedFormControl([]),
     category:new UntypedFormControl([]),
-    districts:new UntypedFormControl([]),
+    district:new FormControl(null),
     desde: new FormControl(null),
     hasta: new FormControl(null),
     minRoom: new FormControl(null),
@@ -36,12 +38,27 @@ export class FilterComponent {
     stratum:new FormControl(null)
 	});
 
-  constructor(private parametricService: ParametricsService){}
+  constructor(private parametricService: ParametricsService){
+
+  }
+
+  district = new FormControl('');
+  filteredOptions?: Observable<ArrayParametric>;
+
+  private _filter(value: string): ArrayParametric {
+    const filterValue = value.toLowerCase();
+
+    return this.districts.filter(option => option.name.toLowerCase().includes(filterValue));
+  }
 
   ngOnInit(): void {
-    
+
     window.scrollTo(0, 0);
-    this.getParametricData();
+    this.getParametricData();    
+    this.filteredOptions = this.district.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
   }
 
   searching(){
@@ -60,7 +77,7 @@ export class FilterComponent {
     pageRequest.minRoom = params.minRoom
     pageRequest.fromPrice = params.desde
     pageRequest.toPrice = params.hasta
-    pageRequest.districts = params.districts
+    pageRequest.districtsString = this.district.value
 
     this.updateFilter.emit(pageRequest);
   }
