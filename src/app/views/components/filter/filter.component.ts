@@ -65,7 +65,7 @@ export class FilterComponent {
     let params = this.search.value;
     
     let pageRequest = new PagerRequestFilter();
-    pageRequest.zoneIdString = params.zones?.join(",");
+    pageRequest.zoneString = params.zones?.join(",");
     pageRequest.homeStateIdString = params.homeState?.join(",")
     pageRequest.homeTypeIdString = params.homeType?.join(",");
     pageRequest.homeCategoryIdString = params.category?.join(",");
