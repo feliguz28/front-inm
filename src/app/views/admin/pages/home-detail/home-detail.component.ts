@@ -33,6 +33,7 @@ export class HomeDetailComponent {
   public photo?:string;
   public homeType?:UseParametric;
   public advisers?: Adviser[];
+  public statusSpinner?:boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -70,6 +71,7 @@ export class HomeDetailComponent {
   getAdvisersByZone(zone:string) {
    this.adviserService.getAdvisersByZone(zone).subscribe(data=>{
     this.advisers = data;
+    this.statusSpinner = false;
    });
   }
 

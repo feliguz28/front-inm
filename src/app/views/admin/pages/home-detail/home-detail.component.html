@@ -1,3 +1,4 @@
+
 <bs-menu-secondary></bs-menu-secondary>
 <div class="main">
   <div class="home-detail-container">
@@ -88,6 +89,10 @@
     <div class="right">
       <div class="contacto">
         <h1>Contactanos</h1>
+        <div class="spinner-adviser">
+          <mat-spinner *ngIf="statusSpinner"></mat-spinner>
+        </div>
+        
         <div class="adviser-info" *ngFor="let adviser of advisers">
           <img [src]="'data:image/png;base64,'+adviser.base64Image" alt="">
         <div class="info-contacto">
