@@ -1,17 +1,30 @@
-img{
-    width: 70%;
+img {
+    width: 100%;
+    height: auto;
 }
 
-.content-dialog{
-
+.content-dialog {
     display: flex;
     justify-content: center;
-    background: url("../../assets/images/blueprint.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 680px;
+    position: relative;
+    height: 70vh;
+
+    @media screen and (max-width: 768px) {
+        height: 300px;
+    }
 }
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white; /* Cambia el color según tu diseño */
+}
+
 ::ng-deep{
   
  }

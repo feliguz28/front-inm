@@ -1,0 +1,26 @@
+.mat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .cabecera {
+    background-color: #ff0082 !important;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-cell {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+  }
+  
+  button.mat-icon-button {
+    margin-right: 8px;
+  }
+  
+  

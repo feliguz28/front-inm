@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal-main',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal-main.component.scss']
 })
 export class ModalMainComponent {
+  constructor(private dialogRef: MatDialogRef<ModalMainComponent>) {}
 
+  closeModal() {
+    this.dialogRef.close();
+  }
 }
