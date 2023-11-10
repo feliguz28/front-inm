@@ -89,12 +89,13 @@ export interface Address {
   }
 
   export interface Adviser {
-    Id : string;
-    Name: string;
-    Surnames:string;
-    CellPhone:string;
-    PathPhoto:string;
-    Email:string;
+    id : string;
+    name: string;
+    surnames:string;
+    cellPhone:string;
+    pathPhoto:string;
+    email:string;
+    base64Image:string;
   }
 
   export interface PaginateHome{
