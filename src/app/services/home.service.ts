@@ -94,9 +94,17 @@ export class HomeService {
     const prop = Object.keys(pager);
     prop.forEach((p) => {
 
-      if(pager[p] !== '' && pager[p] !== null && pager[p].length > 0){
-        params = params + `&${p}=${pager[p]}`;
+      if (typeof pager[p] === 'number') {
+        if (pager[p]) {
+          params = params + `&${p}=${pager[p]}`;
+        }
       }
+      if (typeof pager[p] === 'string') {
+        if (pager[p] !== '' && pager[p] !== null) {
+          params = params + `&${p}=${pager[p]}`;
+        }
+      }
+
 
     });
     return params;

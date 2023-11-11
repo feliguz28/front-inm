@@ -77,7 +77,7 @@ export class FilterComponent {
     pageRequest.minRoom = params.minRoom
     pageRequest.fromPrice = params.desde
     pageRequest.toPrice = params.hasta
-    pageRequest.districtsString = this.district.value
+    pageRequest.districts = this.district.value
 
     this.updateFilter.emit(pageRequest);
   }
