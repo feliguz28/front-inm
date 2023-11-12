@@ -45,6 +45,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-edit/adviser-edit.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSnackBarModule,
     MatTableModule,
     MatAutocompleteModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

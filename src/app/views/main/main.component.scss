@@ -20,6 +20,13 @@
   opacity: 0.7;
 }
 
+  
+@media (max-width: 1024px) {
+  .video-background{
+    margin-top: 80px;
+  }
+}
+
 .img-logo-uri{
   cursor: pointer;
 }
@@ -177,7 +184,9 @@ mat-toolbar {
   background-size: contain; /* Puedes probar con "cover" o "100% 100%" */
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
+  
   height: 70vh;
   margin-top: 40px;
 }
+
+  

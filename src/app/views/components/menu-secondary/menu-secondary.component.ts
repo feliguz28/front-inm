@@ -6,7 +6,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./menu-secondary.component.scss']
 })
 export class MenuSecondaryComponent {
- 
+  panelOpenState = false;
+
   redirectPSE():void{
     window.location.href = "https://colombia.recaudoexpress.com/sites/BLUESMARTINMOBILIARIASAS";
   }
