@@ -10,7 +10,7 @@ import { PagerRequestFilter } from '../models/pager-basic.interface';
 })
 export class HomeService {
 
-  url:string = "http://193.203.182.127:8080/api/"
+  url:string = "https://www.bluesmartapi.somee.com/api/"
 
   constructor(private http:HttpClient) {}
 
