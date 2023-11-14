@@ -198,4 +198,26 @@ mat-toolbar {
   margin-top: 40px;
 }
 
-  
+.link-externo{
+  display: flex;
+  gap: 118px;
+  background-color: white;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 5%);
+  margin-top: 30px;
+  width: 100%;
+  justify-content: center;
+}
+
+.lease{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.sales{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}

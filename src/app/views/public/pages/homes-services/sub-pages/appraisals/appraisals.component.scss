@@ -89,6 +89,10 @@
   font-size: 20px;
 }
 
+.sub-container img{
+  max-width: 100%;
+}
+
 .main-container img {
   margin-top: 12px;
 }
@@ -108,4 +112,10 @@
 .lease-list{
   text-align: start;
   padding: 50px;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+   margin-top: 90px;
+  }
 }
