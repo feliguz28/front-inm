@@ -2,15 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 130vh;
     margin: 0;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    margin-top: 40px;
+  grid-gap: 20px;
+  margin-top: 190px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
   }
 
   .grid-item {
@@ -27,10 +28,27 @@
 
   }
 
+  @media (max-width: 768px) {
+    .grid-item {
+      width: 371px;
+    }
+  }
+
+  @media (max-width: 412px) {
+    .grid-item {
+      width: 250px;
+    }
+  }
+
+  @media (max-width: 281px) {
+    .grid-item {
+      width: 190px;
+    }
+  }
+
+
   .grid-item img {
-    width: 183px;
-    height: 183px;
-    border-radius: 50%;
+    max-width: 100%;
   }
 
   .grid-item:hover {

@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="form-field-wrapper">
-        <span class="field-name">Tipo de inmueble:</span>
+        <span class="field-name">Barrio:</span>
         <div class="input-wrapper">
-          <mat-form-field class="example-full-width">
+          <mat-form-field appearance="outline" class="example-full-width">
             <mat-label>Barrio</mat-label>
             <input type="text"
                    placeholder="seleccione"
@@ -39,6 +39,7 @@
                    matInput
                    [formControl]="district"
                    [matAutocomplete]="auto">
+                   <mat-icon matSuffix>street</mat-icon>
             <mat-autocomplete multiple autoActiveFirstOption #auto="matAutocomplete">
                 <mat-option *ngFor="let option of filteredOptions| async" [value]="option.name">{{option.name}}</mat-option>
             </mat-autocomplete>
