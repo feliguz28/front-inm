@@ -10,7 +10,7 @@ import { PagerRequestFilter } from '../models/pager-basic.interface';
 })
 export class HomeService {
 
-  url:string = "https://www.bluesmartapi.somee.com/api/"
+  url:string = "http://193.203.182.127:8080/api/"
 
   constructor(private http:HttpClient) {}
 
@@ -57,6 +57,12 @@ export class HomeService {
     return this.http.get<Home>(address);
   }
 
+  getDistrictsHomes():Observable<string[]>{
+    let address = `${this.url}Home/GetDistricts`
+    return this.http.get<string[]>(address);
+  }
+
+
   editHome(form: Home): Observable<any>{
     let address = this.url + "Home";
     return this.http.put<any>(address, form);
@@ -88,9 +94,17 @@ export class HomeService {
     const prop = Object.keys(pager);
     prop.forEach((p) => {
 
-      if(pager[p] !== '' && pager[p] !== null && pager[p].length > 0){
-        params = params + `&${p}=${pager[p]}`;
+      if (typeof pager[p] === 'number') {
+        if (pager[p]) {
+          params = params + `&${p}=${pager[p]}`;
+        }
       }
+      if (typeof pager[p] === 'string') {
+        if (pager[p] !== '' && pager[p] !== null) {
+          params = params + `&${p}=${pager[p]}`;
+        }
+      }
+
 
     });
     return params;

@@ -43,6 +43,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdviserListComponent } from './views/admin/pages/adviser-list/adviser-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-edit/adviser-edit.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { LinkExternalComponent } from './views/components/link-external/link-external.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,8 @@ import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-e
     AdviserComponent,
     ModalMainComponent,
     AdviserListComponent,
-    AdviserEditComponent
+    AdviserEditComponent,
+    LinkExternalComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,10 @@ import { AdviserEditComponent } from './views/admin/pages/adviser-list/adviser-e
     GoogleMapsModule,
     MatInputModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

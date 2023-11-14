@@ -11,7 +11,7 @@ import { HomeDetailComponent } from '../home-detail/home-detail.component';
 interface Tarjeta {
   name: string;
   zone: any;
-  typeHome: any;
+  district: any;
   price: number;
   category: any;
   home: Home;
@@ -60,8 +60,8 @@ export class HomeManagmentComponent {
       this.tarjetas = this.paginateHome.items.map(home => ({
         id: home.id,
         name: home.name,
-        zone: home.zoneId,
-        typeHome: home.homeTypeId,
+        zone: home.zone,
+        district: home.district,
         price: home.price,
         category: home.categoryId,
         home: home
@@ -104,4 +104,9 @@ export class HomeManagmentComponent {
       this.openHomeDialog(home);
     });
   }
+
+  getCategoriaTexto(categoriaId: number): string {
+    return categoriaId === 1 ? 'Venta' : categoriaId === 2 ? 'Arriendo' : '';
+  }
+  
 }

@@ -1,10 +1,11 @@
+
 <bs-menu-secondary></bs-menu-secondary>
 <div class="main">
   <div class="home-detail-container">
     <div class="left">
       <div class="header">
         <div class="name">
-          <h1>{{ home?.name }}</h1>
+          <h1>{{ home?.district }}</h1>
         </div>
         <div class="price">
           <span class="labels">
@@ -24,7 +25,7 @@
           </button>
           <div class="gallery-container">
             <div class="gallery-images">
-              <div class="gallery-item" *ngFor="let imageIndex of getVisibleIndices()">
+              <div *ngFor="let imageIndex of getVisibleIndices()">
                 <img [src]="home.images[imageIndex].url" alt="Image" (click)="showLargeImage(imageIndex)">
               </div>
             </div>
@@ -65,26 +66,21 @@
               <span class="detail-value">{{ home?.detail?.stratum }}</span>
             </div>
             <div class="detail-item">
-              <mat-icon class="detail-icon">real_estate_agent</mat-icon>
-              <span class="detail-label">Estado:</span>
-              <span class="detail-value">Amoblado</span>
-            </div>
-            <div class="detail-item">
               <mat-icon class="detail-icon">garage_home</mat-icon>
               <span class="detail-label">Parqueadero:</span>
               <span class="detail-value">{{ home?.detail?.parking }}</span>
             </div>
-          </div>
-          <div class="detail-row">
             <div class="detail-item">
               <mat-icon class="detail-icon">pin_drop</mat-icon>
               <span class="detail-label">Zona:</span>
               <span class="detail-value">{{home?.zone}}</span>
             </div>
+          </div>
+          <div class="detail-row">
             <div class="detail-item">
               <mat-icon class="detail-icon">gite</mat-icon>
               <span class="detail-label">Tipo:</span>
-              <span class="detail-value">Casa</span>
+              <span class="detail-value">{{homeType?.name}}</span>
             </div>
           </div>
         </div>
@@ -93,21 +89,23 @@
     <div class="right">
       <div class="contacto">
         <h1>Contactanos</h1>
-        <img [src]="photo" alt="">
+        <div class="spinner-adviser">
+          <mat-spinner *ngIf="statusSpinner"></mat-spinner>
+        </div>
+        
+        <div class="adviser-info" *ngFor="let adviser of advisers">
+          <img [src]="'data:image/png;base64,'+adviser.base64Image" alt="">
         <div class="info-contacto">
           <mat-icon class="contacto-icon">pin_drop</mat-icon>
-          <span class="contacto-label">Zona:</span>
-          <span class="contacto-label">Chapinero</span>
+          <span class="contacto-label">{{home?.zone}}</span>
         </div>
         <div class="info-contacto">
           <mat-icon class="contacto-icon">call</mat-icon>
-          <span class="contacto-label">Contacto:</span>
-          <span class="contacto-label">(+57) 3153450213</span>
+          <span class="contacto-label">(+57) {{adviser?.cellPhone}}</span>
         </div>
         <div class="info-contacto">
           <mat-icon class="contacto-icon">mail</mat-icon>
-          <span class="contacto-label">Correo:</span>
-          <span class="contacto-label">Correo@Correo.com</span>
+          <span class="contacto-label">{{adviser?.email}}</span>
         </div>
         <div class="wsp">
           <a [href]="uriWSapp" target="_blank">
@@ -115,6 +113,8 @@
           </a>
           <img src="../../../../../assets/images/QR.png" alt="">
         </div>
+        </div>
+        
       </div>
     </div>
   </div>

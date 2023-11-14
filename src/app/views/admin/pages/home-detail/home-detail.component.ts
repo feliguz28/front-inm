@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Home } from 'src/app/models/home.interface';
-import { ArrayParametric } from 'src/app/models/parametric.interface';
+import { Adviser, Home } from 'src/app/models/home.interface';
+import { ArrayParametric, UseParametric } from 'src/app/models/parametric.interface';
 import { AdviserService } from 'src/app/services/adviser.service';
 import { HomeService } from 'src/app/services/home.service';
 import { ParametricsService } from 'src/app/services/parametrics.service';
@@ -31,6 +31,9 @@ export class HomeDetailComponent {
   public uriWSapp?:string;
   public zone?:string;
   public photo?:string;
+  public homeType?:UseParametric;
+  public advisers?: Adviser[];
+  public statusSpinner?:boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -59,12 +62,16 @@ export class HomeDetailComponent {
     this.homeService.getHomeById(this.idHomeEdit).subscribe(data => {
       this.home = data;
       this.getAdvisersByZone(this.home.zone);
+      this.parametricService.getHomeTypes().subscribe(data => {
+        this.homeType = data.filter(h => this.home.id)[0];
+      })
     })
   }
 
   getAdvisersByZone(zone:string) {
    this.adviserService.getAdvisersByZone(zone).subscribe(data=>{
-    console.log('agentes',data)
+    this.advisers = data;
+    this.statusSpinner = false;
    });
   }
 
@@ -121,9 +128,7 @@ export class HomeDetailComponent {
     this.parametricService.getHomeStates().subscribe(data => {
       this.homeStates = data;
     })
-    this.parametricService.getHomeTypes().subscribe(data => {
-      this.homeTypes = data;
-    })
+   
     this.parametricService.getVia().subscribe(data => {
       this.Vias = data;
     })
