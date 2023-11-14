@@ -2,3 +2,49 @@
     padding: 0;
     margin: 0;   
 }
+
+.fixed-toolbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ajusta según sea necesario para evitar solapamiento con otros elementos fijos */
+  }
+  
+  .page-content {
+    /* Añade un margen superior igual a la altura de la barra de herramientas para evitar que el contenido se solape con ella */
+    margin-top: 64px; /* Ajusta según sea necesario para la altura de tu barra de herramientas */
+  }
+
+  .menu-container {
+    width: 100%; 
+    margin-top: -8px;
+}
+
+.vertical-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-menu li {
+    display: block;
+}
+
+.vertical-menu a {
+    display: block;
+    padding: 12px;
+    color: #15188a;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.vertical-menu a i
+
+.vertical-menu a:hover {
+    background-color: #c9c3c3;
+}
+
+.mat-drawer {
+    background-color: #f7f7f7 !important;
+    position: fixed !important;
+}

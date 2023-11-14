@@ -79,6 +79,13 @@ export class FilterComponent {
     pageRequest.toPrice = params.hasta
     pageRequest.districts = this.district.value
 
+    if(window.location.pathname.includes('venta')){
+      pageRequest.homeCategoryIdString = '1';
+    }
+    if(window.location.pathname.includes('arriendo')){
+      pageRequest.homeCategoryIdString = '2';
+    }
+
     this.updateFilter.emit(pageRequest);
   }
 

@@ -73,17 +73,7 @@
     padding: 0 20px;
   }
   
-  .fixed-toolbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Ajusta según sea necesario para evitar solapamiento con otros elementos fijos */
-  }
-  
-  .page-content {
-    /* Añade un margen superior igual a la altura de la barra de herramientas para evitar que el contenido se solape con ella */
-    margin-top: 64px; /* Ajusta según sea necesario para la altura de tu barra de herramientas */
-  }
+
   
   .extended-toolbar {
     width: 100%;

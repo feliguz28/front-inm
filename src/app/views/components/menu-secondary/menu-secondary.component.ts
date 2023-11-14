@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'bs-menu-secondary',
@@ -7,9 +7,39 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class MenuSecondaryComponent {
   panelOpenState = false;
+  menuFullScreen:boolean = true;
+  screenWidth?: number;
+
+  constructor(private renderer: Renderer2) {}
+
 
   redirectPSE():void{
     window.location.href = "https://colombia.recaudoexpress.com/sites/BLUESMARTINMOBILIARIASAS";
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.screenWidth = window.innerWidth;
+    
+   if(this.screenWidth <= 1024){
+    this.menuFullScreen = false;
+   }
+
+   if(this.screenWidth > 1024){
+    this.menuFullScreen = true;
+   }
+
+  }
+
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+console.log(window.innerWidth)
+    if(this.screenWidth <= 1024){
+      this.menuFullScreen = false;
+    }
+
+  }
+
+
 
 }

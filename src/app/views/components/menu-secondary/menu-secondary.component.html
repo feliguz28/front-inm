@@ -1,4 +1,4 @@
-<!-- <header>
+<header *ngIf="menuFullScreen">
     <mat-toolbar class="extended-toolbar">
       <div class="logo">
         <div class="image-container">
@@ -16,10 +16,4 @@
       </div>
 
     </mat-toolbar>
-  </header> -->
-  <mat-toolbar color="primary" class="fixed-toolbar" fxLayout="row" fxLayoutAlign="start center">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="example-spacer"></span>
-  </mat-toolbar>
+  </header>

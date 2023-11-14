@@ -1,1 +1,30 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="menu-container">
+            <div class="logo">
+                <div class="image-container">
+                <img width="180" class="img-logo-uri" src="../assets/images/logonew.png" alt="Logo de la inmobiliaria" [routerLink]="['/login']">
+              </div>
+              </div>
+            <ul class="vertical-menu">
+                <li> <a [routerLink]="['/']">Inicio</a></li>
+                <li><a [routerLink]="['/avanzado',   'venta']">Venta</a></li>
+                <li><a [routerLink]="['/avanzado', 'arriendo']">Arriendo</a></li>
+                <li> <a [routerLink]="['/nosotros']">Nosotros</a></li>
+                <li><a [routerLink]="['/servicios-inmobiliarios']">Servicios</a></li>
+                <li><a [routerLink]="['/contacto']">Contáctenos</a></li>
+            </ul>
+        </div>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+          <mat-toolbar *ngIf="menuMobile" (click)="drawer.toggle()" color="primary" class="fixed-toolbar" fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span class="example-spacer"></span>
+          </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>

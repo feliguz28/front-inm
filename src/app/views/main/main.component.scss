@@ -11,7 +11,6 @@
 
 .container {
   background-position: center;
-  min-height: 100vh;
 }
 .video-background {
   width: 100%;
@@ -23,7 +22,7 @@
   
 @media (max-width: 1024px) {
   .video-background{
-    margin-top: 80px;
+    margin-top: 50px;
   }
 }
 
@@ -116,6 +115,16 @@ mat-toolbar {
     font-size: 20px;
     padding: 20px 30px;
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .filter-row {
+    justify-content: center;
+  }
+
+  .filter-container{
+    border-radius: 0px;
   }
 }
 
