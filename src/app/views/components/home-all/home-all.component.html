@@ -39,10 +39,12 @@
                     <span>{{home?.detail?.parking}}</span>
                 </div>
             </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="stratum-style">
-                    <span>Estrato:</span>
-                    <span>{{home?.detail?.stratum}}</span>
+            <mat-grid-tile class="border-right">
+                <div class="parking-style">
+                    <span>
+                        <mat-icon class="detail-icon">meeting_room</mat-icon>
+                    </span>
+                    <span>{{home?.detail?.room}}</span>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>

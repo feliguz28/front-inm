@@ -1,18 +1,15 @@
-
 <mat-card class="home-favorite-card">
     <mat-card-header>
     </mat-card-header>
-    <img mat-card-image class="img-home-principal"  matRipple
-    [matRippleCentered]="true"
-        [src]="imagePrincipal"
+    <img mat-card-image class="img-home-principal" matRipple [matRippleCentered]="true" [src]="imagePrincipal"
         alt="foto principal inmueble">
     <mat-card-content class="content-card-home">
         <div class="category-notes">
             <span class="type-note">{{homeType}}</span>
             <span class="category-note">{{category}}</span>
         </div>
-        <p  class="name-style">
-           <a class="name-href" (click)="showDetail(home?.id)">{{home?.district}}</a>
+        <p class="name-style">
+            <a class="name-href" (click)="showDetail(home?.id)">{{home?.district}}</a>
         </p>
         <mat-grid-list cols="2" rowHeight="2:1">
             <mat-grid-tile class="border-right border-bottom">
@@ -28,7 +25,7 @@
                     <div class="m-container">
                         <div class="m">m</div>
                         <sup class="elevation">2</sup>
-                      </div>
+                    </div>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="border-right">
@@ -42,7 +39,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="stratum-style">
-                    <span>Estrato:</span>
+                    <span> <i class="fa-solid fa-door-open"></i></span>
                     <span>{{home?.detail?.stratum}}</span>
                 </div>
             </mat-grid-tile>

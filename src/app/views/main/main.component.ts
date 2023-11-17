@@ -50,7 +50,7 @@ export class MainComponent {
 
   mapFilter(filterBasic : FilterBasic):PagerRequestFilter {
     let pageRequest = new PagerRequestFilter();
-    pageRequest.zoneIdString = filterBasic.zones?.join(",");
+    pageRequest.zoneString = filterBasic.zones?.join(",");
     pageRequest.homeStateIdString = filterBasic.homeState?.join(",")
     pageRequest.homeTypeIdString = filterBasic.homeType?.join(",");
 
