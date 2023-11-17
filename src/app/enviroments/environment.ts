@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   //server:'https://apiinicio.azurewebsites.net',
-  //server_api: 'https://www.bluesmartapi.somee.com/api',
-  server:'https://www.bluesmartapi.somee.com',
-  server_api: 'https://www.bluesmartapi.somee.com/api',
+  //server_api: 'https://localhost:7235/api',
+  server:'https://localhost:7235',
+  server_api: 'https://localhost:7235/api',
 };
