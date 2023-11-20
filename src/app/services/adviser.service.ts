@@ -40,4 +40,9 @@ export class AdviserService {
     return this.http.put<any>(address, adviserData);
   }
 
+  deletedAdviser(adviseId: number): Observable<any> {
+    let address = `${environment.server_api}/adviser/${adviseId}`
+    return this.http.delete<any>(address);
+  }
+
 }

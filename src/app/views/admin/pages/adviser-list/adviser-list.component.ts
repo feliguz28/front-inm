@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AdviserDto } from 'src/app/models/Adviser';
 import { AdviserService } from 'src/app/services/adviser.service';
 import { AdviserEditComponent } from './adviser-edit/adviser-edit.component';
+import { AdviserDeletedComponent } from './adviser-deleted/adviser-deleted.component';
 
 @Component({
   selector: 'app-adviser-list',
@@ -12,6 +13,7 @@ import { AdviserEditComponent } from './adviser-edit/adviser-edit.component';
 export class AdviserListComponent {
 
   advisers?:AdviserDto[];
+  adviderDeleted?:AdviserDto;
 
   constructor(private adviserService: AdviserService, public dialog: MatDialog){
 
@@ -27,15 +29,22 @@ export class AdviserListComponent {
     });
   }
 
-  openEdit(objeto: AdviserDto): void {
+  openEdit(adviser: AdviserDto): void {
     const dialogRef = this.dialog.open(AdviserEditComponent, {
       width: '700px',
-      data: objeto,
+      data: adviser,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Objeto editado', result);
       // Aquí puedes actualizar tus datos con el objeto editado (result)
+    });
+  }
+
+  delete(adviser: AdviserDto):void{
+    this.dialog.open(AdviserDeletedComponent, {
+      width: '700px',
+      data:adviser
     });
   }
 

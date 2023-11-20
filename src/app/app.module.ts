@@ -47,6 +47,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LinkExternalComponent } from './views/components/link-external/link-external.component';
+import { AdviserDeletedComponent } from './views/admin/pages/adviser-list/adviser-deleted/adviser-deleted.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { LinkExternalComponent } from './views/components/link-external/link-ext
     ModalMainComponent,
     AdviserListComponent,
     AdviserEditComponent,
-    LinkExternalComponent
+    LinkExternalComponent,
+    AdviserDeletedComponent
   ],
   imports: [
     BrowserModule,
