@@ -69,6 +69,11 @@ export class HomeManagmentComponent {
     });
   }
 
+  buscarPorCodigo(codigo: string): void {
+    this.filter = codigo;
+    this.getAllHomes();
+  }
+
   openHomeDialog(home: Home) {
     this.router.navigate(['/detail', home.id]);
   }

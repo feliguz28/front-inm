@@ -1,5 +1,12 @@
-<!--<button mat-raised-button color="primary" (click)="createNewHome()">Crear Nuevo Inmueble</button>-->
-
+<div class="buscador">
+  <mat-form-field class="example-full-width">
+    <mat-label>Buscador Por Codigo</mat-label>
+    <input matInput #codigoInput>
+  </mat-form-field>
+  <button mat-mini-fab matTooltip="Buscar" color="primary" aria-label="Buscar" (click)="buscarPorCodigo(codigoInput.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
 <table mat-table [dataSource]="tarjetas">
   <ng-container matColumnDef="nombre">
     <th mat-header-cell *matHeaderCellDef class="cabecera"> Codigo </th>
