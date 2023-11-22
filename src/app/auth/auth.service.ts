@@ -14,6 +14,9 @@ export class AuthService {
 
   isAuthenticated(): boolean{
     let objectPayload = this.getDataToken(this.token);
+    if(!objectPayload){
+      return false;
+    }
     return true;
   }
 

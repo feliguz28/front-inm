@@ -10,6 +10,12 @@
 					<i class="login__icon fas fa-lock"></i>
 					<input [(ngModel)]="user.password" name="password" type="password" class="login__input" placeholder="Contraseña">
 				</div>
+				<div *ngIf="errorLogin" class="login__field login-error">
+					<span>{{errorLogin}}</span>
+				</div>
+				<div class="spinner-login">
+					<mat-spinner *ngIf="statusSpinner"></mat-spinner>
+				  </div>
 				<button class="button login__submit">
 					<span class="button__text">Iniciar sesion</span>
 					<i class="button__icon fas fa-chevron-right"></i>

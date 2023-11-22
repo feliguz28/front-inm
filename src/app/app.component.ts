@@ -9,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'front-inm';
+  title = 'Bluesmart';
+
+statusWS:boolean=false;
 
   menuMobile: boolean = false;
    screenWidth?: number;

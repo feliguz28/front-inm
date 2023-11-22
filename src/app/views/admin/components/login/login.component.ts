@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   isLogged?:boolean;
   user:User;
+  errorLogin?:string;
+  public statusSpinner?:boolean = false;
 
   constructor(private loginService: LoginService,
     private authService:AuthService,
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
       
-      this.router.navigate([`/${PAGE_URL.DASHBOARD}`])
+      this.router.navigate([`/${PAGE_URL.DASHBOARD_HOME}`]);
+
     } else {
       this.isLogged = false;
      
@@ -39,7 +42,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.spinner.show();
     this.isLogged =true;
-
+    this.statusSpinner = true;
     if(this.user?.userName == null  || this.user?.password == ""){
     this.spinner.hide();
    console.log("error inicio sesion")
@@ -52,9 +55,15 @@ export class LoginComponent implements OnInit {
     this.authService.saveUser(response);
     if(response){
       if(this.authService.isAdmin()){
-        this.router.navigate([`${PAGE_URL.DASHBOARD}`])
+        this.statusSpinner = false;
+        this.errorLogin = '';
+        this.router.navigate([`${PAGE_URL.DASHBOARD_HOME}`]);
       }
     }
+  },
+  (error)=>{
+    this.errorLogin = error.error;
+    this.statusSpinner = false;
   });
   }
 
