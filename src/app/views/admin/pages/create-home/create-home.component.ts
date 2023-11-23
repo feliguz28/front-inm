@@ -112,7 +112,6 @@ export class CreateHomeComponent {
       };
       this.homeService.createHome(homeCreate).subscribe(data => {
         this.idHomeCreated = data.message;
-        console.log(data)
       })
     }
   }
@@ -130,7 +129,6 @@ export class CreateHomeComponent {
 
   selectPrincipalImage(fileName: string) {
     this.principalImage = fileName;
-    console.log(this.principalImage);
   }
 
   uploadImages() {
@@ -142,7 +140,7 @@ export class CreateHomeComponent {
       formData.append('Images', this.imagesFormGroup.value.files[i], this.imagesFormGroup.value.files[i].name);
     }
     this.homeService.uploadImage(formData).subscribe(data => {
-      console.log(data)
+
     })
   }
 

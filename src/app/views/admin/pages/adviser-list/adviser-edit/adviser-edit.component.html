@@ -23,13 +23,13 @@
             </div>
             <div class="example-container">
                 <mat-form-field appearance="outline">
-                    <mat-select placeholder="Todos" formControlName="zones" multiple>
+                    <mat-select placeholder="Todos" formControlName="zones" multiple required>
                       <mat-option *ngFor="let zone of zones" [value]="zone.name">{{ zone.name }}</mat-option>
                     </mat-select>
                     <mat-icon matSuffix>pin_drop</mat-icon>
                   </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" (click)="edit()">Editar</button>
+            <button mat-raised-button color="primary" (click)="edit()" [disabled]="form.invalid">Editar</button>
         </div>
         <div>
             <input type="file" (change)="onFileChanged($event)" #fileInput>

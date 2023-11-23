@@ -77,7 +77,7 @@ export class FilterComponent {
     pageRequest.minRoom = params.minRoom
     pageRequest.fromPrice = params.desde
     pageRequest.toPrice = params.hasta
-    pageRequest.districts = this.district.value
+    pageRequest.districtString = this.district.value
 
     if(window.location.pathname.includes('venta')){
       pageRequest.homeCategoryIdString = '1';

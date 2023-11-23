@@ -1,11 +1,12 @@
 <footer class="footer">
     <div class="column footer-menu">
         <ul>
-            <li><i class="fa-solid fa-house"></i><a href="#">Inicio</a></li>
-            <li><i class="fa-solid fa-users"></i><a href="#">Nosotros</a></li>
-            <li><i class="fa-solid fa-globe"></i><a href="#">Servicios</a></li>
-            <li><i class="fa-solid fa-phone-volume"></i><a href="#">Contáctenos</a></li>
-        </ul>
+            <li><i class="fa-solid fa-house"></i><a [routerLink]="['/']">Inicio</a></li>
+            <li><i class="fa-solid fa-users"></i><a [routerLink]="['/nosotros']">Nosotros</a></li>
+            <li><i class="fa-solid fa-globe"></i><a [routerLink]="['/servicios-inmobiliarios']">Servicios</a></li>
+            <li><i class="fa-solid fa-phone-volume"></i><a [routerLink]="['/contacto']">Contáctenos</a></li>
+        </ul
+        >
     </div>
     <div class="column contact-footer">
         <h3>Contacto</h3>

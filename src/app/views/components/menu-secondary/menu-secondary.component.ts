@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bs-menu-secondary',
@@ -10,7 +11,7 @@ export class MenuSecondaryComponent {
   menuFullScreen:boolean = true;
   screenWidth?: number;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2,private router: Router) {}
 
 
   redirectPSE():void{
@@ -33,11 +34,14 @@ export class MenuSecondaryComponent {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-console.log(window.innerWidth)
     if(this.screenWidth <= 1024){
       this.menuFullScreen = false;
     }
 
+  }
+
+  goToAdmin():void{
+    this.router.navigateByUrl('login');
   }
 
 

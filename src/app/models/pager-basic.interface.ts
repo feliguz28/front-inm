@@ -15,5 +15,6 @@ fromMeasure?:number | null = null;
 toMeasure?:number | null = null;
 stratum?:number | null = null;
 districts:string|null=null;
-zoneString:string|null=null;
+zoneString?:string|null=null;
+districtString:string|null=null;
 }

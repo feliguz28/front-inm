@@ -30,7 +30,7 @@ export class HomeFavoritesComponent {
     this.homeService.getAllHomesFavorites(pager).subscribe(data => {
       this.paginateHome = data;
       this.length = data.totalCount;
-      console.log(data)
+
     });
   }
 

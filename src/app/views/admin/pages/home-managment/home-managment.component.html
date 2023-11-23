@@ -1,5 +1,12 @@
-<!--<button mat-raised-button color="primary" (click)="createNewHome()">Crear Nuevo Inmueble</button>-->
-
+<div class="buscador">
+  <mat-form-field class="example-full-width">
+    <mat-label>Buscador Por Codigo</mat-label>
+    <input matInput #codigoInput>
+  </mat-form-field>
+  <button mat-mini-fab matTooltip="Buscar" color="primary" aria-label="Buscar" (click)="buscarPorCodigo(codigoInput.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
 <table mat-table [dataSource]="tarjetas">
   <ng-container matColumnDef="nombre">
     <th mat-header-cell *matHeaderCellDef class="cabecera"> Codigo </th>
@@ -29,25 +36,6 @@
       {{ getCategoriaTexto(tarjeta.category) }}
     </td>
   </ng-container>
-  
-
-  <ng-container matColumnDef="editar">
-    <th mat-header-cell *matHeaderCellDef class="cabecera"> Editar </th>
-    <td mat-cell *matCellDef="let tarjeta">
-      <button mat-icon-button color="primary" (click)="editHome(tarjeta.id)">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="borrar">
-    <th mat-header-cell *matHeaderCellDef class="cabecera"> Borrar </th>
-    <td mat-cell *matCellDef="let tarjeta">
-      <button mat-icon-button color="warn" (click)="deleteHome(tarjeta.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
 
   <ng-container matColumnDef="activar">
     <th mat-header-cell *matHeaderCellDef class="cabecera"> Activar </th>
@@ -75,10 +63,10 @@
   </ng-container>
 
   <tr mat-header-row
-    *matHeaderRowDef="['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'editar', 'borrar', 'activar', 'favorito', 'informacion']">
+    *matHeaderRowDef="['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'activar', 'favorito', 'informacion']">
   </tr>
   <tr mat-row
-    *matRowDef="let tarjeta; columns: ['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'editar', 'borrar', 'activar', 'favorito', 'informacion']">
+    *matRowDef="let tarjeta; columns: ['nombre', 'zona', 'tipoInmueble', 'precio', 'categoria', 'activar', 'favorito', 'informacion']">
   </tr>
 
 </table>

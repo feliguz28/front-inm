@@ -104,7 +104,7 @@ export class HomePageFilterAdvancedComponent implements OnInit {
     this.homeService.getHomeFilter(pagerRequest, typeFilter).subscribe(data => {
       this.paginateHome = data;
       this.length = data.totalCount;
-      console.log(data)
+
     });
   }
 }

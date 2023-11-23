@@ -40,11 +40,10 @@ export class AdviserEditComponent {
     
     this.parametricService.getZone().subscribe(zones => {
       this.zones = zones;
-    this.adviserService.getZonesByAdviser(this.adviser.id).subscribe(data => {
-      
-      this.form?.get('zones')?.patchValue(data);
-    })
-    
+      this.adviserService.getZonesByAdviser(this.adviser.id).subscribe(data => {
+        const zoneNames = data.map(zone => zone.name);
+        this.form?.get('zones')?.patchValue(zoneNames);
+      });   
     })
   }
 
@@ -65,14 +64,21 @@ export class AdviserEditComponent {
   edit() {
     const file: File = this.fileInput?.nativeElement.files[0];
     const formData = new FormData();
+    const selectedZones = this.form?.get('zones')?.value;
+  
+    if (this.adviser.id !== undefined) {
+      formData.append('id', this.adviser.id.toString());
+    }
+  
     formData.append('name', this.form?.get('name')?.value);
     formData.append('email', this.form?.get('email')?.value);
     formData.append('cellPhone', this.form?.get('phone')?.value);
     formData.append('imageFile', file);
-    formData.append('zones', this.form?.get('zones')?.value);
-
+    formData.append('zones', selectedZones.join(','));
+  
     this.adviserService.editAdviser(formData).subscribe(data => {
-      this._snackBar.open("Agente inmobiliario creado correctamente", "Cerrar");
-    })
+      this._snackBar.open("Agente inmobiliario editado correctamente", "Cerrar");
+    });
   }
+  
 }

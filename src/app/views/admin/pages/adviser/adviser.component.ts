@@ -61,6 +61,11 @@ export class AdviserComponent {
 
     this.adviserService.createAdviser(formData).subscribe(data => {
       this._snackBar.open("Agente inmobiliario creado correctamente", "Cerrar");
+
+      setTimeout(() => {
+        window.location.href = "/dashboard/agentes"
+      }, 2000); 
+
     })
   }
 }

@@ -11,7 +11,7 @@
         <div class="input-wrapper">
           <mat-form-field appearance="outline">
             <mat-select placeholder="Todos" formControlName="zones" multiple>
-              <mat-option *ngFor="let zone of zones" [value]="zone.id">{{ zone.name }}</mat-option>
+              <mat-option *ngFor="let zone of zones" [value]="zone.name">{{ zone.name }}</mat-option>
             </mat-select>
             <mat-icon matSuffix>pin_drop</mat-icon>
           </mat-form-field>
