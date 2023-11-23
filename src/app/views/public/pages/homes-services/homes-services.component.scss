@@ -48,7 +48,10 @@
 
 
   .grid-item img {
-    max-width: 100%;
+    max-width: 100%; /* Hace que la imagen no supere el ancho del contenedor */
+      height: auto; /* Mantiene la proporción de aspecto original */
+      display: block; /* Elimina el espacio adicional debajo de las imágenes */
+      margin: 0 auto; /* Centra la imagen dentro del contenedor */
   }
 
   .grid-item:hover {
