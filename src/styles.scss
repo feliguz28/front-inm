@@ -21,7 +21,7 @@ body {
   height: 60px;
   border-radius: 50%;
   text-align: center;
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -30,6 +30,7 @@ body {
 }
 
 .whatsapp-button img {
+  margin-top: 13px;
   width: 50%;
 }
 

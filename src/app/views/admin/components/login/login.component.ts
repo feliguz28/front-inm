@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     this.statusSpinner = true;
     if(this.user?.userName == null  || this.user?.password == ""){
     this.spinner.hide();
-   console.log("error inicio sesion")
    this.isLogged =false;
    return;
   }

@@ -34,7 +34,6 @@ export class MenuSecondaryComponent {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-console.log(window.innerWidth)
     if(this.screenWidth <= 1024){
       this.menuFullScreen = false;
     }
