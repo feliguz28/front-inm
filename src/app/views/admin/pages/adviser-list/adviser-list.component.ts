@@ -36,8 +36,6 @@ export class AdviserListComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('Objeto editado', result);
-      // Aquí puedes actualizar tus datos con el objeto editado (result)
     });
   }
 

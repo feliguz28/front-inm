@@ -62,7 +62,6 @@ statusWS:boolean=false;
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Modal cerrado');
     });
   }
 }

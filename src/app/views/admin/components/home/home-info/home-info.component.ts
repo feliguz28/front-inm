@@ -20,16 +20,13 @@ export class HomeInfoComponent {
 
   scrollGallery(direction: string): void {
     const numImages = this.home.images.length;
-    
-    console.log('Current Index:', this.currentIndex);
-  
+      
     if (direction === 'left') {
       this.currentIndex = (this.currentIndex - 1 + numImages) % numImages;
     } else if (direction === 'right') {
       this.currentIndex = (this.currentIndex + 1) % numImages;
     }
   
-    console.log('Visible Indices:', this.getVisibleIndices());
   }
 
   getVisibleIndices(): number[] {

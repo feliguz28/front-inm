@@ -12,22 +12,22 @@
   <script src="https://kit.fontawesome.com/1e102cffa3.js" crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC53p8Y9_8-Q3zZrRoQpLeU32ogXkxDumg&libraries=places"></script>
   <script>
+    // Llama a la función al cargar la página
+    window.onload = toggleLinkVisibility;
+  
     // Función para determinar si el enlace debe mostrarse
     function shouldShowLink() {
       // Lógica para determinar si el enlace debe mostrarse, por ejemplo, basado en la URL actual
-      return !window.location.href.includes('dashboard');
+      return window.location.href.includes('dashboard');
     }
-
+  
     // Función para ocultar o mostrar el enlace basado en la lógica anterior
     function toggleLinkVisibility() {
       var enlace = document.getElementById('whatsapp-link');
       if (enlace) {
-        enlace.style.display = shouldShowLink() ? 'block' : 'none';
+        enlace.style.display = shouldShowLink() ? 'none' : 'block';
       }
     }
-
-    // Llama a la función al cargar la página
-    window.onload = toggleLinkVisibility;
   </script>
 </head>
 <body class="mat-typography">
