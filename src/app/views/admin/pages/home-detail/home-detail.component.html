@@ -5,14 +5,14 @@
     <div class="left">
       <div class="header">
         <div class="name">
-          <h1>{{ home?.district }}</h1>
+          <h1>{{ home.district }}</h1>
         </div>
         <div class="price">
           <span class="labels">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="local_offer"></mat-icon>
             {{ getCategoryLabel() }}
           </span>
-          <h2>{{ home?.price | currency:'USD':'symbol' }}</h2>
+          <h2>{{ home.price | currency:'USD':'symbol' }}</h2>
         </div>
       </div>
       <div class="card">
@@ -37,7 +37,7 @@
       </div>
       <div class="description">
         <h1>Descripción</h1>
-        <h3>{{ home?.description }}</h3>
+        <h3>{{ home.description }}</h3>
       </div>
       <div class="detail">
         <div class="details">
@@ -46,34 +46,34 @@
             <div class="detail-item">
               <mat-icon class="detail-icon">bathtub</mat-icon>
               <span class="detail-label">Baños:</span>
-              <span class="detail-value">{{ home?.detail?.bathRoom }}</span>
+              <span class="detail-value">{{ home.detail.bathRoom }}</span>
             </div>
             <div class="detail-item">
               <mat-icon class="detail-icon">pivot_table_chart</mat-icon>
               <span class="detail-label">Área (m²):</span>
-              <span class="detail-value">{{ home?.detail?.measures }}</span>
+              <span class="detail-value">{{ home.detail.measures }}</span>
             </div>
             <div class="detail-item">
               <mat-icon class="detail-icon">meeting_room</mat-icon>
               <span class="detail-label">Habitaciones:</span>
-              <span class="detail-value">{{ home?.detail?.room }}</span>
+              <span class="detail-value">{{ home.detail.room }}</span>
             </div>
           </div>
           <div class="detail-row">
             <div class="detail-item">
               <mat-icon class="detail-icon">house</mat-icon>
               <span class="detail-label">Estrato:</span>
-              <span class="detail-value">{{ home?.detail?.stratum }}</span>
+              <span class="detail-value">{{ home.detail.stratum }}</span>
             </div>
             <div class="detail-item">
               <mat-icon class="detail-icon">garage_home</mat-icon>
               <span class="detail-label">Parqueadero:</span>
-              <span class="detail-value">{{ home?.detail?.parking }}</span>
+              <span class="detail-value">{{ home.detail.parking }}</span>
             </div>
             <div class="detail-item">
               <mat-icon class="detail-icon">pin_drop</mat-icon>
               <span class="detail-label">Zona:</span>
-              <span class="detail-value">{{home?.zone}}</span>
+              <span class="detail-value">{{home.zone}}</span>
             </div>
           </div>
           <div class="detail-row">
@@ -97,15 +97,15 @@
           <img [src]="'data:image/png;base64,'+adviser.base64Image" alt="">
         <div class="info-contacto">
           <mat-icon class="contacto-icon">pin_drop</mat-icon>
-          <span class="contacto-label">{{home?.zone}}</span>
+          <span class="contacto-label">{{home.zone}}</span>
         </div>
         <div class="info-contacto">
           <mat-icon class="contacto-icon">call</mat-icon>
-          <span class="contacto-label">(+57) {{adviser?.cellPhone}}</span>
+          <span class="contacto-label">(+57) {{adviser.cellPhone}}</span>
         </div>
         <div class="info-contacto">
           <mat-icon class="contacto-icon">mail</mat-icon>
-          <span class="contacto-label">{{adviser?.email}}</span>
+          <span class="contacto-label">{{adviser.email}}</span>
         </div>
         <div class="wsp">
           <a [href]="uriWSapp" target="_blank">
