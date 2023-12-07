@@ -10,7 +10,7 @@ import { PagerRequestFilter } from '../models/pager-basic.interface';
 })
 export class HomeService {
 
-  url:string = "http://bluesmartinmobiliaria.com:5000/api/"
+  url:string = "https://bluesmartapi.somee.com/api/"
 
   constructor(private http:HttpClient) {}
 
